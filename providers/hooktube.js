@@ -88,6 +88,13 @@ function quit() {
     });
 }
 
+const port = chrome.runtime.connect();
+port.onMessage.addListener(({ cmd, data }) => {
+    console.log("COMMAND", cmd);
+    if (videoElement)
+        COMMANDS[cmd](data);
+});
+
 function loopStatus() {
     if (videoElement.hasAttribute("loop"))
         return "Track";
