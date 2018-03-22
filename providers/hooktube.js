@@ -69,8 +69,15 @@ const COMMANDS = {
     },
 
     Volume(notMute) {
+        videoElement.muted = !notMute;
     },
-    Fullscreen() { },
+    Fullscreen() {
+        if(document.exitFullscreen) {
+            document.exitFullscreen(); 
+        } else {
+            videoElement.requestFullScreen();
+        }
+    },
 
     Shuffle(yes) {
     },
