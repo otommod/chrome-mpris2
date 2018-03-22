@@ -177,14 +177,16 @@ const injectedCode = () => {
         document.body.dispatchEvent(event);
     };
 };
-chrome.tabs.executeScript({ code: injectCode.toString() }, () => {
-    document.addEventListener("endHook", () => {
-        let interval = setInterval(function() {
-            if(document.getElementById("player-obj") != null) {
-                videoElement = document.getElementById("player-obj");
-                enterVideo();
-                clearInterval(interval);
-            }
-        }, 300);
+chrome.tabs.executeScript(
+    { code: `(${injectedCode.toString()})();` },
+    () => {
+        document.addEventListener("endHook", () => {
+            let interval = setInterval(function() {
+                if(document.getElementById("player-obj") != null) {
+                    videoElement = document.getElementById("player-obj");
+                    enterVideo();
+                    clearInterval(interval);
+                }
+            }, 300);
+        });
     });
-});
