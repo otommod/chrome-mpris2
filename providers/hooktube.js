@@ -175,25 +175,27 @@ window.addEventListener("beforeunload", e => {
     observers = [];
 });
 
-window.addEventListener("unload", function() {
+window.addEventListener("unload", () => {
     if (isVideo())
         quit();
 });
 
-const mutationObserver = new MutationObserver(mutations => {
-    for(let mutation of mutations) {
-        if(mutation.type === "childList") {
-            for(let node of mutation.addedNodes) {
-                if(node.id === "player-obj") {
-                    videoElement = node;
-                    enterVideo();
-                    break;
+window.addEventListener("load", () => {
+    const mutationObserver = new MutationObserver(muts => {
+        for(let mut of muts) {
+            if(mut.type === "childList") {
+                for(let node of mut.addedNodes) {
+                    if(node.id === "player-obj") {
+                        videoElement = node;
+                        enterVideo();
+                        break;
+                    }
                 }
             }
         }
-    }
-});
-mutationObserver.observe(document.body, {
-    childList: true,
-    subtree: true
+    });
+    mutationObserver.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
 });
