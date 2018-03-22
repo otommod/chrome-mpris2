@@ -23,7 +23,6 @@
   ],
 
   "permissions": [
-    "nativeMessaging",
-    "*://*.hooktube.com/*", "*://hooktube.com/*"
+    "nativeMessaging"
   ]
 }

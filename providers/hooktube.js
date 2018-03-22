@@ -183,7 +183,7 @@ window.addEventListener("unload", function() {
 const mutationObserver = new MutationObserver(mutations => {
     for(let mutation of mutations) {
         if(mutation.type === "childList") {
-            for(let node of mutations.addedNodes) {
+            for(let node of mutation.addedNodes) {
                 if(node.id === "player-obj") {
                     videoElement = node;
                     enterVideo();
