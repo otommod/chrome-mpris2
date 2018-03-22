@@ -169,14 +169,22 @@ window.addEventListener("unload", function() {
         quit();
 });
 
-const _endHook = window.endHook;
-window.endHook = function() {
-    _endHook();
-    let interval = setInterval(function() {
-        if(document.getElementById("player-obj") != null) {
-            videoElement = document.getElementById("player-obj");
-            enterVideo();
-            clearInterval(interval);
-        }
-    }, 300);
+const injectedCode = () => {
+    const _endHook = window.endHook;
+    const event = new CustomEvent("endHook");
+    window.endHook = () => {
+        _endHook();
+        document.body.dispatchEvent(event);
+    };
 };
+chrome.tabs.executeScript({ code: injectCode.toString() }, () => {
+    document.addEventListener("endHook", () => {
+        let interval = setInterval(function() {
+            if(document.getElementById("player-obj") != null) {
+                videoElement = document.getElementById("player-obj");
+                enterVideo();
+                clearInterval(interval);
+            }
+        }, 300);
+    });
+});
