@@ -17,6 +17,10 @@ class EventObserver {
     }
 }
 
+function isVideo(url=location) {
+    return url.pathname.startsWith("/watch");
+}
+
 const COMMANDS = {
     query(attr) {
         switch (attr) {
@@ -169,6 +173,7 @@ window.addEventListener("unload", function() {
         quit();
 });
 
+// Inject code to window.endHook
 const injectedCode = () => {
     const _endHook = window.endHook;
     const event = new CustomEvent("endHook");
@@ -177,16 +182,16 @@ const injectedCode = () => {
         document.body.dispatchEvent(event);
     };
 };
-chrome.tabs.executeScript(
-    { code: `(${injectedCode.toString()})();` },
-    () => {
-        document.addEventListener("endHook", () => {
-            let interval = setInterval(function() {
-                if(document.getElementById("player-obj") != null) {
-                    videoElement = document.getElementById("player-obj");
-                    enterVideo();
-                    clearInterval(interval);
-                }
-            }, 300);
-        });
-    });
+const script = document.createElement("script");
+script.textContent = `(${injectedCode.toString()})();`;
+document.body.appendChild(script);
+
+document.body.addEventListener("endHook", () => {
+    let interval = setInterval(function() {
+        if(document.getElementById("player-obj") != null) {
+            videoElement = document.getElementById("player-obj");
+            enterVideo();
+            clearInterval(interval);
+        }
+    }, 300);
+});
