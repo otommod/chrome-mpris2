@@ -72,7 +72,7 @@ const COMMANDS = {
         videoElement.muted = !notMute;
     },
     Fullscreen() {
-        if(document.exitFullscreen) {
+        if(document.fullscreenElement) {
             document.exitFullscreen(); 
         } else {
             videoElement.requestFullScreen();
