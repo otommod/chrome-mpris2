@@ -180,25 +180,20 @@ window.addEventListener("unload", function() {
         quit();
 });
 
-// Inject code to window.endHook
-const injectedCode = () => {
-    const _endHook = window.endHook;
-    const event = new CustomEvent("endHook");
-    window.endHook = () => {
-        _endHook();
-        document.body.dispatchEvent(event);
-    };
-};
-const script = document.createElement("script");
-script.textContent = `(${injectedCode.toString()})();`;
-document.body.appendChild(script);
-
-document.body.addEventListener("endHook", () => {
-    let interval = setInterval(function() {
-        if(document.getElementById("player-obj") != null) {
-            videoElement = document.getElementById("player-obj");
-            enterVideo();
-            clearInterval(interval);
+const mutationObserver = new MutationObserver(mutations => {
+    for(let mutation of mutations) {
+        if(mutation.type === "childList") {
+            for(let node of mutations.addedNodes) {
+                if(node.id === "player-obj") {
+                    videoElement = node;
+                    enterVideo();
+                    break;
+                }
+            }
         }
-    }, 300);
+    }
+});
+mutationObserver.observe(document.body, {
+    childList: true,
+    subtree: true
 });
