@@ -55,7 +55,8 @@ function enterVideo() {
             "mpris:trackid": id,
             "mpris:artUrl": `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
             "xesam:url": location.href,
-            "xesam:title": $("title").text().slice(0, -10),
+            "xesam:title": $(".title yt-formatted-string").text(),
+            "xesam:artist": [$("yt-formatted-string#owner-name").text()],
         },
         PlaybackStatus: "Playing",
     };
