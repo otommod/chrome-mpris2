@@ -25,7 +25,7 @@ function monkeypatchCreateElement() {
             // remaining in the song from the point where you seeked.  Not
             // cool.
         } else {
-            port.postMessage(msg.data);
+            page.port.postMessage(msg.data);
         }
     });
 
@@ -94,7 +94,9 @@ function setupEventListeners() {
     // We need to monitor the state of the queue.  To do that, We need to make
     // sure that the queue window if fully populated.  It takes some time to do
     // that from when you first click.
-    document.querySelector(".playbackSoundBadge__showQueue").click();
+    setTimeout(() => {
+        document.querySelector(".playbackSoundBadge__showQueue").click();
+    }, 1000);
     const queueItemsContainer = document.querySelector(".queue__itemsContainer");
     const queueCreationObserver = new MutationObserver(muts => {
         // const addedNodes = muts.flatMap(m => m.addedNodes);
@@ -143,30 +145,39 @@ function setupEventListeners() {
         subtree: true,
         childList: true,
     });
+    soundBadgeObserver.observe(document.querySelector('.playControl'), {
+        subtree: true,
+        childList: true,
+    });
 }
 
 function sendPlayerProps() {
+    const playPauseControl = document.querySelector('.playControl');
     const shuffleControl = document.querySelector(".shuffleControl");
     const volumeSliderWrapper = document.querySelector(".volume__sliderWrapper");
     const titleLink = document.querySelector(".playbackSoundBadge__titleLink");
     const lightLink = document.querySelector(".playbackSoundBadge__lightLink");
     const avatar = document.querySelector(".playbackSoundBadge__avatar span");
 
-    changed({
+    const values = {
+        PlaybackStatus: playPauseControl.classList.contains('playing') ? 'Playing' : 'Paused',
         LoopStatus: getLoopStatus(),
         Shuffle: shuffleControl.classList.contains("m-shuffling"),
+        Volume: volumeSliderWrapper.getAttribute("aria-valuenow") * 1,
+    };
 
-        Metadata: {
+    if (titleLink && lightLink && avatar) {
+        values.Metadata = {
             "mpris:trackid": titleLink.getAttribute("href"),
             "mpris:length": getDuration(),
             "mpris:artUrl": avatar.style.backgroundImage.slice(5, -2),
             // "xesam:url": titleLink.getAttribute("href"),
             "xesam:title": titleLink.getAttribute("title"),
             "xesam:artist": [lightLink.getAttribute("title")],
-        },
+        }
+    }
 
-        Volume: volumeSliderWrapper.getAttribute("aria-valuenow") * 1,
-    });
+    changed(values);
 }
 
 function sendCanChangeSongProps() {
@@ -276,31 +287,34 @@ const COMMANDS = {
 
     // we don't support seeking, I couldn't get it to work
     Seek(offset) { },
-    SetPosition(id, position) { },
+    SetPosition(id, position) {
+        console.log('set position', id, position);
+    },
 }
 
-const port = chrome.runtime.connect();
-port.onMessage.addListener(cmd => {
-    console.log("MethodCall", cmd);
-
+const page = {
+    controls: null,
+    port: chrome.runtime.connect()
+};
+page.port.onMessage.addListener(cmd => {
     const result = COMMANDS[cmd.method](...cmd.args);
     methodReturn(cmd.method, result);
 });
 
 function changed(newValues) {
-    port.postMessage({
+    page.port.postMessage({
         source: "soundcloud", type: "changed", args: [newValues],
     });
 }
 
 function seeked(position) {
-    port.postMessage({
+    page.port.postMessage({
         source: "soundcloud", type: "seeked", args: [position],
     });
 }
 
 function methodReturn(method, args) {
-    port.postMessage({
+    page.port.postMessage({
         source: "soundcloud", type: "return", method, args
     });
 }
@@ -308,11 +322,11 @@ function methodReturn(method, args) {
 
 // we don't wait for DOMContentLoaded; we need to make sure that we capture
 // any potential creation of elements
-monkeypatchCreateElement();
+// monkeypatchCreateElement();
 
 window.addEventListener("load", e => {
-    const playControls = document.querySelector(".playControls");
-    if (playControls.classList.contains("m-visible"))
+    page.controls = document.querySelector(".playControls");
+    if (page.controls.classList.contains("m-visible"))
         sendPlayerProps();
     setupEventListeners();
 });

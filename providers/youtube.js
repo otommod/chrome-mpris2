@@ -284,7 +284,6 @@ function setPlaybackRate(rate) {
 
 const port = chrome.runtime.connect();
 port.onMessage.addListener(cmd => {
-    console.log("MethodCall", cmd);
     if (videoElement) {
         const result = COMMANDS[cmd.method](...cmd.args);
         methodReturn(cmd.method, result);
