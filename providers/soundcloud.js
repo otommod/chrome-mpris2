@@ -152,7 +152,6 @@ function setupEventListeners() {
 }
 
 function sendPlayerProps() {
-    const playPauseControl = document.querySelector('.playControl');
     const shuffleControl = document.querySelector(".shuffleControl");
     const volumeSliderWrapper = document.querySelector(".volume__sliderWrapper");
     const titleLink = document.querySelector(".playbackSoundBadge__titleLink");
@@ -160,7 +159,7 @@ function sendPlayerProps() {
     const avatar = document.querySelector(".playbackSoundBadge__avatar span");
 
     const values = {
-        PlaybackStatus: playPauseControl.classList.contains('playing') ? 'Playing' : 'Paused',
+        PlaybackStatus: isPlaying() ? 'Playing' : 'Paused',
         LoopStatus: getLoopStatus(),
         Shuffle: shuffleControl.classList.contains("m-shuffling"),
         Volume: volumeSliderWrapper.getAttribute("aria-valuenow") * 1,
