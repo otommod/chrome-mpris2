@@ -382,8 +382,8 @@ class YouTube(MediaPlayer2):
     def __init__(self, conn, name, tabid):
         super().__init__(conn, name, tabid)
 
-        self.CanQuit = False
-        self.CanRaise = False
+        self.CanQuit = True
+        self.CanRaise = True
         self.CanSetFullscreen = False
         self.HasTrackList = False
         self.SupportedMimeTypes = []

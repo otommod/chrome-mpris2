@@ -12,7 +12,13 @@
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["media.js"],
+      "js": [
+        "src/player.js",
+        "src/playlist.js",
+        "src/host.js",
+        "src/page.js",
+        "media.js"
+      ],
       "run_at": "document_start"
     }
   ],

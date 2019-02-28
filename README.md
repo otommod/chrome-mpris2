@@ -22,6 +22,6 @@ If on GNOME or similar you should be able to take advantage of your new powers i
 
 ## TODO
  -  (read on this) Support the (supposedly experimental) [Media Session API](https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API) that sites can use to set metadata.  plasma-browser-integration uses where available.
- - Finish re-writing media.js (setters)
+ - Add support for playlist, loop, shuffle
  - Add support for provider per domain
  - Tests? (yes, but how)
