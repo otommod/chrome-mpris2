@@ -1,0 +1,109 @@
+<meta charset="utf-8"/>
+<title>Testsing in the browser?</title>
+<style>
+    body {
+        --background: white;
+        --textColor: black;
+        --keywordHighlight: #ffff0021;
+        --success: green;
+        --error: red;
+        --typeBackground: lightgrey;
+        --valueBackground: lightblue;
+
+        font-family: sans-serif;
+        background-color: var(--background);
+        color: var(--textColor);
+    }
+
+    .result {
+        font-family: monospace;
+        line-height: 20px;
+    }
+
+    span.keyword {
+        background-color: var(--keywordHighlight);
+        padding: 4px;
+        border-radius: 2px;
+    }
+
+    span.type, span.value {
+        border-radius: 2px;
+        padding: 0 2px;
+        border-radius: 2px;
+    }
+
+    span.value {
+        background-color: var(--valueBackground);
+    }
+
+    span.type {
+        background-color: var(--typeBackground);
+    }
+
+    ol li.success {
+        border-left: 10px solid var(--success);
+        padding-left: 8px;
+    }
+
+    ol li.error {
+        border-left: 10px solid var(--error);
+        padding-left: 8px;
+    }
+</style>
+<body>
+<div>
+    Themes:
+    <button onclick="setTheme('white')">White</button>
+    <button onclick="setTheme('black')">Black</button>
+</div>
+<h1>browser-mpris2</h1>
+<div class="content">
+    <ul id="list">
+
+    </ul>
+</div>
+
+<!-- test files -->
+<script src="titb-errors.js"></script>
+<script src="titb-assertables.js"></script>
+<script src="titb.js"></script>
+
+<!-- source files -->
+<script src="../../src/player.js"></script>
+<script src="../../src/host.js"></script>
+<script src="../../src/playback.js"></script>
+<script src="../../src/page.js"></script>
+
+<!-- suites -->
+<script src="../player.spec.js"></script>
+
+<script>
+    titb.testSuite();
+
+    setTheme(localStorage.getItem('theme') || 'white');
+
+    function setTheme (theme) {
+        switch (theme) {
+            case 'white':
+                document.body.style.setProperty('--background', 'white');
+                document.body.style.setProperty('--textColor', 'black');
+                document.body.style.setProperty('--keywordHighlight', '#ffff0021');
+                document.body.style.setProperty('--success', 'green');
+                document.body.style.setProperty('--error', 'red');
+                document.body.style.setProperty('--typeBackground', 'lightgrey');
+                document.body.style.setProperty('--valueBackground', 'lightblue');
+                break;
+            case 'black':
+                document.body.style.setProperty('--background', 'black');
+                document.body.style.setProperty('--textColor', 'white');
+                document.body.style.setProperty('--keywordHighlight', '#ff870033');
+                document.body.style.setProperty('--success', 'green');
+                document.body.style.setProperty('--error', 'red');
+                document.body.style.setProperty('--typeBackground', '#464646');
+                document.body.style.setProperty('--valueBackground', 'darkgoldenrod');
+                break;
+        }
+        localStorage.setItem('theme', theme);
+    }
+</script>
+</body>
