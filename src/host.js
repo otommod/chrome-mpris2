@@ -1,57 +1,89 @@
+/**
+ * @typedef {string} HostType
+ */
+const HostType = {
+    CHANGE: 'changed',
+    RETURN: 'return',
+    SEEK: 'seeked',
+    QUIT: 'quit'
+};
+
+/**
+ * @typedef {string} HostMethod
+ */
+const HostMethod = {
+    GET: 'Get',
+    SET: 'Set',
+    PLAY: 'Play',
+    PAUSE: 'Pause',
+    TOGGLE: 'PlayPause',
+    STOP: 'Stop',
+    NEXT: 'Next',
+    PREVIOUS: 'Previous',
+    SEEK: 'Seek',
+    SET_POSITION: 'SetPosition'
+};
+
+/**
+ * @typedef {string} HostProperty
+ */
+const HostProperty = {
+    POSITION: 'Position',
+    RATE: 'Rate',
+    VOLUME: 'Volume',
+    SHUFFLE: 'Shuffle',
+    LOOP_STATUS: 'LoopStatus',
+    FULL_SCREEN: 'Fullscreen'
+};
+
 class Host {
     /**
      *
-     * @param {Page} page
+     * @param {Playback} playback - the page playing the media
+     * @param {Object} port - see {@link https://developer.chrome.com/apps/runtime#type-Port}
      */
-    constructor (page) {
-        this.page = page;
-        this.port = chrome.runtime.connect();
+    constructor (playback, port) {
+        this.playback = playback;
+        this.port = port;
 
-        /**
-         * @typedef MessageTypes
-         * @enum {string}
-         */
-        this.types = {
-            CHANGE: 'changed',
-            RETURN: 'return',
-            SEEK: 'seeked',
-            QUIT: 'quit'
-        };
-
+        this.source = 'browser';
         this.port.onMessage.addListener((r, s, sr) => this.messageListener(r, s, sr));
     }
 
     /**
      * Send a message to host app
      *
-     * @param {MessageTypes} type
-     * @param {Object} payload
+     * @param {HostType} type
+     * @param {Object} [payload]
      */
     sendMessage (type, payload) {
+        console.log(type, payload);
         this.port.postMessage({
-            source: this.page.source,
+            source: this.source,
             type: type,
             args: [payload]
         });
     }
 
+    buildPayload () {
+        return {
+            PlaybackStatus: this.playback.getStatus(),
+            LoopStatus: this.playback.getLoopStatus(),
+            Shuffle: this.playback.isShuffle(),
+            Volume: this.playback.getVolume(),
+            CanGoNext: this.playback.canGoNext(),
+            CanGoPrevious: this.playback.canGoPrevious(),
+            Rate: this.playback.getRate()
+        };
+    }
+
     /**
      * Send a change message to host app
-     *
-     * @param {Player} player
      */
-    change (player) {
+    change () {
         this.sendMessage(
-          this.types.CHANGE,
-          {
-              PlaybackStatus: player.isPlaying() ? 'Playing' : 'Paused',
-              LoopStatus: player.playlist.getLoopStatus(),
-              Shuffle: player.playlist.isShuffle(),
-              Volume: player.getVolume(),
-              CanGoNext: player.playlist.canGoNext(),
-              CanGoPrevious: player.playlist.canGoPrevious(),
-              Rate: player.getRate()
-          }
+          HostType.CHANGE,
+          this.buildPayload()
         );
     }
 
@@ -60,20 +92,16 @@ class Host {
      * @param {Player} player
      */
     start (player) {
+        let payload = this.buildPayload();
         this.sendMessage(
-          this.types.CHANGE,
+          HostType.CHANGE,
           {
-              PlaybackStatus: player.isPlaying() ? 'Playing' : 'Paused',
-              LoopStatus: player.playlist.getLoopStatus(),
-              Shuffle: player.playlist.isShuffle(),
-              Volume: player.getVolume(),
-              CanGoNext: player.playlist.canGoNext(),
-              CanGoPrevious: player.playlist.canGoPrevious(),
-              Rate: player.getRate(),
+              ...payload,
               Metadata: {
                   'mpris:trackid': player.getId(),
                   'mpris:length': player.getLength(),
                   'mpris:artUrl': player.getCover(),
+                  'xesam:url': player.getUrl(),
                   'xesam:title': player.getTitle(),
                   'xesam:artist': player.getArtists(),
               }
@@ -88,8 +116,8 @@ class Host {
      */
     return (method, args) {
         this.port.postMessage({
-            source: this.page.source,
-            type: this.types.RETURN,
+            source: this.source,
+            type: HostType.RETURN,
             method, args
         });
     }
@@ -101,71 +129,119 @@ class Host {
      */
     seeked (player) {
         this.sendMessage(
-          this.types.SEEK,
+          HostType.SEEK,
           player.getPosition()
         );
     }
 
     /**
      * Send a quit message to host
-     *
-     * @param {Player} player
      */
-    quit (player) {
+    quit () {
         this.sendMessage(
-          this.types.QUIT,
-          player
+          HostType.QUIT
         );
     }
 
     /**
+     * Listener for messages from native application (aka: mpris interface)
      *
      * @param {Object} request
-     * @param {string} request.method
+     * @param {HostMethod} request.method
      * @param {Array}  request.args
      */
     messageListener (request) {
         let result;
-        if (request.method === 'Get') {
+        if (request.method === HostMethod.GET) {
             result = this.get(...request.args);
-        } else if (request.method === 'Set') {
+        } else if (request.method === HostMethod.SET) {
             result = this.set(...request.args);
         } else {
-            //FIXME: i really like the simplicity but it's not really understandable
-            result = this.page.playlist[request.method.toLowerCase()](...request.args);
+            result = this.command(request.method, ...request.args);
         }
         if (result) {
             this.return(request.method, result);
         }
     }
 
+    /**
+     * Native application wants to Get a property from client
+     *
+     * @param {string} _ - org.mpris.MediaPlayer2.Player
+     * @param {HostProperty} propName - property that should be returned
+     * @returns {number}
+     */
     get (_, propName) {
         switch (propName) {
-            case 'Position':
-                return this.page.playlist.getPosition();
+            case HostProperty.POSITION:
+                return this.playback.getPosition();
         }
     }
 
+    /**
+     * Native application wants to Set a property
+     * in the client.
+     *
+     * @param {string} _ - org.mpris.MediaPlayer2.Player
+     * @param {HostProperty} propName - property to set
+     * @param {*} newValue - depends on the property to set
+     */
     set (_, propName, newValue) {
         switch (propName) {
-            case "Rate":
-                this.page.playlist.setRate(newValue);
+            case HostProperty.RATE:
+                this.playback.setRate(newValue);
                 break;
 
-            case "Volume":
-                this.page.playlist.setVolume(newValue);
+            case HostProperty.VOLUME:
+                this.playback.setVolume(newValue);
                 break;
 
-            case "Shuffle":
-                this.page.playlist.setShuffle(newValue);
+            case HostProperty.SHUFFLE:
+                this.playback.setShuffle(newValue);
                 break;
 
-            case "LoopStatus":
-                this.page.playlist.setLoopStatus(newValue);
+            case HostProperty.LOOP_STATUS:
+                this.playback.setLoopStatus(newValue);
                 break;
 
-            case "Fullscreen":
-                this.page.playlist.toggleFullScreen();
+            case HostProperty.FULL_SCREEN:
+                this.playback.toggleFullScreen();
+                break;
+        }
+    }
+
+    /**
+     * Native application wants to run a command on playback
+     *
+     * @param {HostMethod} name
+     * @param {string} id
+     * @param {number} value
+     */
+    command (name, id, value) {
+        switch (name) {
+            case HostMethod.PLAY:
+                this.playback.play();
+                break;
+            case HostMethod.PAUSE:
+                this.playback.pause();
+                break;
+            case HostMethod.TOGGLE:
+                this.playback.togglePlayback();
+                break;
+            case HostMethod.STOP:
+                this.playback.stop();
+                break;
+            case HostMethod.NEXT:
+                this.playback.next();
+                break;
+            case HostMethod.PREVIOUS:
+                this.playback.previous();
+                break;
+            case HostMethod.SEEK:
+                this.playback.seek(value);
+                break;
+            case HostMethod.SET_POSITION: //why is this not in set?
+                this.playback.setPosition(id, value);
                 break;
         }
     }

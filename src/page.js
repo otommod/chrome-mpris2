@@ -4,10 +4,9 @@
  * @class
  */
 class Page {
-    constructor (source) {
-        this.source = source;
-        this.host = new Host(this);
-        this.playlist = new PlayList(this);
+    constructor (port) {
+        this.playback = new Playback(this);
+        this.host = new Host(this.playback, port);
         /**
          * An array holding all {@link Player}s present in the page
          *
@@ -29,7 +28,7 @@ class Page {
             return;
         }
 
-        let player = new Player(this.playlist, this.host, element);
+        let player = new Player(this.playback, this.host, element);
 
         this.players.push(player);
 
@@ -70,7 +69,15 @@ class Page {
      * @param {Player} player
      */
     setActivePlayer (player) {
-        this.playlist.setActivePlayer(player);
+        this.playback.setActivePlayer(player);
+    }
+
+    /**
+     *
+     * @returns {Player}
+     */
+    getActivePlayer () {
+        return this.playback.activePlayer;
     }
 
 }

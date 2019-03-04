@@ -378,7 +378,7 @@ class MediaPlayer2(DBusService):
 
 
 @inheritdocstring
-class YouTube(MediaPlayer2):
+class Browser(MediaPlayer2):
     def __init__(self, conn, name, tabid):
         super().__init__(conn, name, tabid)
 
@@ -398,7 +398,7 @@ class YouTube(MediaPlayer2):
         self.Shuffle = False
         self.Volume = 1
 
-        self.Identity = "youtube"
+        self.Identity = "browser"
         self.CanControl = True
         self.CanPlay = True
         self.CanPause = True
@@ -417,8 +417,8 @@ class SoundCloud(MediaPlayer2):
     def __init__(self, conn, name, tabid):
         super().__init__(conn, name, tabid)
 
-        self.CanQuit = False
-        self.CanRaise = False
+        self.CanQuit = True
+        self.CanRaise = True
         self.CanSetFullscreen = False
         self.HasTrackList = False
         self.SupportedMimeTypes = []
@@ -448,8 +448,7 @@ class SoundCloud(MediaPlayer2):
 
 
 players = {
-    "youtube": YouTube,
-    "soundcloud": SoundCloud,
+    "browser": Browser
 }
 
 

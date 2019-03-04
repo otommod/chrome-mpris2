@@ -1,12 +1,13 @@
 let connections = 0;
 let host = null;
+let pages = [];
 
 chrome.runtime.onConnect.addListener(function (page) {
     if (!connections++)
         host = chrome.runtime.connectNative('org.mpris.browser_host');
 
+    pages.push(page);
     function passMessage (msg) {
-        console.log('host.onMessage', msg.method);
         if (msg.tabId === page.sender.tab.id || msg.tabId < 0) {
             switch (msg.method) {
                 case 'Raise':

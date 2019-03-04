@@ -3,7 +3,7 @@
 
   "name": "browser-mpris2",
   "description": "Implements the MPRIS2 interface for Chrome and Firefox",
-  "version": "0.1",
+  "version": "0.2",
 
   "background": {
     "scripts": ["background.js"],
@@ -14,12 +14,25 @@
       "matches": ["*://*/*"],
       "js": [
         "src/player.js",
-        "src/playlist.js",
+        "src/playback.js",
         "src/host.js",
-        "src/page.js",
-        "media.js"
+        "src/page.js"
       ],
       "run_at": "document_start"
+    },
+    {
+      "matches": ["*://*.youtube.com/*", "*://youtube.com/*"],
+      "js": [
+        "src/providers/youtube.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["*://*/*"],
+      "js": [
+        "media-listener.js"
+      ],
+      "run_at": "document_idle"
     }
   ],
 

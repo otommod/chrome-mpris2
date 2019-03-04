@@ -107,7 +107,7 @@ function enterVideo() {
     playlist = new Playlist(playlist);
 
     let pl = $("#playlist"),
-        plHeader = pl.find(".header");
+      plHeader = pl.find(".header");
     if (plHeader.length) {
         playlist.id = (new URL(location)).searchParams.get("list")
         playlist.title = plHeader.find(".title").text();
@@ -126,7 +126,7 @@ function enterVideo() {
 
         const shuffleButton = $("#playlist-actions a").get(1);
         observers.push(new EventObserver(shuffleButton, "click", () => {
-            playlist.shuffle = !playlist.shuffle
+            playlist.shuffleElm = !playlist.shuffle
             changed({ Shuffle: playlist.shuffle });
         }));
     }
@@ -151,47 +151,47 @@ function enterVideo() {
 const COMMANDS = {
     Get(_, propName) {
         switch (propName) {
-        case "Position":
-            return Math.trunc(videoElement.currentTime * 1e6);
+            case "Position":
+                return Math.trunc(videoElement.currentTime * 1e6);
         }
     },
 
     Set(_, propName, newValue) {
         switch (propName) {
-        case "Rate":
-            setPlaybackRate(newValue);
-            break;
-
-        case "Volume":
-            // we only mute (if needed); see the other comment on volume
-            if ((!newValue && !videoElement.muted) || (newValue && videoElement.muted))
-                $(".ytp-mute-button").get(0).click();
-            break;
-
-        case "Shuffle":
-            if ((newValue && !playlist.shuffle) || (!newValue && playlist.shuffle))
-                $("#playlist-actions a").get(1).click();
-            break;
-
-        case "LoopStatus":
-            switch (newValue) {
-            case "None":
-                setLoop(false);
-                setPlaylistLoop(false);
+            case "Rate":
+                setPlaybackRate(newValue);
                 break;
-            case "Track":
-                setLoop(true);
-                break;
-            case "Playlist":
-                if (!playlist.length)
-                    return;
-                setLoop(false);
-                setPlaylistLoop(true);
-                break;
-            }
 
-        default:
-        case "Fullscreen":
+            case "Volume":
+                // we only mute (if needed); see the other comment on volume
+                if ((!newValue && !videoElement.muted) || (newValue && videoElement.muted))
+                    $(".ytp-mute-button").get(0).click();
+                break;
+
+            case "Shuffle":
+                if ((newValue && !playlist.shuffle) || (!newValue && playlist.shuffle))
+                    $("#playlist-actions a").get(1).click();
+                break;
+
+            case "LoopStatus":
+                switch (newValue) {
+                    case "None":
+                        setLoop(false);
+                        setPlaylistLoop(false);
+                        break;
+                    case "Track":
+                        setLoop(true);
+                        break;
+                    case "Playlist":
+                        if (!playlist.length)
+                            return;
+                        setLoop(false);
+                        setPlaylistLoop(true);
+                        break;
+                }
+
+            default:
+            case "Fullscreen":
         }
     },
 
@@ -221,9 +221,9 @@ const COMMANDS = {
         let prevBtn = $(".ytp-prev-button");
         if (prevBtn.attr("aria-disabled") === "false") {
             if (videoElement.currentTime > 2)
-                // if the video is past its 2nd second pressing prev will start
-                // it from the beginning again, so we need to press twice with
-                // a bit of a delay between
+            // if the video is past its 2nd second pressing prev will start
+            // it from the beginning again, so we need to press twice with
+            // a bit of a delay between
                 setTimeout(() => prevBtn.get(0).click(), 100);
             prevBtn.get(0).click();
         }
@@ -284,6 +284,7 @@ function setPlaybackRate(rate) {
 
 const port = chrome.runtime.connect();
 port.onMessage.addListener(cmd => {
+    console.log("MethodCall", cmd);
     if (videoElement) {
         const result = COMMANDS[cmd.method](...cmd.args);
         methodReturn(cmd.method, result);
