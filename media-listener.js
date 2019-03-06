@@ -1,8 +1,22 @@
 const page = new Page(chrome.runtime.connect());
 
-document.querySelectorAll('video,audio')
-  .forEach(player => page.registerPlayer(player));
+const checkForMedia = () => {
+    console.log('checking for media', document.querySelectorAll('video,audio'));
+    document.querySelectorAll('video,audio')
+      .forEach(player => page.registerPlayer(player));
+};
 
-page.observeForMedia(document.documentElement);
+window.addEventListener('load', () => {
 
-window.dispatchEvent(new Event('mpris2-setup'));
+    checkForMedia();
+
+    setTimeout(() => {
+        checkForMedia();
+    }, 1000);
+
+    page.observeForMedia(document.documentElement);
+
+    window.dispatchEvent(new Event('mpris2-setup'));
+});
+
+window.addEventListener('DOMContentLoaded', checkForMedia);

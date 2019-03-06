@@ -84,10 +84,12 @@ class Host {
      * Send a change message to host app
      */
     change () {
-        this.sendMessage(
-          HostType.CHANGE,
-          this.buildPayload()
-        );
+        if (this.playback.activePlayer) {
+            this.sendMessage(
+              HostType.CHANGE,
+              this.buildPayload()
+            );
+        }
     }
 
     /**

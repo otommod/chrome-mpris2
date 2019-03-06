@@ -1,7 +1,19 @@
-/*
-    METADATA
+/**
+ * This file add support for youtube playback
+ *
+ * by extending and overriding the classes used by {@link Page}
+ * we can define how we'll interact with youtube's site
  */
 
+/**
+ * The metadata sent to the mpris host is defined
+ * by the {@link Player} implementation
+ *
+ * For youtube we get:
+ *  - the song title from the html
+ *  - the artist from the uploader
+ *  - the cover image from the static resource of the thumbnail
+ */
 class YouTubePlayer extends Player {
 
     getId () {
@@ -156,7 +168,7 @@ Playback = YouTubePlayback;
  */
 window.addEventListener('mpris2-setup', () => {
     window.addEventListener('yt-page-data-updated', function () {
-
+        console.log('yt-page-data-updated', page);
         let playlistActionsButtons = document.querySelectorAll('#playlist-actions a');
 
         playlistActionsButtons.forEach(each => {
@@ -179,14 +191,7 @@ window.addEventListener('mpris2-setup', () => {
 
         if (page.getActivePlayer()) {
             if (page.getActivePlayer().isHidden() && !page.getActivePlayer().isPlaying())
-
-            // Sometimes (like when toggling miniplayer)
-            // youtube will hide the video for a small amount of time
-            // this double check is to bypass that
-            // setTimeout(() => {
-            //     if (page.getActivePlayer().isHidden())
                 page.host.quit(page.getActivePlayer());
-            // }, 500);
             else
                 page.host.start(page.getActivePlayer());
         }

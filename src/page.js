@@ -19,12 +19,6 @@ class Page {
     }
 
     registerPlayer (element) {
-        // Ignore short sounds, they are most likely a chat notification sound
-        // but still allow when undetermined (e.g. video stream)
-        if (isNaN(element.duration) || (element.duration > 0 && element.duration < 5)) {
-            return;
-        }
-
         if (this.players.find(player => player.element === element)) {
             return;
         }
@@ -33,7 +27,9 @@ class Page {
 
         this.players.push(player);
 
-        if (!player.paused) {
+        // Ignore short sounds, they are most likely a chat notification sound
+        // but still allow when undetermined (e.g. video stream)
+        if (player.isPlaying() && !(isNaN(element.duration) || (element.duration > 0 && element.duration < 5))) {
             this.setActivePlayer(player);
         }
     }

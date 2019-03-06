@@ -35,23 +35,23 @@ class Playback {
     }
 
     getStatus () {
-        return this.activePlayer.isPlaying() ? 'Playing' : 'Paused';
+        return this.activePlayer && this.activePlayer.isPlaying() ? 'Playing' : 'Paused';
     }
 
     setVolume (volume) {
-        this.activePlayer.setVolume(volume);
+        this.activePlayer && this.activePlayer.setVolume(volume);
     }
 
     getVolume () {
-        return this.activePlayer.getVolume();
+        return this.activePlayer && this.activePlayer.getVolume();
     }
 
     setRate (rate) {
-        this.activePlayer.setRate(rate);
+        this.activePlayer && this.activePlayer.setRate(rate);
     }
 
     getRate () {
-        this.activePlayer.getRate();
+        return this.activePlayer && this.activePlayer.getRate();
     }
 
     setShuffle (isShuffle) {}
@@ -68,7 +68,7 @@ class Playback {
      */
     setLoopStatus (status) {
         this.loopStatus = status === LoopStatus.PLAYLIST ? LoopStatus.TRACK : status;
-        this.activePlayer.setLoop(this.loopStatus === LoopStatus.TRACK);
+        this.activePlayer && this.activePlayer.setLoop(this.loopStatus === LoopStatus.TRACK);
     }
 
     getLoopStatus () {
@@ -107,28 +107,28 @@ class Playback {
      * Start play active player
      */
     play () {
-        this.activePlayer.play();
+        this.activePlayer && this.activePlayer.play();
     }
 
     /**
      * Pauses active player
      */
     pause () {
-        this.activePlayer.pause();
+        this.activePlayer && this.activePlayer.pause();
     }
 
     /**
      * Toggle betwen play and pause
      */
     togglePlayback () {
-        this.activePlayer.playpause();
+        this.activePlayer && this.activePlayer.playpause();
     }
 
     /**
      * Stop active player
      */
     stop () {
-        this.activePlayer.stop();
+        this.activePlayer && this.activePlayer.stop();
     }
 
     /**
@@ -137,7 +137,7 @@ class Playback {
      * @param {number} offset
      */
     seek (offset) {
-        this.activePlayer.seek(offset);
+        this.activePlayer && this.activePlayer.seek(offset);
     }
 
     /**
@@ -147,7 +147,7 @@ class Playback {
      * @param {number} position
      */
     setPosition (id, position) {
-        this.activePlayer.setPosition(position);
+        this.activePlayer && this.activePlayer.setPosition(position);
     }
 
     /**
@@ -172,7 +172,7 @@ class Playback {
      *
      */
     toggleFullScreen () {
-        this.activePlayer.toggleFullScreen();
+        this.activePlayer && this.activePlayer.toggleFullScreen();
     }
 
     /**
@@ -180,7 +180,7 @@ class Playback {
      * @returns {string}
      */
     getIdentity () {
-        return this.activePlayer.getSiteDomain();
+        return this.activePlayer && this.activePlayer.getSiteDomain();
     }
 
 }

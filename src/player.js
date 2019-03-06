@@ -46,8 +46,6 @@ class Player {
         this.element.addEventListener('pause', () => this.host.change(this.playback));
         this.element.addEventListener('playing', () => this.host.change(this.playback));
         this.element.addEventListener('ratechange', () => this.host.change(this.playback));
-        this.element.addEventListener('ended', () => this.host.change(this.playback));
-        this.element.addEventListener('suspend', () => this.host.change(this.playback));
         this.element.addEventListener('seeked', () => this.host.seeked(this));
         this.element.addEventListener('volumechange', () => this.host.change(this.playback));
         this.element.addEventListener('loadedmetadata', e => this.refresh(e));
