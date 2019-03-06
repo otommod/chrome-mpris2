@@ -14,17 +14,12 @@ def die(msg):
 
 def main(args):
     if len(args) < 1:
-        die("You must provide at least the extension ID")
+        args.append("browser-mpris2@example.com")
     elif len(args) < 2:
         args.append(os.path.expanduser("~/bin/chrome-mpris2"))
 
     ext_id = args[0]
     prog_path = args[1]
-
-    # Chrome's extension IDs are in hexadecimal but using a-p, referred
-    # internally as "mpdecimal".            https://stackoverflow.com/a/2050916
-    # if not all(97 <= ord(c) <= 112 for c in ext_id):
-    #     die("Not valid extension ID")
 
     # Check that python-gobject is available.  This is done because it's hard
     # to see if chrome-mpris2 fails with an import error; you'd need to check
