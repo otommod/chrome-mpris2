@@ -5,6 +5,14 @@
   "description": "Implements the MPRIS2 interface for Chrome and Firefox",
   "version": "0.1",
 
+  "browser_specific_settings":
+    {
+      "gecko":
+        {
+          "id": "browser-mpris2@example.com",
+          "strict_min_version": "42.0"
+        }
+    },
   "background": {
     "scripts": ["background.js"],
     "persistent": false
