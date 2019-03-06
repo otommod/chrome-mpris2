@@ -2,8 +2,10 @@
 
 import json
 import struct
+import os
 import sys
 from functools import partial
+from argparse import ArgumentParser
 
 from gi.repository import Gio, GLib
 
@@ -453,7 +455,39 @@ players = {
 }
 
 
+manifest_common = {
+    "name": "org.mpris.browser_host",
+    "description": "A DBus service",
+    "path": __file__,
+    "type": "stdio"
+}
+
+
+def install_firefox(ext_id):
+    firefox_manifest_dir = os.path.expanduser("~/.mozilla/native-messaging-hosts/")
+    firefox_manifest_path = os.path.join(firefox_manifest_dir, "org.mpris.browser_host.json")
+    manifest = manifest_common.copy()
+    manifest["allowed_extensions"] = [ext_id]
+    os.makedirs(firefox_manifest_dir, exist_ok=True)
+    with open(firefox_manifest_path, "w") as f:
+        json.dump(manifest, f)
+
+
 def main():
+    # Before that, Gio couldn't publish DBus objects (introspection bug)
+    if (GLib.MAJOR_VERSION, GLib.MINOR_VERSION) < (2, 46):
+        sys.exit("Your GLib version is too old")
+    parser = ArgumentParser("Implements the MPRIS2 interface for Chrome and Firefox.")
+    parser.add_argument("unused", nargs="*", help="Unused.")
+    parser.add_argument("--init-firefox", action="store_true",
+                        help="Install metadata required for Firefox.")
+    parser.add_argument("--ext-id", default="browser-mpris2@example.com",
+                        help="The extension id to use for installation.")
+    args = parser.parse_args()
+    if args.init_firefox:
+        install_firefox(args.ext_id)
+        sys.exit()
+
     mainloop = GLib.MainLoop()
 
     make_streams_binary()
