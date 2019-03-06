@@ -1,5 +1,6 @@
 /**
- * @typedef {string} HostType
+ *
+ * @type {{RETURN: string, QUIT: string, CHANGE: string, SEEK: string}}
  */
 const HostType = {
     CHANGE: 'changed',
@@ -9,7 +10,8 @@ const HostType = {
 };
 
 /**
- * @typedef {string} HostMethod
+ *
+ * @type {{PAUSE: string, PLAY: string, SET: string, TOGGLE: string, STOP: string, SET_POSITION: string, GET: string, NEXT: string, PREVIOUS: string, SEEK: string}}
  */
 const HostMethod = {
     GET: 'Get',
@@ -25,7 +27,8 @@ const HostMethod = {
 };
 
 /**
- * @typedef {string} HostProperty
+ *
+ * @type {{POSITION: string, LOOP_STATUS: string, FULL_SCREEN: string, RATE: string, VOLUME: string, SHUFFLE: string}}
  */
 const HostProperty = {
     POSITION: 'Position',
@@ -57,7 +60,6 @@ class Host {
      * @param {Object} [payload]
      */
     sendMessage (type, payload) {
-        console.log(type, payload);
         this.port.postMessage({
             source: this.source,
             type: type,
@@ -73,6 +75,7 @@ class Host {
             Volume: this.playback.getVolume(),
             CanGoNext: this.playback.canGoNext(),
             CanGoPrevious: this.playback.canGoPrevious(),
+            Identity: this.playback.getIdentity(),
             Rate: this.playback.getRate()
         };
     }
@@ -111,7 +114,7 @@ class Host {
 
     /**
      *
-     * @param {string} method
+     * @param {HostMethod} method
      * @param {Object} args
      */
     return (method, args) {
@@ -161,6 +164,8 @@ class Host {
         }
         if (result) {
             this.return(request.method, result);
+        } else {
+            this.change();
         }
     }
 

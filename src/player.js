@@ -149,15 +149,32 @@ class Player {
     }
 
     /**
+     *
+     * @returns {boolean}
+     */
+    isLooping () {
+        return this.element.loop;
+    }
+
+    /**
+     * Should media loop when it reaches the end.
+     *
+     * @param {boolean} loop
+     */
+    setLoop (loop) {
+        this.element.loop = loop;
+    }
+
+    /**
      * Play media element
      */
     play () {
         this.element.play()
           .then(() => {
-              console.log('playing');
+              console.debug('playing');
           })
           .catch((e) => {
-              console.error(e);
+              console.debug(e);
           });
     }
 

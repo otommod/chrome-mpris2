@@ -18,24 +18,26 @@
         "src/host.js",
         "src/page.js"
       ],
-      "run_at": "document_start"
+      "run_at": "document_start",
+      "all_frames": true
     },
     {
       "matches": ["*://*.youtube.com/*", "*://youtube.com/*"],
       "js": [
         "src/providers/youtube.js"
       ],
-      "run_at": "document_start"
+      "run_at": "document_start",
+      "all_frames": true
     },
     {
       "matches": ["*://*/*"],
       "js": [
         "media-listener.js"
       ],
-      "run_at": "document_idle"
+      "run_at": "document_idle",
+      "all_frames": true
     }
   ],
-
   "permissions": [
     "nativeMessaging"
   ]

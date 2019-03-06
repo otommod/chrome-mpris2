@@ -1,3 +1,7 @@
+/**
+ *
+ * @type {{NONE: string, TRACK: string, PLAYLIST: string}}
+ */
 const LoopStatus = {
     NONE: 'None',
     TRACK: 'Track',
@@ -11,6 +15,12 @@ class Playback {
      */
     constructor (page) {
         this.page = page;
+
+        /**
+         *
+         * @type {Object.<string, HTMLElement>}
+         */
+        this.controls = {};
         /**
          *
          * @type {LoopStatus}
@@ -50,7 +60,16 @@ class Playback {
         return false;
     }
 
-    setLoopStatus (status) {}
+    /**
+     * By default we don't support playlist looping
+     * so we force track loop if any loop is specified
+     *
+     * @param {LoopStatus} status
+     */
+    setLoopStatus (status) {
+        this.loopStatus = status === LoopStatus.PLAYLIST ? LoopStatus.TRACK : status;
+        this.activePlayer.setLoop(this.loopStatus === LoopStatus.TRACK);
+    }
 
     getLoopStatus () {
         return this.loopStatus;
@@ -75,13 +94,12 @@ class Playback {
     }
 
     /**
-     * TODO: play next media
-     *
+     * This should be implemented per provider
      */
     next () {}
 
     /**
-     * TODO: play previous media
+     * This should be implemented per provider
      */
     previous () {}
 
@@ -150,8 +168,19 @@ class Playback {
         this.page.host.start(this.activePlayer);
     }
 
+    /**
+     *
+     */
     toggleFullScreen () {
         this.activePlayer.toggleFullScreen();
+    }
+
+    /**
+     *
+     * @returns {string}
+     */
+    getIdentity () {
+        return this.activePlayer.getSiteDomain();
     }
 
 }

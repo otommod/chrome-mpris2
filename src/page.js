@@ -14,7 +14,8 @@ class Page {
          */
         this.players = [];
 
-        this._observer = new MutationObserver(m => this.onMutate(m));
+        this._mediaObserver = new MutationObserver(m => this.onMutate(m));
+        this._changesObserver = new MutationObserver(() => this.host.change());
     }
 
     registerPlayer (element) {
@@ -37,11 +38,24 @@ class Page {
         }
     }
 
-    observeForMedia (document) {
-        this._observer.observe(document, {
+    /**
+     *
+     * @param {Element} element
+     */
+    observeForMedia (element) {
+        this._mediaObserver.observe(element, {
             childList: true,
             subtree: true
         });
+    }
+
+    /**
+     *
+     * @param {Element} element
+     * @param {MutationObserverInit} options
+     */
+    observeForChanges (element, options = { childList: true, subtree: true }) {
+        this._changesObserver.observe(element, options);
     }
 
     onMutate (mutations) {
