@@ -23,7 +23,6 @@
     },
     {
       "matches": ["*://*.youtube.com/*", "*://youtube.com/*"],
-      "exclude_matches": ["*://*.youtube.com/user/*", "*://youtube.com/user/*","*://*.youtube.com/channel/*", "*://youtube.com/channel/*"],
       "js": [
         "src/providers/youtube.js"
       ],

@@ -43,6 +43,8 @@ class Player {
      */
     initMediaListeners () {
         this.element.addEventListener('play', () => this.playback.setActivePlayer(this));
+        this.element.addEventListener('waiting', () => this.host.start(this));
+        this.element.addEventListener('durationchange', () => this.host.start(this));
         this.element.addEventListener('pause', () => this.host.change(this.playback));
         this.element.addEventListener('playing', () => this.host.change(this.playback));
         this.element.addEventListener('ratechange', () => this.host.change(this.playback));
@@ -119,7 +121,7 @@ class Player {
      * @returns {string}
      */
     getTitle () {
-        return this.URL.pathname;
+        return document.querySelector('title').textContent;
     }
 
     /**

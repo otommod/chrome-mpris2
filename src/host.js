@@ -67,19 +67,6 @@ class Host {
         });
     }
 
-    buildPayload () {
-        return {
-            PlaybackStatus: this.playback.getStatus(),
-            LoopStatus: this.playback.getLoopStatus(),
-            Shuffle: this.playback.isShuffle(),
-            Volume: this.playback.getVolume(),
-            CanGoNext: this.playback.canGoNext(),
-            CanGoPrevious: this.playback.canGoPrevious(),
-            Identity: this.playback.getIdentity(),
-            Rate: this.playback.getRate()
-        };
-    }
-
     /**
      * Send a change message to host app
      */
@@ -87,7 +74,7 @@ class Host {
         if (this.playback.activePlayer) {
             this.sendMessage(
               HostType.CHANGE,
-              this.buildPayload()
+              this.playback.buildPayload()
             );
         }
     }
@@ -97,11 +84,10 @@ class Host {
      * @param {Player} player
      */
     start (player) {
-        let payload = this.buildPayload();
         this.sendMessage(
           HostType.CHANGE,
           {
-              ...payload,
+              ...this.playback.buildPayload(),
               Metadata: {
                   'mpris:trackid': player.getId(),
                   'mpris:length': player.getLength(),

@@ -34,6 +34,19 @@ class Playback {
         this.activePlayer = null;
     }
 
+    buildPayload () {
+        return {
+            PlaybackStatus: this.getStatus(),
+            LoopStatus: this.getLoopStatus(),
+            Shuffle: this.isShuffle(),
+            Volume: this.getVolume(),
+            CanGoNext: this.canGoNext(),
+            CanGoPrevious: this.canGoPrevious(),
+            Identity: this.getIdentity(),
+            Rate: this.getRate()
+        };
+    }
+
     getStatus () {
         return this.activePlayer && this.activePlayer.isPlaying() ? 'Playing' : 'Paused';
     }

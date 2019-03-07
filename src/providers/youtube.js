@@ -16,13 +16,31 @@
  */
 class YouTubePlayer extends Player {
 
+    /**
+     * A youtube video can have 4 different baseURLs
+     *
+     * 1. /watch?v=ID_OF_VIDEO - when watching the default way
+     * 2. /embed/ID_OF_VIDEO - when it is embedded on a different site
+     * 3. /user/nprmusic - when in a users page
+     * 4. /channel/UCC6mthPyZTpbk-Klz9RMxMw - when in a channels page
+     *
+     * In cases 3 and 4 we don't have a way to figure out it's video id
+     * so the player id will be the full URL
+     *
+     * @returns {string}
+     */
     getId () {
-        return this.URL.searchParams.get('v');
+        if (this.URL.pathname === '/watch') {
+            return this.URL.searchParams.get('v');
+        } else if (this.URL.pathname.match('/embed')) {
+            return this.URL.pathname.split('/').pop();
+        } else
+            return this.getUrl();
     }
 
     getTitle () {
-        let title = document.querySelector('h1.title');
-        return title && title.textContent;
+        let title = document.querySelector('.ytp-title-text');
+        return (title && title.textContent) || super.getTitle();
     }
 
     getArtists () {
@@ -30,7 +48,16 @@ class YouTubePlayer extends Player {
         return owner && [owner.textContent];
     }
 
+    /**
+     * If we couldn't figure out the video id (see {@link getId})
+     * then the player's id will be the element's baseURI, if that's the case
+     * we won't be able to get the thumbnail. so call super
+     *
+     * @returns {string}
+     */
     getCover () {
+        if (this.getId().includes('/'))
+            return super.getCover();
         return `https://i.ytimg.com/vi/${this.getId()}/hqdefault.jpg`;
     }
 }
@@ -162,6 +189,39 @@ class YouTubePlayback extends Playback {
 
 Playback = YouTubePlayback;
 
+
+class YouTubePage extends Page {
+
+    registerPlayer (element) {
+        if (this.players.find(player => player.element === element)) {
+            return;
+        }
+
+        let player = new Player(this.playback, this.host, element);
+
+        this.players.push(player);
+
+        let container = element.parentElement.parentElement;
+
+        this.playback.controls = {
+            ...this.playback.controls,
+            nextButton: (container || document).querySelector('.ytp-next-button'),
+            previousButton: (container || document).querySelector('.ytp-prev-button'),
+            volumeButton: (container || document).querySelector('.ytp-mute-button.ytp-button'),
+            volumeHandle: (container || document).querySelector('.ytp-volume-slider-handle')
+        };
+
+        // Ignore short sounds, they are most likely a chat notification sound
+        // but still allow when undetermined (e.g. video stream)
+        if (player.isPlaying() && !(isNaN(element.duration) || (element.duration > 0 && element.duration < 5))) {
+            this.setActivePlayer(player);
+        }
+    }
+
+}
+
+Page = YouTubePage;
+
 /*
     for youtube we need to listen for yt-page-data-updated
     we subscribe to mpris2-setup to make sure page is defined
@@ -178,10 +238,7 @@ window.addEventListener('mpris2-setup', () => {
         });
 
         page.playback.controls = {
-            nextButton: document.querySelector('.ytp-next-button'),
-            previousButton: document.querySelector('.ytp-prev-button'),
-            volumeButton: document.querySelector('.ytp-mute-button.ytp-button'),
-            volumeHandle: document.querySelector('.ytp-volume-slider-handle'),
+            ...page.playback.controls,
             shuffleButton: playlistActionsButtons[1],
             loopPlaylistButton: playlistActionsButtons[0]
         };
