@@ -57,30 +57,39 @@
 </nav>
 
 <div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="browser-mpris2">browser-mpris2</h1><p>Implements the MPRIS2 interface for Chrome and Firefox.</p>
-<p>Currently, the following sites are supported with almost all of the capabilities MPRIS2 allows:</p>
+<p>Currently, all sites should be supported with reduced capabilities (play, pause, stop, volume, seek, cover art).</p>
+<p>And the following sites are supported with almost all of the capabilities MPRIS2 allows:</p>
 <ul>
 <li><a href="https://youtube.com">YouTube</a></li>
 <li><a href="https://soundcloud.com">SoundCloud</a></li>
+<li><a href="https://netflix.com">Netflix</a> - Coming Soon</li>
 </ul>
 <p>Pull requests are welcome.</p>
-<h2 id="installation--for-chrome-">Installation (for Chrome)</h2><ol>
-<li>First, in Chrome, go to <code>Tools &gt; Extensions</code> (or <code>chrome://extensions</code>), enable <code>Developer mode</code> and <code>Load unpacked extension...</code> with the root of this repo.  Notice, the extension ID.</li>
-<li>Next, place <a href="native/chrome-mpris2">chrome-mpris2</a> somewhere in your <code>$PATH</code> and run <a href="native/install-chrome.py">install-chrome.py</a> giving it the extension ID and optionally the path (not just the directory) of your just-installed chrome-mpris2 (defaults to <code>~/bin/chrome-mpris2</code>).  This will check that you have all the dependencies and tell Chrome about chrome-mpris2 (so that the plugin can use it).</li>
-<li>???</li>
-<li>Profit</li>
-</ol>
-<p>If on GNOME or similar you should be able to take advantage of your new powers immediately.  Otherwise, you can use something like <a href="https://github.com/acrisci/playerctl">playerctl</a>, perhaps bind it to a key or <code>XF86AudioPlay</code> and the like if your keyboard has them.</p>
+<h3 id="how-it-looks--linux-mint-">How it looks (linux mint)</h3><p><a href="https://github.com/Lt-Mayonesa/browser-mpris2/blob/master/screenshot.png">see screen shot</a></p>
+<h2 id="installation--for-chrome-">Installation (for Chrome)</h2><p>Clone this repo:</p>
+<pre><code class="lang-text"><code class="source-code prettyprint">git clone https://github.com/Lt-Mayonesa/browser-mpris2</code>
+</code></pre>
+<p>Then, in Chrome, go to <code>Tools &gt; Extensions</code> (or <code>chrome://extensions</code>), enable <code>Developer mode</code> and <code>Load unpacked extension...</code> with the root of this repo.</p>
+<p>Once the extension loaded copy the extension ID (ie: <code>pbipjpimbmchphdddpkimpegkgnbepdj</code>).</p>
+<p>Next, place <a href="native/chrome-mpris2">chrome-mpris2</a> somewhere in your <code>$PATH</code>.</p>
+<p>ie: (from the root of the repo)</p>
+<pre><code class="lang-text"><code class="source-code prettyprint">ln -s $PWD/native/chrome-mpris2 ~/bin/chrome-mpris2</code>
+</code></pre>
+<p>And run <a href="native/install-chrome.py">install-chrome.py</a> giving it the extension ID and optionally the path (not just the directory) of your just-installed chrome-mpris2 if you installed elsewhere.  This will check that you have all the dependencies and tell Chrome about chrome-mpris2 (so that the plugin can use it).</p>
+<pre><code class="lang-text"><code class="source-code prettyprint">./install-chrome.py EXTENSION_ID [PATH]</code>
+</code></pre>
+<p>Reload the extension from the Extensions page.</p>
+<p>Profit</p>
+<h2 id="powers">Powers</h2><p>If on GNOME or similar you should be able to take advantage of your new powers immediately.  Otherwise, you can use something like <a href="https://github.com/acrisci/playerctl">playerctl</a>, perhaps bind it to a key or <code>XF86AudioPlay</code> and the like if your keyboard has them.</p>
 <h2 id="similar-projects">Similar Projects</h2><ul>
 <li><a href="https://github.com/KDE/plasma-browser-integration">plasma-browser-integration</a>
-It&apos;s more general as it works on <code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code> elements, though it misses out on some of the more &quot;advanced&quot; capabilities, such as cover art support.</li>
+Nothing to envy them now</li>
 <li><a href="https://github.com/shwsh/web-mpris2">shwsh/web-mpris2</a>
 A port of this extension to Tampermonkey/Greasemonkey (and WebSockets).</li>
 </ul>
 <h2 id="todo">TODO</h2><ul>
-<li>(read on this) Support the (supposedly experimental) <a href="https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API">Media Session API</a> that sites can use to set metadata.  plasma-browser-integration uses where available.</li>
-<li>Add support for playlist, loop, shuffle</li>
-<li>Add support for provider per domain</li>
-<li>Tests? (yes, but how)</li>
+<li>Netflis Provider</li>
+<li>Tests (i started playing with a custom made testin framework, probably moving them to jest due to time, which is money)</li>
 </ul>
 </div>
 </div>

@@ -143,13 +143,17 @@ class Page {
             return false;
         }
 
+        if (isNaN(element.duration) || (element.duration &gt; 0 &amp;&amp; element.duration &lt; 5)) {
+            return false;
+        }
+
         let player = new Player(this, this.host, element);
 
         this.players.push(player);
 
         // Ignore short sounds, they are most likely a chat notification sound
         // but still allow when undetermined (e.g. video stream)
-        if (player.isPlaying() &amp;&amp; !(isNaN(element.duration) || (element.duration &gt; 0 &amp;&amp; element.duration &lt; 5))) {
+        if (player.isPlaying()) {
             this.setActivePlayer(player);
         }
         return true;

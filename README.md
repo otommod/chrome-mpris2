@@ -11,7 +11,7 @@ And the following sites are supported with almost all of the capabilities MPRIS2
 Pull requests are welcome.
 
 ### How it looks (linux mint)
-[see screen shot](https://github.com/Lt-Mayonesa/browser-mpris2/blob/master/screenshot.png)
+![players screenshot](https://raw.githubusercontent.com/Lt-Mayonesa/browser-mpris2/master/screenshot.png)
 
 
 ## Installation (for Chrome)
