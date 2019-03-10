@@ -1,6 +1,14 @@
 /**
+ * Constants for playback looping support
  *
- * @type {{NONE: string, TRACK: string, PLAYLIST: string}}
+ * By default only <b>NONE</b> and <b>TRACK</b> are supported,
+ * <b>PLAYLIST</b> looping should be implemented by provider
+ *
+ *
+ * @constant {Object}
+ * @property {string} NONE=None - default playback
+ * @property {string} TRACK=Track - playback will loop current track
+ * @property {string} PLAYLIST=Playlist - playback will loop current playlist
  */
 const LoopStatus = {
     NONE: 'None',
@@ -8,6 +16,9 @@ const LoopStatus = {
     PLAYLIST: 'Playlist'
 };
 
+/**
+ *
+ */
 class Playback {
     /**
      *

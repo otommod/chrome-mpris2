@@ -9,7 +9,6 @@
  *
  */
 
-
 /**
  * The metadata sent to the mpris host is defined
  * by the {@link Player} implementation
@@ -193,7 +192,6 @@ class YouTubePlayback extends Playback {
 }
 
 Playback = YouTubePlayback;
-
 
 class YouTubePage extends Page {
 

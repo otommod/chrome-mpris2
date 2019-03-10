@@ -1,8 +1,12 @@
 /**
  *
- * @type {{RETURN: string, QUIT: string, CHANGE: string, SEEK: string}}
+ * @type {Object}
+ * @property {string} CHANGE=changed - whether a mrpis2 property has changed
+ * @property {string} RETURN=return - if we are returning an expected value
+ * @property {string} SEEK=seeked - seeking
+ * @property {string} QUIT=quit - inform to close the player
  */
-const HostType = {
+const MessageType = {
     CHANGE: 'changed',
     RETURN: 'return',
     SEEK: 'seeked',
@@ -11,9 +15,19 @@ const HostType = {
 
 /**
  *
- * @type {{PAUSE: string, PLAY: string, SET: string, TOGGLE: string, STOP: string, SET_POSITION: string, GET: string, NEXT: string, PREVIOUS: string, SEEK: string}}
+ * @constant {Object}
+ * @property {string} GET=Get - request a property from the client
+ * @property {string} SET=Set - request to set a property in the client
+ * @property {string} PLAY=Play - request to start playing the current media
+ * @property {string} PAUSE=Pause - request to pause the current media
+ * @property {string} TOGGLE=PlayPause - request to toggle playback of current media
+ * @property {string} STOP=Stop - request to completely stop playback
+ * @property {string} NEXT=Next - request to skip to next media
+ * @property {string} PREVIOUS=Previous - request to skip to previous media
+ * @property {string} SEEK=Seek - request to move current playback position by some offset
+ * @property {string} SET_POSITION=SetPosition - request to move current playback position to specific point
  */
-const HostMethod = {
+const MessageMethod = {
     GET: 'Get',
     SET: 'Set',
     PLAY: 'Play',
@@ -28,9 +42,15 @@ const HostMethod = {
 
 /**
  *
- * @type {{POSITION: string, LOOP_STATUS: string, FULL_SCREEN: string, RATE: string, VOLUME: string, SHUFFLE: string}}
+ * @constant {Object}
+ * @property {string} POSITION=Position - the time of playback
+ * @property {string} RATE=Rate - the speed rate of playback
+ * @property {string} VOLUME=Volume - the volume of playback
+ * @property {string} SHUFFLE=Shuffle - the shuffle state of playback
+ * @property {string} LOOP_STATUS=LoopStatus - the loop status of playback
+ * @property {string} FULL_SCREEN=Fullscreen - the fullscreen state
  */
-const HostProperty = {
+const MessageProperty = {
     POSITION: 'Position',
     RATE: 'Rate',
     VOLUME: 'Volume',
@@ -58,11 +78,10 @@ class Host {
     /**
      * Send a message to host app
      *
-     * @param {HostType} type
+     * @param {MessageType} type
      * @param {Object} [payload]
      */
     sendMessage (type, payload) {
-        console.log('send message', type, payload);
         this.port.postMessage({
             source: this.source,
             type: type,
@@ -78,7 +97,7 @@ class Host {
             let payload = this.messenger.requestPayload(this.playback);
             if (Object.keys(payload).length)
                 this.sendMessage(
-                  HostType.CHANGE,
+                  MessageType.CHANGE,
                   payload
                 );
         }
@@ -95,13 +114,13 @@ class Host {
 
     /**
      *
-     * @param {HostMethod} method
+     * @param {MessageMethod} method
      * @param {Object} args
      */
     return (method, args) {
         this.port.postMessage({
             source: this.source,
-            type: HostType.RETURN,
+            type: MessageType.RETURN,
             method, args
         });
     }
@@ -113,7 +132,7 @@ class Host {
      */
     seeked (player) {
         this.sendMessage(
-          HostType.SEEK,
+          MessageType.SEEK,
           player.getPosition()
         );
     }
@@ -123,7 +142,7 @@ class Host {
      */
     quit () {
         this.sendMessage(
-          HostType.QUIT
+          MessageType.QUIT
         );
     }
 
@@ -131,14 +150,14 @@ class Host {
      * Listener for messages from native application (aka: mpris interface)
      *
      * @param {Object} request
-     * @param {HostMethod} request.method
+     * @param {MessageMethod} request.method
      * @param {Array}  request.args
      */
     messageListener (request) {
         let result;
-        if (request.method === HostMethod.GET) {
+        if (request.method === MessageMethod.GET) {
             result = this.get(...request.args);
-        } else if (request.method === HostMethod.SET) {
+        } else if (request.method === MessageMethod.SET) {
             result = this.set(...request.args);
         } else {
             result = this.command(request.method, ...request.args);
@@ -154,12 +173,12 @@ class Host {
      * Native application wants to Get a property from client
      *
      * @param {string} _ - org.mpris.MediaPlayer2.Player
-     * @param {HostProperty} propName - property that should be returned
+     * @param {MessageProperty} propName - property that should be returned
      * @returns {number}
      */
     get (_, propName) {
         switch (propName) {
-            case HostProperty.POSITION:
+            case MessageProperty.POSITION:
                 return this.playback.getPosition();
         }
     }
@@ -169,28 +188,28 @@ class Host {
      * in the client.
      *
      * @param {string} _ - org.mpris.MediaPlayer2.Player
-     * @param {HostProperty} propName - property to set
+     * @param {MessageProperty} propName - property to set
      * @param {*} newValue - depends on the property to set
      */
     set (_, propName, newValue) {
         switch (propName) {
-            case HostProperty.RATE:
+            case MessageProperty.RATE:
                 this.playback.setRate(newValue);
                 break;
 
-            case HostProperty.VOLUME:
+            case MessageProperty.VOLUME:
                 this.playback.setVolume(newValue);
                 break;
 
-            case HostProperty.SHUFFLE:
+            case MessageProperty.SHUFFLE:
                 this.playback.setShuffle(newValue);
                 break;
 
-            case HostProperty.LOOP_STATUS:
+            case MessageProperty.LOOP_STATUS:
                 this.playback.setLoopStatus(newValue);
                 break;
 
-            case HostProperty.FULL_SCREEN:
+            case MessageProperty.FULL_SCREEN:
                 this.playback.toggleFullScreen();
                 break;
         }
@@ -199,32 +218,32 @@ class Host {
     /**
      * Native application wants to run a command on playback
      *
-     * @param {HostMethod} name
+     * @param {MessageMethod} name
      */
     command (name) {
         switch (name) {
-            case HostMethod.PLAY:
+            case MessageMethod.PLAY:
                 this.playback.play();
                 break;
-            case HostMethod.PAUSE:
+            case MessageMethod.PAUSE:
                 this.playback.pause();
                 break;
-            case HostMethod.TOGGLE:
+            case MessageMethod.TOGGLE:
                 this.playback.togglePlayback();
                 break;
-            case HostMethod.STOP:
+            case MessageMethod.STOP:
                 this.playback.stop();
                 break;
-            case HostMethod.NEXT:
+            case MessageMethod.NEXT:
                 this.playback.next();
                 break;
-            case HostMethod.PREVIOUS:
+            case MessageMethod.PREVIOUS:
                 this.playback.previous();
                 break;
-            case HostMethod.SEEK:
+            case MessageMethod.SEEK:
                 this.playback.seek(arguments[1]);
                 break;
-            case HostMethod.SET_POSITION: //why is this not in set?
+            case MessageMethod.SET_POSITION: //why is this not in set?
                 this.playback.setPosition(arguments[1], arguments[2]);
                 break;
         }
