@@ -1,0 +1,212 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+      messenger.js - Documentation
+  </title>
+
+  <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+  <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+  <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+  
+
+  
+
+  <!-- start Mixpanel -->
+  <script type="text/javascript">(function(e,a){if(!a.__SV){var b=window;try{var c,l,i,j=b.location,g=j.hash;c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};g&&c(g,"state")&&(i=JSON.parse(decodeURIComponent(c(g,"state"))),"mpeditor"===i.action&&(b.sessionStorage.setItem("_mpcehash",g),history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search)))}catch(m){}var k,h;window.mixpanel=a;a._i=[];a.init=function(b,c,f){function e(b,a){var c=a.split(".");2==c.length&&(b=b[c[0]],a=c[1]);b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,
+  0)))}}var d=a;"undefined"!==typeof f?d=a[f]=[]:f="mixpanel";d.people=d.people||[];d.toString=function(b){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);b||(a+=" (stub)");return a};d.people.toString=function(){return d.toString(1)+".people (stub)"};k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+  for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);
+  mixpanel.init("1919205b2da72e4da3b9b6639b444d59");</script>
+  <!-- end Mixpanel -->
+</head>
+
+<body>
+  <svg style="display: none;">
+    <defs>
+      <symbol id="linkIcon" fill="#706d77" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0h24v24H0z" fill="none"/>
+          <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+  <label for="nav-trigger" class="navicon-button x">
+    <div class="navicon"></div>
+  </label>
+
+  <label for="nav-trigger" class="overlay"></label>
+
+  <div class="top-nav-wrapper">
+    <ul>
+      <li >
+        <a href="index.html">
+          
+            <svg fill="#6D6D6D" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+              <path d="M0 0h24v24H0z" fill="none"/>
+            </svg>
+          
+          
+        </a>
+      </li>
+
+      
+
+    </ul>
+  </div>
+
+  <nav>
+    <h3 class="reference-title">
+      Browser Mpris2
+    </h3>
+
+    
+      <h3>
+        Resources
+      </h3>
+      
+        <a href="https://developer.chrome.com/extensions/content_scripts">Content Scripts</a>
+      
+        <a href="https://github.com/otommod/browser-mpris2">otommod/browser-mpris2</a>
+      
+    
+
+    <h3>Classes</h3><ul><li id="Host-nav"><a href="Host.html">Host</a><ul class='methods'><li data-type="method" id="Host-sendMessage-nav"><a href="Host.html#sendMessage">sendMessage</a></li><li data-type="method" id="Host-change-nav"><a href="Host.html#change">change</a></li><li data-type="method" id="Host-start-nav"><a href="Host.html#start">start</a></li><li data-type="method" id="Host-return-nav"><a href="Host.html#return">return</a></li><li data-type="method" id="Host-seeked-nav"><a href="Host.html#seeked">seeked</a></li><li data-type="method" id="Host-quit-nav"><a href="Host.html#quit">quit</a></li><li data-type="method" id="Host-messageListener-nav"><a href="Host.html#messageListener">messageListener</a></li><li data-type="method" id="Host-get-nav"><a href="Host.html#get">get</a></li><li data-type="method" id="Host-set-nav"><a href="Host.html#set">set</a></li><li data-type="method" id="Host-command-nav"><a href="Host.html#command">command</a></li></ul></li><li id="Page-nav"><a href="Page.html">Page</a><ul class='methods'><li data-type="method" id="Page-observeForMedia-nav"><a href="Page.html#observeForMedia">observeForMedia</a></li><li data-type="method" id="Page-observeForChanges-nav"><a href="Page.html#observeForChanges">observeForChanges</a></li><li data-type="method" id="Page-setActivePlayer-nav"><a href="Page.html#setActivePlayer">setActivePlayer</a></li><li data-type="method" id="Page-getActivePlayer-nav"><a href="Page.html#getActivePlayer">getActivePlayer</a></li><li data-type="method" id="Page-getTitle-nav"><a href="Page.html#getTitle">getTitle</a></li><li data-type="method" id="Page-getIcon-nav"><a href="Page.html#getIcon">getIcon</a></li></ul></li><li id="Playback-nav"><a href="Playback.html">Playback</a><ul class='methods'><li data-type="method" id="Playback-getStatus-nav"><a href="Playback.html#getStatus">getStatus</a></li><li data-type="method" id="Playback-getVolume-nav"><a href="Playback.html#getVolume">getVolume</a></li><li data-type="method" id="Playback-setRate-nav"><a href="Playback.html#setRate">setRate</a></li><li data-type="method" id="Playback-getRate-nav"><a href="Playback.html#getRate">getRate</a></li><li data-type="method" id="Playback-setLoopStatus-nav"><a href="Playback.html#setLoopStatus">setLoopStatus</a></li><li data-type="method" id="Playback-getLoopStatus-nav"><a href="Playback.html#getLoopStatus">getLoopStatus</a></li><li data-type="method" id="Playback-canGoNext-nav"><a href="Playback.html#canGoNext">canGoNext</a></li><li data-type="method" id="Playback-canGoPrevious-nav"><a href="Playback.html#canGoPrevious">canGoPrevious</a></li><li data-type="method" id="Playback-next-nav"><a href="Playback.html#next">next</a></li><li data-type="method" id="Playback-previous-nav"><a href="Playback.html#previous">previous</a></li><li data-type="method" id="Playback-play-nav"><a href="Playback.html#play">play</a></li><li data-type="method" id="Playback-pause-nav"><a href="Playback.html#pause">pause</a></li><li data-type="method" id="Playback-togglePlayback-nav"><a href="Playback.html#togglePlayback">togglePlayback</a></li><li data-type="method" id="Playback-stop-nav"><a href="Playback.html#stop">stop</a></li><li data-type="method" id="Playback-seek-nav"><a href="Playback.html#seek">seek</a></li><li data-type="method" id="Playback-setPosition-nav"><a href="Playback.html#setPosition">setPosition</a></li><li data-type="method" id="Playback-getPosition-nav"><a href="Playback.html#getPosition">getPosition</a></li><li data-type="method" id="Playback-setActivePlayer-nav"><a href="Playback.html#setActivePlayer">setActivePlayer</a></li><li data-type="method" id="Playback-toggleFullScreen-nav"><a href="Playback.html#toggleFullScreen">toggleFullScreen</a></li><li data-type="method" id="Playback-getIdentity-nav"><a href="Playback.html#getIdentity">getIdentity</a></li></ul></li><li id="Player-nav"><a href="Player.html">Player</a><ul class='methods'><li data-type="method" id="Player-initMediaListeners-nav"><a href="Player.html#initMediaListeners">initMediaListeners</a></li><li data-type="method" id="Player-getId-nav"><a href="Player.html#getId">getId</a></li><li data-type="method" id="Player-isPlaying-nav"><a href="Player.html#isPlaying">isPlaying</a></li><li data-type="method" id="Player-getLength-nav"><a href="Player.html#getLength">getLength</a></li><li data-type="method" id="Player-setVolume-nav"><a href="Player.html#setVolume">setVolume</a></li><li data-type="method" id="Player-getVolume-nav"><a href="Player.html#getVolume">getVolume</a></li><li data-type="method" id="Player-setRate-nav"><a href="Player.html#setRate">setRate</a></li><li data-type="method" id="Player-getRate-nav"><a href="Player.html#getRate">getRate</a></li><li data-type="method" id="Player-getTitle-nav"><a href="Player.html#getTitle">getTitle</a></li><li data-type="method" id="Player-getArtists-nav"><a href="Player.html#getArtists">getArtists</a></li><li data-type="method" id="Player-getCover-nav"><a href="Player.html#getCover">getCover</a></li><li data-type="method" id="Player-getPosition-nav"><a href="Player.html#getPosition">getPosition</a></li><li data-type="method" id="Player-isLooping-nav"><a href="Player.html#isLooping">isLooping</a></li><li data-type="method" id="Player-setLoop-nav"><a href="Player.html#setLoop">setLoop</a></li><li data-type="method" id="Player-play-nav"><a href="Player.html#play">play</a></li><li data-type="method" id="Player-pause-nav"><a href="Player.html#pause">pause</a></li><li data-type="method" id="Player-playpause-nav"><a href="Player.html#playpause">playpause</a></li><li data-type="method" id="Player-stop-nav"><a href="Player.html#stop">stop</a></li><li data-type="method" id="Player-seek-nav"><a href="Player.html#seek">seek</a></li><li data-type="method" id="Player-setPosition-nav"><a href="Player.html#setPosition">setPosition</a></li><li data-type="method" id="Player-getSiteDomain-nav"><a href="Player.html#getSiteDomain">getSiteDomain</a></li><li data-type="method" id="Player-getUrl-nav"><a href="Player.html#getUrl">getUrl</a></li><li data-type="method" id="Player-isHidden-nav"><a href="Player.html#isHidden">isHidden</a></li></ul></li><li id="NetflixPlayer-nav"><a href="NetflixPlayer.html">NetflixPlayer</a></li><li id="SoundCloudPlayer-nav"><a href="SoundCloudPlayer.html">SoundCloudPlayer</a></li><li id="YouTubePlayer-nav"><a href="YouTubePlayer.html">YouTubePlayer</a><ul class='methods'><li data-type="method" id="YouTubePlayer-getId-nav"><a href="YouTubePlayer.html#getId">getId</a></li><li data-type="method" id="YouTubePlayer-getCover-nav"><a href="YouTubePlayer.html#getCover">getCover</a></li></ul></li></ul><h3 id="global-nav">Global</h3><ul><li><a href="global.html#MessageType">MessageType</a></li><li><a href="global.html#MessageMethod">MessageMethod</a></li><li><a href="global.html#MessageProperty">MessageProperty</a></li><li><a href="global.html#playback">playback</a></li><li><a href="global.html#messenger">messenger</a></li><li><a href="global.html#host">host</a></li><li><a href="global.html#page">page</a></li><li><a href="global.html#hackAudioTags">hackAudioTags</a></li><li><a href="global.html#LoopStatus">LoopStatus</a></li></ul>
+  </nav>
+
+  <div id="main">
+    
+      <h1 class="page-title">
+        messenger.js
+      </h1>
+    
+
+    
+      
+
+<section>
+  <article>
+    <pre class="prettyprint source linenums"><code>/**
+ * @typedef {Object} Metadata
+ * @property {string} 'mpris:trackid' - the track id (can be anything)
+ * @property {number} 'mpris:length' - the length of the media
+ * @property {string} 'mpris:artUrl' - the url of the cover image
+ * @property {string} 'xesam:url' - the url of the media
+ * @property {string} 'xesam:title' - the title of the media
+ * @property {Array&lt;string>} 'xesam:artist' - an array containing the artists
+ */
+
+/**
+ * A payload that the native app understands
+ *
+ * @typedef {Object} Payload
+ * @property {string} PlaybackStatus - Playing or Paused
+ * @property {LoopStatus} LoopStatus - the loop status
+ * @property {boolean} Shuffle - is shuffle on
+ * @property {number} Volume - the volume
+ * @property {boolean} CanGoNext - if the next button should be enabled
+ * @property {boolean} CanGoPrevious - if previous button should be enabled
+ * @property {string} Identity - the identity of the mpris player
+ * @property {number} Rate - the playback speed of the media
+ * @property {Metadata} Metadata - the media specific information
+ */
+
+class Messenger {
+    constructor () {
+        /**
+         *
+         * @type {Payload}
+         */
+        this.last = {};
+    }
+
+    /**
+     *
+     * @param {Payload} payload
+     */
+    store (payload) {
+        this.last = payload;
+    }
+
+    /**
+     *
+     * @param {Playback} playback
+     * @returns {Payload}
+     */
+    payloadFrom (playback) {
+        return {
+            PlaybackStatus: playback.getStatus(),
+            LoopStatus: playback.getLoopStatus(),
+            Shuffle: playback.isShuffle(),
+            Volume: playback.getVolume(),
+            CanGoNext: playback.canGoNext(),
+            CanGoPrevious: playback.canGoPrevious(),
+            Identity: playback.getIdentity(),
+            Rate: playback.getRate(),
+            Metadata: {
+                'mpris:trackid': playback.activePlayer.getId(),
+                'mpris:length': playback.activePlayer.getLength(),
+                'mpris:artUrl': playback.activePlayer.getCover(),
+                'xesam:url': playback.activePlayer.getUrl(),
+                'xesam:title': playback.activePlayer.getTitle(),
+                'xesam:artist': playback.activePlayer.getArtists(),
+            }
+        };
+    }
+
+    /**
+     *
+     * @param {Payload} payload
+     * @return {Payload}
+     */
+    onlyUpdated (payload) {
+        return payload;
+    }
+
+    /**
+     *
+     * @param {Playback} playback
+     * @returns {Payload}
+     */
+    requestPayload (playback) {
+        let payload = this.payloadFrom(playback);
+        let diffs = this.onlyUpdated(payload);
+        this.store(payload);
+        return diffs;
+    }
+}
+</code></pre>
+  </article>
+</section>
+
+    
+
+
+  </div>
+
+  <br class="clear">
+
+  <footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+  </footer>
+
+  <script src="scripts/linenumber.js"></script>
+  <script src="scripts/pagelocation.js"></script>
+
+  
+
+</body>
+</html>
