@@ -11,11 +11,8 @@ const LoopStatus = {
 class Playback {
     /**
      *
-     * @param {Page} page
      */
-    constructor (page) {
-        this.page = page;
-
+    constructor () {
         /**
          *
          * @type {Object.<string, HTMLElement>}
@@ -34,19 +31,10 @@ class Playback {
         this.activePlayer = null;
     }
 
-    buildPayload () {
-        return {
-            PlaybackStatus: this.getStatus(),
-            LoopStatus: this.getLoopStatus(),
-            Shuffle: this.isShuffle(),
-            Volume: this.getVolume(),
-            CanGoNext: this.canGoNext(),
-            CanGoPrevious: this.canGoPrevious(),
-            Identity: this.getIdentity(),
-            Rate: this.getRate()
-        };
-    }
-
+    /**
+     *
+     * @returns {string}
+     */
     getStatus () {
         return this.activePlayer && this.activePlayer.isPlaying() ? 'Playing' : 'Paused';
     }
@@ -55,14 +43,26 @@ class Playback {
         this.activePlayer && this.activePlayer.setVolume(volume);
     }
 
+    /**
+     *
+     * @returns {number}
+     */
     getVolume () {
         return this.activePlayer && this.activePlayer.getVolume();
     }
 
+    /**
+     *
+     * @param {number} rate
+     */
     setRate (rate) {
         this.activePlayer && this.activePlayer.setRate(rate);
     }
 
+    /**
+     *
+     * @returns {number}
+     */
     getRate () {
         return this.activePlayer && this.activePlayer.getRate();
     }
@@ -84,6 +84,10 @@ class Playback {
         this.activePlayer && this.activePlayer.setLoop(this.loopStatus === LoopStatus.TRACK);
     }
 
+    /**
+     *
+     * @returns {LoopStatus}
+     */
     getLoopStatus () {
         return this.loopStatus;
     }
@@ -178,7 +182,6 @@ class Playback {
      */
     setActivePlayer (player) {
         this.activePlayer = player;
-        this.page.host.start(this.activePlayer);
     }
 
     /**

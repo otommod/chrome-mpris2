@@ -42,11 +42,13 @@ const HostProperty = {
 class Host {
     /**
      *
-     * @param {Playback} playback - the page playing the media
+     * @param {Playback} playback - the playback of the current site
+     * @param {Messenger} messenger
      * @param {Object} port - see {@link https://developer.chrome.com/apps/runtime#type-Port}
      */
-    constructor (playback, port) {
+    constructor (playback, messenger, port) {
         this.playback = playback;
+        this.messenger = messenger;
         this.port = port;
 
         this.source = 'browser';
@@ -60,6 +62,7 @@ class Host {
      * @param {Object} [payload]
      */
     sendMessage (type, payload) {
+        console.log('send message', type, payload);
         this.port.postMessage({
             source: this.source,
             type: type,
@@ -72,10 +75,12 @@ class Host {
      */
     change () {
         if (this.playback.activePlayer) {
-            this.sendMessage(
-              HostType.CHANGE,
-              this.playback.buildPayload()
-            );
+            let payload = this.messenger.requestPayload(this.playback);
+            if (Object.keys(payload).length)
+                this.sendMessage(
+                  HostType.CHANGE,
+                  payload
+                );
         }
     }
 
@@ -84,20 +89,8 @@ class Host {
      * @param {Player} player
      */
     start (player) {
-        this.sendMessage(
-          HostType.CHANGE,
-          {
-              ...this.playback.buildPayload(),
-              Metadata: {
-                  'mpris:trackid': player.getId(),
-                  'mpris:length': player.getLength(),
-                  'mpris:artUrl': player.getCover(),
-                  'xesam:url': player.getUrl(),
-                  'xesam:title': player.getTitle(),
-                  'xesam:artist': player.getArtists(),
-              }
-          }
-        );
+        this.playback.setActivePlayer(player);
+        this.change();
     }
 
     /**
@@ -207,10 +200,8 @@ class Host {
      * Native application wants to run a command on playback
      *
      * @param {HostMethod} name
-     * @param {string} id
-     * @param {number} value
      */
-    command (name, id, value) {
+    command (name) {
         switch (name) {
             case HostMethod.PLAY:
                 this.playback.play();
@@ -231,10 +222,10 @@ class Host {
                 this.playback.previous();
                 break;
             case HostMethod.SEEK:
-                this.playback.seek(value);
+                this.playback.seek(arguments[1]);
                 break;
             case HostMethod.SET_POSITION: //why is this not in set?
-                this.playback.setPosition(id, value);
+                this.playback.setPosition(arguments[1], arguments[2]);
                 break;
         }
     }

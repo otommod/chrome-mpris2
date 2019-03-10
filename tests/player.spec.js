@@ -35,10 +35,7 @@ suites['Player.js tests'] = {
     'given a media with duration = $duration when i check its length it should be $expected': {
         given (params) {
             this.element.duration = params.duration;
-            this.player = new Player(
-              null,
-              null,
-              this.element);
+            this.player = new Player(null, null, this.element);
         },
         when () {
             this.actual = this.player.getLength();
@@ -56,11 +53,7 @@ suites['Player.js tests'] = {
         given (params) {
             this.element.volume = params.volume;
             this.element.muted = false;
-            this.player = new Player(
-              null,
-              null,
-              this.element
-            );
+            this.player = new Player(null, null, this.element);
         },
         when () {
             this.actual = this.player.getVolume();
@@ -137,10 +130,13 @@ suites['Player.js tests'] = {
             { rate: 0.2 }
         ]
     },
-    'given a media with a valid url $url when i get the title it should be $title': {
+    'given a page with a title $title when i get the players title it should be $title': {
         given (params) {
-            this.element.baseURI = params.url;
-            this.player = new Player(null, null, this.element);
+            this.player = new Player({
+                  getTitle: () => params.title
+              },
+              null,
+              this.element);
         },
         when () {
             this.actual = this.player.getTitle();
@@ -150,9 +146,9 @@ suites['Player.js tests'] = {
               .and.equals(params.title);
         },
         data: [
-            { url: 'http://google.com', title: '/' },
-            { url: 'https://youtube.com/watch?v=1231230912', title: '/watch' },
-            { url: 'http://soundcloud.com.ar/my/super/playlist', title: '/my/super/playlist' }
+            { title: 'My Site | Guau' },
+            { title: 'Youtube' },
+            { title: '/my/super/playlist' }
         ]
     },
     'given a media with a valid url $url when i get the artists it should be $artists': {
@@ -253,8 +249,8 @@ suites['Player.js tests'] = {
               .and.equals(params.url);
         },
         data: [
-            {url: 'http://google.com'},
-            {url: 'http://youtube.com'}
+            { url: 'http://google.com' },
+            { url: 'http://youtube.com' }
         ]
     }
 };

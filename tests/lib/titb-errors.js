@@ -16,10 +16,10 @@ class AssertError extends Error {
     buildError () {
         return `Expected 
         <span class="type expected">${this.expected !== null ? this.expected.constructor.name : this.expected}</span>
-        <span class="value this.expected">${JSON.stringify(this.expected)}</span>
+        <span class="value this.expected">${JSON.stringify(this.expected, null, 2)}</span>
         <br>&nbsp;but got 
         <span class="type actual">${this.actual !== null ? this.actual.constructor.name : this.actual}</span>
-        <span class="value this.actual">${JSON.stringify(this.actual)}</span>`;
+        <span class="value this.actual">${JSON.stringify(this.actual, null, 2)}</span>`;
     }
 }
 

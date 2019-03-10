@@ -20,6 +20,10 @@
         line-height: 20px;
     }
 
+    h2 span {
+        float: right;
+    }
+
     span.keyword {
         background-color: var(--keywordHighlight);
         padding: 4px;
@@ -38,6 +42,10 @@
 
     span.type {
         background-color: var(--typeBackground);
+    }
+
+    ol {
+        overflow: hidden;
     }
 
     ol li.success {
@@ -64,6 +72,7 @@
 </div>
 
 <!-- test files -->
+<script src="event-emitter.js"></script>
 <script src="titb-errors.js"></script>
 <script src="titb-assertables.js"></script>
 <script src="titb.js"></script>
@@ -73,12 +82,83 @@
 <script src="../../src/host.js"></script>
 <script src="../../src/playback.js"></script>
 <script src="../../src/page.js"></script>
+<script src="../../src/messenger.js"></script>
 
 <!-- suites -->
 <script src="../player.spec.js"></script>
+<script src="../page.spec.js"></script>
+<script src="../messenger.spec.js"></script>
 
 <script>
-    titb.testSuite();
+    String.prototype.slug = function () {
+        return this.toLowerCase()
+          .replace(/\s+/g, '-')           // Replace spaces with -
+          .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+          .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+          .replace(/^-+/, '')             // Trim - from start of text
+          .replace(/-+$/, '');            // Trim - from end of text
+    };
+
+    function drawSpec (title, result) {
+        let list = document.getElementById(title.slug());
+        let h2 = null;
+        if (!list) {
+            let elm = document.createElement('li');
+            h2 = document.createElement('h2');
+            h2.innerText = title;
+            elm.append(h2);
+            list = document.createElement('ol');
+            list.id = title.slug();
+            elm.append(list);
+            document.getElementById('list').append(elm);
+        } else {
+            h2 = list.parentElement.firstChild;
+        }
+        if (result) {
+            h2.insertAdjacentHTML('beforeend',`<span>Passed ${result.success} of ${result.total}</span>`);
+            if (result.success === result.total)
+                list.style.height = 0;
+        }
+    }
+
+    function drawTest (spec, title, parameters, error) {
+        let elm = document.createElement('li');
+
+        elm.id = `${spec.slug()}_${replaceParameters(title, parameters).slug()}`;
+        elm.innerHTML = title.replace(/\b(given|when|then|it)\b/gi, '<span class="keyword">$&</span>');
+        document.getElementById(spec.slug()).append(elm);
+
+        elm.className = error ? 'error' : 'success';
+        let p = document.createElement('p');
+        p.className = 'result';
+        p.innerHTML = error ? (error.html || error) : '';
+        elm.append(p);
+    }
+
+    /**
+     *
+     * @param {string} title
+     * @param {Object} parameters
+     */
+    function replaceParameters (title, parameters) {
+        parameters = parameters || {};
+        Object.keys(parameters).forEach(each => {
+            title = title.replace(new RegExp('\\$' + each, 'g'), `<b>${JSON.stringify(parameters[each])}</b>`);
+        });
+        return title;
+    }
+
+    new Titb()
+      .on('suite:start', console.log)
+      .on('suite:end', console.log)
+      .on('test:start', (suite, test, params) => console.log(`  ${test}`, params))
+      .on('test:step', (suite, test, key) => console.log(`      ${key}`))
+      .on('test:success', () => console.log(`  OK`))
+      .on('suite:start', drawSpec)
+      .on('suite:end', drawSpec)
+      .on('test:success', drawTest)
+      .on('test:fail', drawTest)
+      .testSuite();
 
     setTheme(localStorage.getItem('theme') || 'white');
 

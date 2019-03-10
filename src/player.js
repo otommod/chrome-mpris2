@@ -8,16 +8,12 @@
 class Player {
     /**
      *
-     * @param {Playback} playback
+     * @param {Page} page
      * @param {Host} host
      * @param {HTMLMediaElement} element
      */
-    constructor (playback, host, element) {
-        /**
-         *
-         * @type {Playback}
-         */
-        this.playback = playback;
+    constructor (page, host, element) {
+        this.page = page;
         /**
          *
          * @type {Host}
@@ -42,14 +38,14 @@ class Player {
      * events to the this.host
      */
     initMediaListeners () {
-        this.element.addEventListener('play', () => this.playback.setActivePlayer(this));
-        this.element.addEventListener('waiting', () => this.host.start(this));
+        this.element.addEventListener('play', () => this.host.start(this));
+        // this.element.addEventListener('waiting', () => this.host.start(this));
         this.element.addEventListener('durationchange', () => this.host.start(this));
-        this.element.addEventListener('pause', () => this.host.change(this.playback));
-        this.element.addEventListener('playing', () => this.host.change(this.playback));
-        this.element.addEventListener('ratechange', () => this.host.change(this.playback));
+        this.element.addEventListener('pause', () => this.host.change());
+        this.element.addEventListener('playing', () => this.host.change());
+        this.element.addEventListener('ratechange', () => this.host.change());
         this.element.addEventListener('seeked', () => this.host.seeked(this));
-        this.element.addEventListener('volumechange', () => this.host.change(this.playback));
+        this.element.addEventListener('volumechange', () => this.host.change());
         this.element.addEventListener('loadedmetadata', e => this.refresh(e));
     }
 
@@ -121,12 +117,12 @@ class Player {
      * @returns {string}
      */
     getTitle () {
-        return document.querySelector('title').textContent;
+        return this.page.getTitle();
     }
 
     /**
      *
-     * @returns {string[]}
+     * @returns {Array<string>}
      */
     getArtists () {
         return [this.URL.host];

@@ -1,9 +1,14 @@
 /**
- * This file add support for youtube playback
  *
- * by extending and overriding the classes used by {@link Page}
+ * This file adds support for Youtube specific playback
+ *
+ * by extending and overriding the classes {@link Page},
+ * {@link Playback}, and {@link Player}.
  * we can define how we'll interact with youtube's site
+ *
+ *
  */
+
 
 /**
  * The metadata sent to the mpris host is defined
@@ -197,7 +202,7 @@ class YouTubePage extends Page {
             return;
         }
 
-        let player = new Player(this.playback, this.host, element);
+        let player = new Player(this, this.host, element);
 
         this.players.push(player);
 
@@ -228,7 +233,6 @@ Page = YouTubePage;
  */
 window.addEventListener('mpris2-setup', () => {
     window.addEventListener('yt-page-data-updated', function () {
-        console.log('yt-page-data-updated', page);
         let playlistActionsButtons = document.querySelectorAll('#playlist-actions a');
 
         playlistActionsButtons.forEach(each => {

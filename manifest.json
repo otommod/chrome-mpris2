@@ -14,6 +14,7 @@
       "matches": ["*://*/*"],
       "js": [
         "src/player.js",
+        "src/messenger.js",
         "src/playback.js",
         "src/host.js",
         "src/page.js"
@@ -30,9 +31,17 @@
       "all_frames": true
     },
     {
+      "matches": ["*://soundcloud.com/*"],
+      "js": [
+        "src/providers/soundcloud.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
       "matches": ["*://*/*"],
       "js": [
-        "media-listener.js"
+        "src/main.js"
       ],
       "run_at": "document_start",
       "all_frames": true

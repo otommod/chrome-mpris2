@@ -1,3 +1,21 @@
+const deepEqual = (obj1, obj2) => {
+    if (obj1 === obj2) {
+        return true;
+    } else if (isObject(obj1) && isObject(obj2)) {
+        if (Object.keys(obj1).length !== Object.keys(obj2).length) { return false; }
+        for (let prop in obj1) {
+            if (!deepEqual(obj1[prop], obj2[prop])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // Private
+    function isObject (obj) {
+        return typeof obj === 'object' && obj != null;
+    }
+};
 
 class Assertable {
     constructor (obj) {
@@ -10,7 +28,7 @@ class Assertable {
     }
 
     equal (expected) {
-        if (this.actual === expected)
+        if (deepEqual(expected, this.actual))
             return this;
         throw new AssertError(expected, this.actual);
     }
@@ -25,6 +43,16 @@ class Assertable {
 class TypeAssertable {
     constructor (obj) {
         this.actual = obj;
+    }
+
+    /**
+     *
+     * @returns {ObjectAssertable}
+     */
+    object () {
+        if (typeof this.actual === 'object' && this.actual instanceof Object)
+            return new ObjectAssertable(this.actual);
+        throw new TypeAssertError({}, this.actual);
     }
 
     /**
@@ -67,7 +95,6 @@ class TypeAssertable {
         throw new TypeAssertError('', this.actual);
     }
 }
-
 
 class BooleanAssertable {
     /**
@@ -160,6 +187,22 @@ class NumberAssertable {
 
 }
 
+class ObjectAssertable extends Assertable {
+
+    /**
+     *
+     * @param {*} object
+     */
+    constructor (object) {
+        super(object);
+
+        this.and = this;
+        this.with = this;
+        this.is = this;
+    }
+
+}
+
 class ArrayAssertable {
     /**
      *
@@ -170,6 +213,7 @@ class ArrayAssertable {
 
         this.with = this;
         this.and = this;
+        this.is = this;
     }
 
     /**
@@ -194,6 +238,28 @@ class ArrayAssertable {
             return this;
         }
         throw new AssertError([item], this.actual);
+    }
+
+    /**
+     *
+     * @returns {ArrayAssertable}
+     */
+    notEmpty () {
+        if (this.actual.length > 0) {
+            return this;
+        }
+        throw new AssertError(1, this.actual.length);
+    }
+
+    /**
+     * @throws {AssertError}
+     * @returns {ArrayAssertable}
+     */
+    empty () {
+        if (this.actual.length === 0) {
+            return this;
+        }
+        throw new AssertError(0, this.actual.length);
     }
 
 }
