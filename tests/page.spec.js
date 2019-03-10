@@ -1,12 +1,15 @@
 suites['Page.js tests'] = {
     'Register a new player': {
         'given a new page' () {
-            this.page = new Page(null, null, null);
+            this.page = new Page(null, {
+                setActivePlayer() {}
+            }, null);
         },
         'and a new element' () {
             this.element = {
                 addEventListener: function () {},
-                baseURI: 'http://mock.com'
+                baseURI: 'http://mock.com',
+                duration: 100000
             };
         },
         'when i register the element' () {

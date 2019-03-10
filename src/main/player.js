@@ -1,26 +1,32 @@
 /**
- * A player that wraps around HTMLMediaElement
+ * A class that wraps around HTMLMediaElement
  *
- * It sends to the Host relevant media events (ie: play, pause, etc)
- * And receives from the host all input events and handles them
+ * It sends to the {@link Host} all relevant media events (ie: play, pause, etc)
  *
+ * This class should be extended in order to give **provider** specific support.
+ * By default all getter and setters interact with the media element, this can be overwritten
+ * by extending this class so it gets and sets by interacting with the relevant places for each **provider**.
  */
 class Player {
     /**
-     *
+     * Create a new instance of player
      * @param {Page} page
      * @param {Host} host
      * @param {HTMLMediaElement} element
      */
     constructor (page, host, element) {
+        /**
+         * The {@link Page} that holds the player
+         * @type {Page}
+         */
         this.page = page;
         /**
-         *
+         * The {@link Host} to communicate with
          * @type {Host}
          */
         this.host = host;
         /**
-         *
+         * The media element
          * @type {HTMLMediaElement}
          */
         this.element = element;
@@ -49,13 +55,17 @@ class Player {
         this.element.addEventListener('loadedmetadata', e => this.refresh(e));
     }
 
+    /**
+     * Update this.URL so getter read the correct data.
+     * Also trigger a {@link this.host.start} event on the {@link Host}.
+     */
     refresh () {
         this.URL = new URL(this.element.baseURI);
         this.host.start(this);
     }
 
     /**
-     *
+     * Get the id of the player
      * @returns {string} the elements source
      */
     getId () {
@@ -63,6 +73,7 @@ class Player {
     }
 
     /**
+     * Is the media playing?
      *
      * @returns {boolean}
      */
@@ -80,7 +91,7 @@ class Player {
     }
 
     /**
-     *
+     * Set the volume of the media
      * @param {number} volume
      */
     setVolume (volume) {
@@ -97,7 +108,7 @@ class Player {
     }
 
     /**
-     *
+     * Set the playback rate
      * @param {number} rate
      */
     setRate (rate) {
@@ -105,7 +116,7 @@ class Player {
     }
 
     /**
-     *
+     * Get the playback rate
      * @returns {number}
      */
     getRate () {
@@ -113,6 +124,7 @@ class Player {
     }
 
     /**
+     * Get the title of the player. The page's title by default.
      *
      * @returns {string}
      */
@@ -121,6 +133,7 @@ class Player {
     }
 
     /**
+     * Get the artists of the player
      *
      * @returns {Array<string>}
      */
@@ -129,6 +142,10 @@ class Player {
     }
 
     /**
+     * Get the cover of the player.
+     *
+     * Using logo.clearbit.com API seems to work quite nicely.
+     * The other alternative is to get the logo from the page's favicon ({@link this.page.getIcon()})
      *
      * @returns {string}
      */
@@ -137,6 +154,7 @@ class Player {
     }
 
     /**
+     * Get the current time of the media
      *
      * @returns {number} media current time
      */
@@ -145,7 +163,7 @@ class Player {
     }
 
     /**
-     *
+     * Is the media looping?
      * @returns {boolean}
      */
     isLooping () {
@@ -185,7 +203,7 @@ class Player {
      * If media is playing then pause
      * else play it
      */
-    playpause () {
+    playPause () {
         if (this.isPlaying())
             this.pause();
         else
@@ -201,6 +219,8 @@ class Player {
     }
 
     /**
+     * seek by an offset to position
+     *
      * @param {number} offset - offset to currentTime in microseconds
      */
     seek (offset) {
@@ -208,13 +228,17 @@ class Player {
     }
 
     /**
-     *
+     * Set the position of playback
      * @param {number} position - new currentTime in microseconds
      */
     setPosition (position) {
         this.element.currentTime = position / 1e6;
     }
 
+    /**
+     * Toogle the fullscreen state of the media.
+     * @todo test this works
+     */
     toggleFullScreen () {
         if (this.element.mozRequestFullScreen) {
             this.element.mozRequestFullScreen();
@@ -224,7 +248,7 @@ class Player {
     }
 
     /**
-     *
+     * Get the site domain (host)
      * @returns {string}
      */
     getSiteDomain () {
@@ -232,7 +256,7 @@ class Player {
     }
 
     /**
-     *
+     * Get the elements url
      * @returns {string}
      */
     getUrl () {
@@ -240,6 +264,7 @@ class Player {
     }
 
     /**
+     * Check if element is visible to the user
      *
      * @returns {boolean}
      */

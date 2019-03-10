@@ -1,29 +1,11 @@
 /**
- * @typedef {Object} Metadata
- * @property {string} 'mpris:trackid' - the track id (can be anything)
- * @property {number} 'mpris:length' - the length of the media
- * @property {string} 'mpris:artUrl' - the url of the cover image
- * @property {string} 'xesam:url' - the url of the media
- * @property {string} 'xesam:title' - the title of the media
- * @property {Array<string>} 'xesam:artist' - an array containing the artists
+ * A class in charge of building the payload expected by the native app
+ * the payload must be a {@link Payload}
  */
-
-/**
- * A payload that the native app understands
- *
- * @typedef {Object} Payload
- * @property {string} PlaybackStatus - Playing or Paused
- * @property {LoopStatus} LoopStatus - the loop status
- * @property {boolean} Shuffle - is shuffle on
- * @property {number} Volume - the volume
- * @property {boolean} CanGoNext - if the next button should be enabled
- * @property {boolean} CanGoPrevious - if previous button should be enabled
- * @property {string} Identity - the identity of the mpris player
- * @property {number} Rate - the playback speed of the media
- * @property {Metadata} Metadata - the media specific information
- */
-
 class Messenger {
+    /**
+     * Generate a new {@link Messenger}
+     */
     constructor () {
         /**
          *

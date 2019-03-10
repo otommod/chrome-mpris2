@@ -86,6 +86,12 @@ function hackAudioTags () {
     }
 }
 
+/**
+ * Execute a script on the current context and then remove it
+ *
+ * @ignore
+ * @param {string} script
+ */
 function executeScript (script) {
     let element = document.createElement('script');
     element.innerHTML = '(' + script + ')();';

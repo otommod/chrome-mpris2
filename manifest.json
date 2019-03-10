@@ -13,11 +13,12 @@
     {
       "matches": ["*://*/*"],
       "js": [
-        "src/player.js",
-        "src/messenger.js",
-        "src/playback.js",
-        "src/host.js",
-        "src/page.js"
+        "src/main/globals.js",
+        "src/main/player.js",
+        "src/main/messenger.js",
+        "src/main/playback.js",
+        "src/main/host.js",
+        "src/main/page.js"
       ],
       "run_at": "document_start",
       "all_frames": true
@@ -41,7 +42,7 @@
     {
       "matches": ["*://*/*"],
       "js": [
-        "src/main.js"
+        "src/init.js"
       ],
       "run_at": "document_start",
       "all_frames": true

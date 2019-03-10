@@ -1,41 +1,29 @@
 /**
- * Constants for playback looping support
+ * There should be one instance of Playback per page
  *
- * By default only <b>NONE</b> and <b>TRACK</b> are supported,
- * <b>PLAYLIST</b> looping should be implemented by provider
+ * This class is in charge of handling the playback of the active player
+ * it receives the commands from its {@link Host} and communicates the accordingly
+ * to the player.
  *
+ * It's also the responsible for exposing all the getters necessary
+ * to conform the {@link Payload} message.
  *
- * @constant {Object}
- * @property {string} NONE=None - default playback
- * @property {string} TRACK=Track - playback will loop current track
- * @property {string} PLAYLIST=Playlist - playback will loop current playlist
- */
-const LoopStatus = {
-    NONE: 'None',
-    TRACK: 'Track',
-    PLAYLIST: 'Playlist'
-};
-
-/**
- *
+ * By default all properties of {@link Payload} are extracted from the {@link this.activePlayer}
+ * although it is expected that this functionality is overridden by the providers.
  */
 class Playback {
     /**
-     *
+     * Create a new instance
      */
     constructor () {
         /**
-         *
+         * A dictionary of any controls extracted from the DOM
          * @type {Object.<string, HTMLElement>}
          */
         this.controls = {};
-        /**
-         *
-         * @type {LoopStatus}
-         */
-        this.loopStatus = LoopStatus.NONE;
 
         /**
+         * The current player being shown by the MPRIS2 interface
          *
          * @type {Player}
          */
@@ -43,19 +31,23 @@ class Playback {
     }
 
     /**
-     *
+     * One of {@link PlaybackStatus.PLAYING} or {@link PlaybackStatus.PAUSED}
      * @returns {string}
      */
     getStatus () {
-        return this.activePlayer && this.activePlayer.isPlaying() ? 'Playing' : 'Paused';
+        return this.activePlayer && this.activePlayer.isPlaying() ? PlaybackStatus.PLAYING : PlaybackStatus.PAUSED;
     }
 
+    /**
+     * Set the volume of playback
+     * @param {number} volume
+     */
     setVolume (volume) {
         this.activePlayer && this.activePlayer.setVolume(volume);
     }
 
     /**
-     *
+     * Get the volume of playback
      * @returns {number}
      */
     getVolume () {
@@ -63,7 +55,9 @@ class Playback {
     }
 
     /**
-     *
+     * Set the rate of playback.
+     * @example
+     * playback.setRate(1.5);
      * @param {number} rate
      */
     setRate (rate) {
@@ -71,36 +65,45 @@ class Playback {
     }
 
     /**
-     *
+     * Get the rate of playback
      * @returns {number}
      */
     getRate () {
         return this.activePlayer && this.activePlayer.getRate();
     }
 
+    /**
+     * Set the shuffle between tracks of playback
+     * @param {boolean} isShuffle
+     */
     setShuffle (isShuffle) {}
 
+    /**
+     * Get if the playback is shuffling between tracks
+     * @return {boolean}
+     */
     isShuffle () {
         return false;
     }
 
     /**
-     * By default we don't support playlist looping
-     * so we force track loop if any loop is specified
+     * By default we don't support playlist looping ({@link LoopStatus}.PLAYLIST)
+     * so we force {@link LoopStatus}.TRACK loop if any loop other than {@link LoopStatus}.NONE is specified
      *
      * @param {LoopStatus} status
      */
     setLoopStatus (status) {
-        this.loopStatus = status === LoopStatus.PLAYLIST ? LoopStatus.TRACK : status;
-        this.activePlayer && this.activePlayer.setLoop(this.loopStatus === LoopStatus.TRACK);
+        let loopStatus = status === LoopStatus.PLAYLIST ? LoopStatus.TRACK : status;
+        this.activePlayer && this.activePlayer.setLoop(loopStatus === LoopStatus.TRACK);
     }
 
     /**
-     *
+     * Get the loop status of playback
      * @returns {LoopStatus}
      */
     getLoopStatus () {
-        return this.loopStatus;
+        return this.activePlayer && this.activePlayer.isLooping() ?
+          LoopStatus.TRACK : LoopStatus.NONE;
     }
 
     /**
@@ -122,45 +125,47 @@ class Playback {
     }
 
     /**
+     * Go to next media
      * This should be implemented per provider
      */
     next () {}
 
     /**
+     * Go to previous
      * This should be implemented per provider
      */
     previous () {}
 
     /**
-     * Start play active player
+     * **COMMAND** Start to play active player
      */
     play () {
         this.activePlayer && this.activePlayer.play();
     }
 
     /**
-     * Pauses active player
+     * **COMMAND** Pause active player
      */
     pause () {
         this.activePlayer && this.activePlayer.pause();
     }
 
     /**
-     * Toggle betwen play and pause
+     * **COMMAND** Toggle between play and pause
      */
     togglePlayback () {
-        this.activePlayer && this.activePlayer.playpause();
+        this.activePlayer && this.activePlayer.playPause();
     }
 
     /**
-     * Stop active player
+     * **COMMAND** Stop active player
      */
     stop () {
         this.activePlayer && this.activePlayer.stop();
     }
 
     /**
-     * Seek activePlayer to offset
+     * **COMMAND** Seek activePlayer to offset
      *
      * @param {number} offset
      */
@@ -169,7 +174,7 @@ class Playback {
     }
 
     /**
-     * Set current position of active player
+     * **COMMAND** Set current position of active player
      *
      * @param {string} id - the id of the player
      * @param {number} position
@@ -179,7 +184,7 @@ class Playback {
     }
 
     /**
-     * Get active player's position
+     * **COMMAND** Get active player's position
      *
      * @returns {number}
      */
@@ -188,6 +193,7 @@ class Playback {
     }
 
     /**
+     * Set the current active player
      *
      * @param {Player} player
      */
@@ -196,13 +202,16 @@ class Playback {
     }
 
     /**
+     * **COMMAND** Toggle the fullscreen state
      *
+     * @todo test this works
      */
     toggleFullScreen () {
         this.activePlayer && this.activePlayer.toggleFullScreen();
     }
 
     /**
+     * Get the identity of playback, by default it is the site's domain
      *
      * @returns {string}
      */

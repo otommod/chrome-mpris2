@@ -1,64 +1,12 @@
 /**
  *
- * @type {Object}
- * @property {string} CHANGE=changed - whether a mrpis2 property has changed
- * @property {string} RETURN=return - if we are returning an expected value
- * @property {string} SEEK=seeked - seeking
- * @property {string} QUIT=quit - inform to close the player
- */
-const MessageType = {
-    CHANGE: 'changed',
-    RETURN: 'return',
-    SEEK: 'seeked',
-    QUIT: 'quit'
-};
-
-/**
+ * A class in charge of communicating back and forth with the native app.
  *
- * @constant {Object}
- * @property {string} GET=Get - request a property from the client
- * @property {string} SET=Set - request to set a property in the client
- * @property {string} PLAY=Play - request to start playing the current media
- * @property {string} PAUSE=Pause - request to pause the current media
- * @property {string} TOGGLE=PlayPause - request to toggle playback of current media
- * @property {string} STOP=Stop - request to completely stop playback
- * @property {string} NEXT=Next - request to skip to next media
- * @property {string} PREVIOUS=Previous - request to skip to previous media
- * @property {string} SEEK=Seek - request to move current playback position by some offset
- * @property {string} SET_POSITION=SetPosition - request to move current playback position to specific point
- */
-const MessageMethod = {
-    GET: 'Get',
-    SET: 'Set',
-    PLAY: 'Play',
-    PAUSE: 'Pause',
-    TOGGLE: 'PlayPause',
-    STOP: 'Stop',
-    NEXT: 'Next',
-    PREVIOUS: 'Previous',
-    SEEK: 'Seek',
-    SET_POSITION: 'SetPosition'
-};
-
-/**
+ * There should be no need to modify/extend this class
+ * as it uses {@link Playback} to build the messages to send
+ * and as the receiver of all messages from the MPRIS2 interfase
  *
- * @constant {Object}
- * @property {string} POSITION=Position - the time of playback
- * @property {string} RATE=Rate - the speed rate of playback
- * @property {string} VOLUME=Volume - the volume of playback
- * @property {string} SHUFFLE=Shuffle - the shuffle state of playback
- * @property {string} LOOP_STATUS=LoopStatus - the loop status of playback
- * @property {string} FULL_SCREEN=Fullscreen - the fullscreen state
  */
-const MessageProperty = {
-    POSITION: 'Position',
-    RATE: 'Rate',
-    VOLUME: 'Volume',
-    SHUFFLE: 'Shuffle',
-    LOOP_STATUS: 'LoopStatus',
-    FULL_SCREEN: 'Fullscreen'
-};
-
 class Host {
     /**
      *
@@ -67,11 +15,29 @@ class Host {
      * @param {Object} port - see {@link https://developer.chrome.com/apps/runtime#type-Port}
      */
     constructor (playback, messenger, port) {
+        /**
+         * The playback to interact with
+         * @type {Playback}
+         */
         this.playback = playback;
+        /**
+         * A messenger for caching and building the payloads
+         * @type {Messenger}
+         */
         this.messenger = messenger;
+        /**
+         * A chrome.runtime.Port
+         * @see https://developer.chrome.com/apps/runtime#type-Port
+         * @type {Object}
+         */
         this.port = port;
 
+        /**
+         * The default Payload.Identity for the MPRIS2 Interface
+         * @type {string}
+         */
         this.source = 'browser';
+
         this.port.onMessage.addListener((r, s, sr) => this.messageListener(r, s, sr));
     }
 
@@ -104,6 +70,7 @@ class Host {
     }
 
     /**
+     * Set player as active player and send data to native app
      *
      * @param {Player} player
      */
