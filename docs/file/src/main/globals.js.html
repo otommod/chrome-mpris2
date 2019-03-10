@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/main/globals.js | browser-mpris2</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Implements the MPRIS2 interface for Chrome and Firefox"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="browser-mpris2"><meta property="twitter:description" content="Implements the MPRIS2 interface for Chrome and Firefox"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/Lt-Mayonesa/browser-mpris2"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-hackAudioTags">hackAudioTags</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-host">host</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-messenger">messenger</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-page">page</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-playback">playback</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#main">main</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/main/host.js~Host.html">Host</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/main/messenger.js~Messenger.html">Messenger</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/main/page.js~Page.html">Page</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/main/playback.js~Playback.html">Playback</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/main/player.js~Player.html">Player</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LoopStatus">LoopStatus</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MessageMethod">MessageMethod</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MessageProperty">MessageProperty</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MessageType">MessageType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PlaybackStatus">PlaybackStatus</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Metadata">Metadata</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Payload">Payload</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#providers">providers</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/providers/netflix.js~NetflixPlayer.html">NetflixPlayer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/providers/soundcloud.js~SoundCloudPlayback.html">SoundCloudPlayback</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/providers/soundcloud.js~SoundCloudPlayer.html">SoundCloudPlayer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/providers/youtube.js~YouTubePage.html">YouTubePage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/providers/youtube.js~YouTubePlayback.html">YouTubePlayback</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/providers/youtube.js~YouTubePlayer.html">YouTubePlayer</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/main/globals.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ *
+ * @type {Object}
+ * @property {string} CHANGE=changed - whether a mrpis2 property has changed
+ * @property {string} RETURN=return - if we are returning an expected value
+ * @property {string} SEEK=seeked - seeking
+ * @property {string} QUIT=quit - inform to close the player
+ */
+const MessageType = {
+    CHANGE: &apos;changed&apos;,
+    RETURN: &apos;return&apos;,
+    SEEK: &apos;seeked&apos;,
+    QUIT: &apos;quit&apos;
+};
+
+/**
+ *
+ * @constant {Object}
+ * @property {string} GET=Get - request a property from the client
+ * @property {string} SET=Set - request to set a property in the client
+ * @property {string} PLAY=Play - request to start playing the current media
+ * @property {string} PAUSE=Pause - request to pause the current media
+ * @property {string} TOGGLE=PlayPause - request to toggle playback of current media
+ * @property {string} STOP=Stop - request to completely stop playback
+ * @property {string} NEXT=Next - request to skip to next media
+ * @property {string} PREVIOUS=Previous - request to skip to previous media
+ * @property {string} SEEK=Seek - request to move current playback position by some offset
+ * @property {string} SET_POSITION=SetPosition - request to move current playback position to specific point
+ */
+const MessageMethod = {
+    GET: &apos;Get&apos;,
+    SET: &apos;Set&apos;,
+    PLAY: &apos;Play&apos;,
+    PAUSE: &apos;Pause&apos;,
+    TOGGLE: &apos;PlayPause&apos;,
+    STOP: &apos;Stop&apos;,
+    NEXT: &apos;Next&apos;,
+    PREVIOUS: &apos;Previous&apos;,
+    SEEK: &apos;Seek&apos;,
+    SET_POSITION: &apos;SetPosition&apos;
+};
+
+/**
+ *
+ * @constant {Object}
+ * @property {string} POSITION=Position - the time of playback
+ * @property {string} RATE=Rate - the speed rate of playback
+ * @property {string} VOLUME=Volume - the volume of playback
+ * @property {string} SHUFFLE=Shuffle - the shuffle state of playback
+ * @property {string} LOOP_STATUS=LoopStatus - the loop status of playback
+ * @property {string} FULL_SCREEN=Fullscreen - the fullscreen state
+ */
+const MessageProperty = {
+    POSITION: &apos;Position&apos;,
+    RATE: &apos;Rate&apos;,
+    VOLUME: &apos;Volume&apos;,
+    SHUFFLE: &apos;Shuffle&apos;,
+    LOOP_STATUS: &apos;LoopStatus&apos;,
+    FULL_SCREEN: &apos;Fullscreen&apos;
+};
+
+/**
+ * Constants for playback looping support
+ *
+ * By default only &lt;b&gt;NONE&lt;/b&gt; and &lt;b&gt;TRACK&lt;/b&gt; are supported,
+ * &lt;b&gt;PLAYLIST&lt;/b&gt; looping should be implemented by provider
+ *
+ *
+ * @constant {Object}
+ * @property {string} NONE=None - default playback
+ * @property {string} TRACK=Track - playback will loop current track
+ * @property {string} PLAYLIST=Playlist - playback will loop current playlist
+ */
+const LoopStatus = {
+    NONE: &apos;None&apos;,
+    TRACK: &apos;Track&apos;,
+    PLAYLIST: &apos;Playlist&apos;
+};
+
+/**
+ * Constants for playback status
+ *
+ * @constant {Object}
+ * @property {string} PLAYING=Playing - the media is playing
+ * @property {string} PAUSED=Paused - the media is paused
+ */
+const PlaybackStatus = {
+    PLAYING: &apos;Playing&apos;,
+    PAUSED: &apos;Paused&apos;
+};
+
+/**
+ * @typedef {Object} Metadata
+ * @property {string} &apos;mpris:trackid&apos; - the track id (can be anything)
+ * @property {number} &apos;mpris:length&apos; - the length of the media
+ * @property {string} &apos;mpris:artUrl&apos; - the url of the cover image
+ * @property {string} &apos;xesam:url&apos; - the url of the media
+ * @property {string} &apos;xesam:title&apos; - the title of the media
+ * @property {Array&lt;string&gt;} &apos;xesam:artist&apos; - an array containing the artists
+ */
+
+/**
+ * A payload that the native app understands
+ *
+ * @typedef {Object} Payload
+ * @property {string} PlaybackStatus - Playing or Paused
+ * @property {LoopStatus} LoopStatus - the loop status
+ * @property {boolean} Shuffle - is shuffle on
+ * @property {number} Volume - the volume
+ * @property {boolean} CanGoNext - if the next button should be enabled
+ * @property {boolean} CanGoPrevious - if previous button should be enabled
+ * @property {string} Identity - the identity of the mpris player
+ * @property {number} Rate - the playback speed of the media
+ * @property {Metadata} Metadata - the media specific information
+ */
+
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

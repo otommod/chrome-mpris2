@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/providers/youtube.js | browser-mpris2</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Implements the MPRIS2 interface for Chrome and Firefox"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="browser-mpris2"><meta property="twitter:description" content="Implements the MPRIS2 interface for Chrome and Firefox"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/Lt-Mayonesa/browser-mpris2"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-hackAudioTags">hackAudioTags</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-host">host</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-messenger">messenger</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-page">page</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-playback">playback</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#main">main</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/main/host.js~Host.html">Host</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/main/messenger.js~Messenger.html">Messenger</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/main/page.js~Page.html">Page</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/main/playback.js~Playback.html">Playback</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/main/player.js~Player.html">Player</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LoopStatus">LoopStatus</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MessageMethod">MessageMethod</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MessageProperty">MessageProperty</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MessageType">MessageType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PlaybackStatus">PlaybackStatus</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Metadata">Metadata</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Payload">Payload</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#providers">providers</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/providers/netflix.js~NetflixPlayer.html">NetflixPlayer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/providers/soundcloud.js~SoundCloudPlayback.html">SoundCloudPlayback</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/providers/soundcloud.js~SoundCloudPlayer.html">SoundCloudPlayer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/providers/youtube.js~YouTubePage.html">YouTubePage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/providers/youtube.js~YouTubePlayback.html">YouTubePlayback</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/providers/youtube.js~YouTubePlayer.html">YouTubePlayer</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/providers/youtube.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ *
+ * This file adds support for Youtube specific playback
+ *
+ * by extending and overriding the classes {@link Page},
+ * {@link Playback}, and {@link Player}.
+ * we can define how we&apos;ll interact with youtube&apos;s site
+ *
+ *
+ */
+
+/**
+ * The metadata sent to the mpris host is defined
+ * by the {@link Player} implementation
+ *
+ * For youtube we get:
+ *  - the song title from the html
+ *  - the artist from the uploader
+ *  - the cover image from the static resource of the thumbnail
+ */
+class YouTubePlayer extends Player {
+
+    /**
+     * A youtube video can have 4 different baseURLs
+     *
+     * 1. /watch?v=ID_OF_VIDEO - when watching the default way
+     * 2. /embed/ID_OF_VIDEO - when it is embedded on a different site
+     * 3. /user/nprmusic - when in a users page
+     * 4. /channel/UCC6mthPyZTpbk-Klz9RMxMw - when in a channels page
+     *
+     * In cases 3 and 4 we don&apos;t have a way to figure out it&apos;s video id
+     * so the player id will be the full URL
+     *
+     * @returns {string}
+     */
+    getId () {
+        if (this.URL.pathname === &apos;/watch&apos;) {
+            return this.URL.searchParams.get(&apos;v&apos;);
+        } else if (this.URL.pathname.match(&apos;/embed&apos;)) {
+            return this.URL.pathname.split(&apos;/&apos;).pop();
+        } else
+            return this.getUrl();
+    }
+
+    getTitle () {
+        let title = document.querySelector(&apos;.ytp-title-text&apos;);
+        return (title &amp;&amp; title.textContent) || super.getTitle();
+    }
+
+    getArtists () {
+        let owner = document.querySelector(&apos;#owner-name a&apos;);
+        return owner &amp;&amp; [owner.textContent];
+    }
+
+    /**
+     * If we couldn&apos;t figure out the video id (see {@link getId})
+     * then the player&apos;s id will be the element&apos;s baseURI, if that&apos;s the case
+     * we won&apos;t be able to get the thumbnail. so call super
+     *
+     * @returns {string}
+     */
+    getCover () {
+        if (this.getId().includes(&apos;/&apos;))
+            return super.getCover();
+        return `https://i.ytimg.com/vi/${this.getId()}/hqdefault.jpg`;
+    }
+}
+
+Player = YouTubePlayer;
+
+/*
+    PLAYBACK
+ */
+
+class YouTubePlayback extends Playback {
+
+    setRate (rate) {
+        if (rate &lt;= 0)
+            return;
+        const closestRate = rate &lt;= 1.75 ? Math.ceil(rate * 4) : 7;
+
+        // first make the settings menu appear
+        document.querySelector(&apos;.ytp-settings-button&apos;).click();
+        // then the &quot;speed&quot; submenu
+        document.querySelectorAll(&apos;.ytp-settings-menu .ytp-menuitem&apos;)
+          .forEach(each =&gt; {
+              if (each.firstElementChild.innerText === &apos;Speed&apos;)
+                  each.click();
+          });
+
+        // set a timeout because of animation delays
+        setTimeout(() =&gt; {
+            // select the closest speed
+            document.querySelectorAll(&apos;.ytp-settings-menu .ytp-menuitem&apos;)
+              [closestRate - 1].click();
+            // and close the settings menu again
+            document.querySelector(&apos;.ytp-settings-button&apos;).click();
+        }, 300);
+    }
+
+    setVolume (volume) {
+        super.setVolume(volume);
+        if (volume === 0 &amp;&amp; this.controls.volumeButton &amp;&amp; this.controls.volumeButton.title.includes(&apos;Mute&apos;))
+            this.controls.volumeButton.click();
+        else {
+            if (this.controls.volumeButton &amp;&amp; this.controls.volumeButton.title.includes(&apos;Unmute&apos;))
+                this.controls.volumeButton.click();
+
+            if (this.controls.volumeHandle) {
+                this.controls.volumeHandle.style.left = `${40 * volume}px`;
+            }
+        }
+
+    };
+
+    isShuffle () {
+        return this.isControlAvailable(this.controls.shuffleButton) &amp;&amp;
+          this.isActionPressed(this.controls.shuffleButton);
+    }
+
+    setShuffle (isShuffle) {
+        if (this.controls.shuffleButton)
+            this.controls.shuffleButton.click();
+    }
+
+    getLoopStatus () {
+        if (this.isControlAvailable(this.controls.loopPlaylistButton) &amp;&amp;
+          this.isActionPressed(this.controls.loopPlaylistButton))
+            return LoopStatus.PLAYLIST;
+        else
+            return super.getLoopStatus();
+    }
+
+    setLoopStatus (status) {
+        if (this.isControlAvailable(this.controls.loopPlaylistButton)) {
+            if (status === LoopStatus.PLAYLIST) {
+                if (!this.isActionPressed(this.controls.loopPlaylistButton))
+                    this.controls.loopPlaylistButton.click();
+            } else {
+                if (this.isActionPressed(this.controls.loopPlaylistButton))
+                    this.controls.loopPlaylistButton.click();
+                super.setLoopStatus(status);
+            }
+        } else
+            super.setLoopStatus(status);
+    }
+
+    canGoNext () {
+        return !this.isButtonDisabled(this.controls.nextButton);
+    }
+
+    canGoPrevious () {
+        return !this.isButtonDisabled(this.controls.previousButton);
+    }
+
+    next () {
+        if (!this.isButtonDisabled(this.controls.nextButton))
+            this.controls.nextButton.click();
+    }
+
+    previous () {
+        if (!this.isButtonDisabled(this.controls.previousButton))
+            this.controls.previousButton.click();
+    }
+
+    /**
+     *
+     * @param {HTMLElement} button
+     * @returns {boolean}
+     */
+    isActionPressed (button) {
+        return button.firstElementChild.getAttribute(&apos;aria-pressed&apos;) === &apos;true&apos;;
+    }
+
+    /**
+     *
+     * @param {HTMLElement} button
+     * @returns {*|string}
+     */
+    isButtonDisabled (button) {
+        return !button || button.getAttribute(&apos;aria-disabled&apos;) === &apos;true&apos;;
+    }
+
+    /**
+     *
+     * @param {HTMLElement} element
+     * @returns {boolean}
+     */
+    isControlAvailable (element) {
+        return !!(element &amp;&amp; element.offsetParent);
+    }
+}
+
+Playback = YouTubePlayback;
+
+class YouTubePage extends Page {
+
+    registerPlayer (element) {
+        if (this.players.find(player =&gt; player.element === element)) {
+            return;
+        }
+
+        let player = new Player(this, this.host, element);
+
+        this.players.push(player);
+
+        let container = element.parentElement.parentElement;
+
+        this.playback.controls = {
+            ...this.playback.controls,
+            nextButton: (container || document).querySelector(&apos;.ytp-next-button&apos;),
+            previousButton: (container || document).querySelector(&apos;.ytp-prev-button&apos;),
+            volumeButton: (container || document).querySelector(&apos;.ytp-mute-button.ytp-button&apos;),
+            volumeHandle: (container || document).querySelector(&apos;.ytp-volume-slider-handle&apos;)
+        };
+
+        // Ignore short sounds, they are most likely a chat notification sound
+        // but still allow when undetermined (e.g. video stream)
+        if (player.isPlaying() &amp;&amp; !(isNaN(element.duration) || (element.duration &gt; 0 &amp;&amp; element.duration &lt; 5))) {
+            this.setActivePlayer(player);
+        }
+    }
+
+}
+
+Page = YouTubePage;
+
+/*
+    for youtube we need to listen for yt-page-data-updated
+    we subscribe to mpris2-setup to make sure page is defined
+ */
+window.addEventListener(&apos;mpris2-setup&apos;, () =&gt; {
+    window.addEventListener(&apos;yt-page-data-updated&apos;, function () {
+        let playlistActionsButtons = document.querySelectorAll(&apos;#playlist-actions a&apos;);
+
+        playlistActionsButtons.forEach(each =&gt; {
+            page.observeForChanges(each.firstElementChild, {
+                attributeFilter: [&apos;aria-pressed&apos;]
+            });
+        });
+
+        page.playback.controls = {
+            ...page.playback.controls,
+            shuffleButton: playlistActionsButtons[1],
+            loopPlaylistButton: playlistActionsButtons[0]
+        };
+
+        document.querySelectorAll(&apos;video,audio&apos;)
+          .forEach(player =&gt; page.registerPlayer(player));
+
+        if (page.getActivePlayer()) {
+            if (page.getActivePlayer().isHidden() &amp;&amp; !page.getActivePlayer().isPlaying())
+                page.host.quit(page.getActivePlayer());
+            else
+                page.host.start(page.getActivePlayer());
+        }
+    });
+});
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

@@ -1,0 +1,4855 @@
+[
+  {
+    "__docId__": 1,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Infinity",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 2,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~NaN",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 3,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~undefined",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 4,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~null",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 5,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 6,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 7,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 8,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 9,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 10,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 11,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Symbol",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 12,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Error",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 13,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~EvalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 14,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~InternalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 15,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RangeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 16,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ReferenceError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 17,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~SyntaxError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 18,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~TypeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 19,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~URIError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 20,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 21,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 22,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Date",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 23,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~String",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 24,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~string",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 25,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RegExp",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 26,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 28,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8ClampedArray",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float64Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Map",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Set",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakMap",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakSet",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ArrayBuffer",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~DataView",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~JSON",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Promise",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Generator",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~GeneratorFunction",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Reflect",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Proxy",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
+    "name": "src/init.js",
+    "content": "hackAudioTags();\n\n// If this project grows we should consider dependency injection\n/**\n *\n * @const {Playback}\n */\nconst playback = new Playback();\n/**\n *\n * @const {Messenger}\n */\nconst messenger = new Messenger();\n/**\n *\n * @const {Host}\n */\nconst host = new Host(playback, messenger, chrome.runtime.connect());\n/**\n *\n * @const {Page}\n */\nconst page = new Page(document, playback, host);\n\nwindow.addEventListener('load', () => {\n\n    page.checkForMediaElements();\n\n    page.observeForMedia(document.documentElement);\n\n    setTimeout(() => {\n        page.checkForMediaElements();\n    }, 1000);\n\n    window.dispatchEvent(new Event('mpris2-setup'));\n});\n\nwindow.addEventListener('DOMContentLoaded', () => {\n    page.checkForMediaElements();\n});\n\n/**\n * Here we replace the <b>document.createElement</b> function with our own so we can detect\n * when an &lt;audio&gt; tag is created that is not added to the DOM which most pages do\n * while a &lt;video&gt; tag typically ends up being displayed to the user, audio is not.\n *\n * Original code from {@link https://github.com/KDE/plasma-browser-integration/blob/master/extension/content-script.js}\n */\nfunction hackAudioTags () {\n    // Bug 379087: Only inject this stuff if we're a proper HTML page\n    // otherwise we might end up messing up XML stuff\n    // only if our documentElement is a \"html\" tag we'll do it\n    // the rest is only set up in DOMContentLoaded which is only executed for proper pages anyway\n\n    // tagName always returned \"HTML\" for me but I wouldn't trust it always being uppercase\n    if (document.documentElement.tagName.toLowerCase() === 'html') {\n        // HACK We cannot really pass variables from the page's scope to our content-script's scope\n        // so we just blatantly insert the <audio> tag in the DOM and pick it up through our regular\n        // mechanism. Let's see how this goes :D\n\n        executeScript(`function() {\n                var oldCreateElement = document.createElement;\n                document.createElement = function () {\n                    var createdTag = oldCreateElement.apply(this, arguments);\n                    var tagName = arguments[0];\n                    if (typeof tagName === \"string\" && tagName.toLowerCase() === \"audio\") {\n                        (document.head || document.documentElement).appendChild(createdTag);\n                    }\n                    return createdTag;\n                };\n            }\n        `);\n\n        // We also briefly add items created as new Audio() to the DOM so we can control it\n        // similar to the document.createElement hack above\n        executeScript(`function() {\n                var oldAudio = window.Audio;\n                window.Audio = function () {\n                    var createdAudio = new (Function.prototype.bind.apply(oldAudio, arguments));\n                    (document.head || document.documentElement).appendChild(createdAudio);\n                    createdAudio.parentNode.removeChild(createdAudio);\n                    return createdAudio;\n                };\n            }\n        `);\n    }\n}\n\n/**\n * Execute a script on the current context and then remove it\n *\n * @ignore\n * @param {string} script\n */\nfunction executeScript (script) {\n    let element = document.createElement('script');\n    element.innerHTML = '(' + script + ')();';\n    (document.body || document.head || document.documentElement).appendChild(element);\n    // We need to remove the script tag after inserting or else websites relying on the order of items in\n    // document.getElementsByTagName(\"script\") will break (looking at you, Google Hangouts)\n    element.parentNode.removeChild(element);\n}\n",
+    "static": true,
+    "longname": "/home/joaco/src/chrome-extensions/browser-mpris2/src/init.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "variable",
+    "name": "playback",
+    "memberof": "src/init.js",
+    "static": true,
+    "longname": "src/init.js~playback",
+    "access": "public",
+    "export": false,
+    "importPath": "browser-mpris2",
+    "importStyle": null,
+    "description": "",
+    "lineNumber": 8,
+    "unknown": [
+      {
+        "tagName": "@const",
+        "tagValue": "{Playback}"
+      }
+    ],
+    "type": {
+      "types": [
+        "src/main/playback.js~Playback"
+      ]
+    }
+  },
+  {
+    "__docId__": 50,
+    "kind": "variable",
+    "name": "messenger",
+    "memberof": "src/init.js",
+    "static": true,
+    "longname": "src/init.js~messenger",
+    "access": "public",
+    "export": false,
+    "importPath": "browser-mpris2",
+    "importStyle": null,
+    "description": "",
+    "lineNumber": 13,
+    "unknown": [
+      {
+        "tagName": "@const",
+        "tagValue": "{Messenger}"
+      }
+    ],
+    "type": {
+      "types": [
+        "src/main/messenger.js~Messenger"
+      ]
+    }
+  },
+  {
+    "__docId__": 51,
+    "kind": "variable",
+    "name": "host",
+    "memberof": "src/init.js",
+    "static": true,
+    "longname": "src/init.js~host",
+    "access": "public",
+    "export": false,
+    "importPath": "browser-mpris2",
+    "importStyle": null,
+    "description": "",
+    "lineNumber": 18,
+    "unknown": [
+      {
+        "tagName": "@const",
+        "tagValue": "{Host}"
+      }
+    ],
+    "type": {
+      "types": [
+        "src/main/host.js~Host"
+      ]
+    }
+  },
+  {
+    "__docId__": 52,
+    "kind": "variable",
+    "name": "page",
+    "memberof": "src/init.js",
+    "static": true,
+    "longname": "src/init.js~page",
+    "access": "public",
+    "export": false,
+    "importPath": "browser-mpris2",
+    "importStyle": null,
+    "description": "",
+    "lineNumber": 23,
+    "unknown": [
+      {
+        "tagName": "@const",
+        "tagValue": "{Page}"
+      }
+    ],
+    "type": {
+      "types": [
+        "src/main/page.js~Page"
+      ]
+    }
+  },
+  {
+    "__docId__": 53,
+    "kind": "function",
+    "name": "hackAudioTags",
+    "memberof": "src/init.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/init.js~hackAudioTags",
+    "access": "public",
+    "export": false,
+    "importPath": "browser-mpris2",
+    "importStyle": null,
+    "description": "Here we replace the <b>document.createElement</b> function with our own so we can detect\nwhen an &lt;audio&gt; tag is created that is not added to the DOM which most pages do\nwhile a &lt;video&gt; tag typically ends up being displayed to the user, audio is not.\n\nOriginal code from {@link https://github.com/KDE/plasma-browser-integration/blob/master/extension/content-script.js}",
+    "lineNumber": 49,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 54,
+    "kind": "function",
+    "name": "executeScript",
+    "memberof": "src/init.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/init.js~executeScript",
+    "access": "public",
+    "export": false,
+    "importPath": "browser-mpris2",
+    "importStyle": null,
+    "description": "Execute a script on the current context and then remove it",
+    "lineNumber": 95,
+    "ignore": true,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "script",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 55,
+    "kind": "file",
+    "name": "src/main/globals.js",
+    "content": "/**\n *\n * @type {Object}\n * @property {string} CHANGE=changed - whether a mrpis2 property has changed\n * @property {string} RETURN=return - if we are returning an expected value\n * @property {string} SEEK=seeked - seeking\n * @property {string} QUIT=quit - inform to close the player\n */\nconst MessageType = {\n    CHANGE: 'changed',\n    RETURN: 'return',\n    SEEK: 'seeked',\n    QUIT: 'quit'\n};\n\n/**\n *\n * @constant {Object}\n * @property {string} GET=Get - request a property from the client\n * @property {string} SET=Set - request to set a property in the client\n * @property {string} PLAY=Play - request to start playing the current media\n * @property {string} PAUSE=Pause - request to pause the current media\n * @property {string} TOGGLE=PlayPause - request to toggle playback of current media\n * @property {string} STOP=Stop - request to completely stop playback\n * @property {string} NEXT=Next - request to skip to next media\n * @property {string} PREVIOUS=Previous - request to skip to previous media\n * @property {string} SEEK=Seek - request to move current playback position by some offset\n * @property {string} SET_POSITION=SetPosition - request to move current playback position to specific point\n */\nconst MessageMethod = {\n    GET: 'Get',\n    SET: 'Set',\n    PLAY: 'Play',\n    PAUSE: 'Pause',\n    TOGGLE: 'PlayPause',\n    STOP: 'Stop',\n    NEXT: 'Next',\n    PREVIOUS: 'Previous',\n    SEEK: 'Seek',\n    SET_POSITION: 'SetPosition'\n};\n\n/**\n *\n * @constant {Object}\n * @property {string} POSITION=Position - the time of playback\n * @property {string} RATE=Rate - the speed rate of playback\n * @property {string} VOLUME=Volume - the volume of playback\n * @property {string} SHUFFLE=Shuffle - the shuffle state of playback\n * @property {string} LOOP_STATUS=LoopStatus - the loop status of playback\n * @property {string} FULL_SCREEN=Fullscreen - the fullscreen state\n */\nconst MessageProperty = {\n    POSITION: 'Position',\n    RATE: 'Rate',\n    VOLUME: 'Volume',\n    SHUFFLE: 'Shuffle',\n    LOOP_STATUS: 'LoopStatus',\n    FULL_SCREEN: 'Fullscreen'\n};\n\n/**\n * Constants for playback looping support\n *\n * By default only <b>NONE</b> and <b>TRACK</b> are supported,\n * <b>PLAYLIST</b> looping should be implemented by provider\n *\n *\n * @constant {Object}\n * @property {string} NONE=None - default playback\n * @property {string} TRACK=Track - playback will loop current track\n * @property {string} PLAYLIST=Playlist - playback will loop current playlist\n */\nconst LoopStatus = {\n    NONE: 'None',\n    TRACK: 'Track',\n    PLAYLIST: 'Playlist'\n};\n\n/**\n * Constants for playback status\n *\n * @constant {Object}\n * @property {string} PLAYING=Playing - the media is playing\n * @property {string} PAUSED=Paused - the media is paused\n */\nconst PlaybackStatus = {\n    PLAYING: 'Playing',\n    PAUSED: 'Paused'\n};\n\n/**\n * @typedef {Object} Metadata\n * @property {string} 'mpris:trackid' - the track id (can be anything)\n * @property {number} 'mpris:length' - the length of the media\n * @property {string} 'mpris:artUrl' - the url of the cover image\n * @property {string} 'xesam:url' - the url of the media\n * @property {string} 'xesam:title' - the title of the media\n * @property {Array<string>} 'xesam:artist' - an array containing the artists\n */\n\n/**\n * A payload that the native app understands\n *\n * @typedef {Object} Payload\n * @property {string} PlaybackStatus - Playing or Paused\n * @property {LoopStatus} LoopStatus - the loop status\n * @property {boolean} Shuffle - is shuffle on\n * @property {number} Volume - the volume\n * @property {boolean} CanGoNext - if the next button should be enabled\n * @property {boolean} CanGoPrevious - if previous button should be enabled\n * @property {string} Identity - the identity of the mpris player\n * @property {number} Rate - the playback speed of the media\n * @property {Metadata} Metadata - the media specific information\n */\n\n",
+    "static": true,
+    "longname": "/home/joaco/src/chrome-extensions/browser-mpris2/src/main/globals.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 56,
+    "kind": "variable",
+    "name": "MessageType",
+    "memberof": "src/main/globals.js",
+    "static": true,
+    "longname": "src/main/globals.js~MessageType",
+    "access": "public",
+    "export": false,
+    "importPath": "browser-mpris2/src/main/globals.js",
+    "importStyle": null,
+    "description": "",
+    "lineNumber": 9,
+    "properties": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "defaultValue": "changed",
+        "defaultRaw": "changed",
+        "name": "CHANGE",
+        "description": "whether a mrpis2 property has changed"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "defaultValue": "return",
+        "defaultRaw": "return",
+        "name": "RETURN",
+        "description": "if we are returning an expected value"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "defaultValue": "seeked",
+        "defaultRaw": "seeked",
+        "name": "SEEK",
+        "description": "seeking"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "defaultValue": "quit",
+        "defaultRaw": "quit",
+        "name": "QUIT",
+        "description": "inform to close the player"
+      }
+    ],
+    "type": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 57,
+    "kind": "variable",
+    "name": "MessageMethod",
+    "memberof": "src/main/globals.js",
+    "static": true,
+    "longname": "src/main/globals.js~MessageMethod",
+    "access": "public",
+    "export": false,
+    "importPath": "browser-mpris2/src/main/globals.js",
+    "importStyle": null,
+    "description": "",
+    "lineNumber": 30,
+    "unknown": [
+      {
+        "tagName": "@constant",
+        "tagValue": "{Object}"
+      }
+    ],
+    "properties": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "defaultValue": "Get",
+        "defaultRaw": "Get",
+        "name": "GET",
+        "description": "request a property from the client"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "defaultValue": "Set",
+        "defaultRaw": "Set",
+        "name": "SET",
+        "description": "request to set a property in the client"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "defaultValue": "Play",
+        "defaultRaw": "Play",
+        "name": "PLAY",
+        "description": "request to start playing the current media"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "defaultValue": "Pause",
+        "defaultRaw": "Pause",
+        "name": "PAUSE",
+        "description": "request to pause the current media"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "defaultValue": "PlayPause",
+        "defaultRaw": "PlayPause",
+        "name": "TOGGLE",
+        "description": "request to toggle playback of current media"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "defaultValue": "Stop",
+        "defaultRaw": "Stop",
+        "name": "STOP",
+        "description": "request to completely stop playback"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "defaultValue": "Next",
+        "defaultRaw": "Next",
+        "name": "NEXT",
+        "description": "request to skip to next media"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "defaultValue": "Previous",
+        "defaultRaw": "Previous",
+        "name": "PREVIOUS",
+        "description": "request to skip to previous media"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "defaultValue": "Seek",
+        "defaultRaw": "Seek",
+        "name": "SEEK",
+        "description": "request to move current playback position by some offset"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "defaultValue": "SetPosition",
+        "defaultRaw": "SetPosition",
+        "name": "SET_POSITION",
+        "description": "request to move current playback position to specific point"
+      }
+    ],
+    "type": {
+      "types": [
+        "{\"GET\": string, \"SET\": string, \"PLAY\": string, \"PAUSE\": string, \"TOGGLE\": string, \"STOP\": string, \"NEXT\": string, \"PREVIOUS\": string, \"SEEK\": string, \"SET_POSITION\": string}"
+      ]
+    }
+  },
+  {
+    "__docId__": 58,
+    "kind": "variable",
+    "name": "MessageProperty",
+    "memberof": "src/main/globals.js",
+    "static": true,
+    "longname": "src/main/globals.js~MessageProperty",
+    "access": "public",
+    "export": false,
+    "importPath": "browser-mpris2/src/main/globals.js",
+    "importStyle": null,
+    "description": "",
+    "lineNumber": 53,
+    "unknown": [
+      {
+        "tagName": "@constant",
+        "tagValue": "{Object}"
+      }
+    ],
+    "properties": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "defaultValue": "Position",
+        "defaultRaw": "Position",
+        "name": "POSITION",
+        "description": "the time of playback"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "defaultValue": "Rate",
+        "defaultRaw": "Rate",
+        "name": "RATE",
+        "description": "the speed rate of playback"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "defaultValue": "Volume",
+        "defaultRaw": "Volume",
+        "name": "VOLUME",
+        "description": "the volume of playback"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "defaultValue": "Shuffle",
+        "defaultRaw": "Shuffle",
+        "name": "SHUFFLE",
+        "description": "the shuffle state of playback"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "defaultValue": "LoopStatus",
+        "defaultRaw": "LoopStatus",
+        "name": "LOOP_STATUS",
+        "description": "the loop status of playback"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "defaultValue": "Fullscreen",
+        "defaultRaw": "Fullscreen",
+        "name": "FULL_SCREEN",
+        "description": "the fullscreen state"
+      }
+    ],
+    "type": {
+      "types": [
+        "{\"POSITION\": string, \"RATE\": string, \"VOLUME\": string, \"SHUFFLE\": string, \"LOOP_STATUS\": string, \"FULL_SCREEN\": string}"
+      ]
+    }
+  },
+  {
+    "__docId__": 59,
+    "kind": "variable",
+    "name": "LoopStatus",
+    "memberof": "src/main/globals.js",
+    "static": true,
+    "longname": "src/main/globals.js~LoopStatus",
+    "access": "public",
+    "export": false,
+    "importPath": "browser-mpris2/src/main/globals.js",
+    "importStyle": null,
+    "description": "Constants for playback looping support\n\nBy default only <b>NONE</b> and <b>TRACK</b> are supported,\n<b>PLAYLIST</b> looping should be implemented by provider",
+    "lineNumber": 74,
+    "unknown": [
+      {
+        "tagName": "@constant",
+        "tagValue": "{Object}"
+      }
+    ],
+    "properties": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "defaultValue": "None",
+        "defaultRaw": "None",
+        "name": "NONE",
+        "description": "default playback"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "defaultValue": "Track",
+        "defaultRaw": "Track",
+        "name": "TRACK",
+        "description": "playback will loop current track"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "defaultValue": "Playlist",
+        "defaultRaw": "Playlist",
+        "name": "PLAYLIST",
+        "description": "playback will loop current playlist"
+      }
+    ],
+    "type": {
+      "types": [
+        "{\"NONE\": string, \"TRACK\": string, \"PLAYLIST\": string}"
+      ]
+    }
+  },
+  {
+    "__docId__": 60,
+    "kind": "variable",
+    "name": "PlaybackStatus",
+    "memberof": "src/main/globals.js",
+    "static": true,
+    "longname": "src/main/globals.js~PlaybackStatus",
+    "access": "public",
+    "export": false,
+    "importPath": "browser-mpris2/src/main/globals.js",
+    "importStyle": null,
+    "description": "Constants for playback status",
+    "lineNumber": 87,
+    "unknown": [
+      {
+        "tagName": "@constant",
+        "tagValue": "{Object}"
+      }
+    ],
+    "properties": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "defaultValue": "Playing",
+        "defaultRaw": "Playing",
+        "name": "PLAYING",
+        "description": "the media is playing"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "defaultValue": "Paused",
+        "defaultRaw": "Paused",
+        "name": "PAUSED",
+        "description": "the media is paused"
+      }
+    ],
+    "type": {
+      "types": [
+        "{\"PLAYING\": string, \"PAUSED\": string}"
+      ]
+    }
+  },
+  {
+    "__docId__": 61,
+    "kind": "typedef",
+    "name": "Metadata",
+    "memberof": "src/main/globals.js",
+    "static": true,
+    "longname": "src/main/globals.js~Metadata",
+    "access": "public",
+    "description": "",
+    "properties": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "'mpris:trackid'",
+        "description": "the track id (can be anything)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "'mpris:length'",
+        "description": "the length of the media"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "'mpris:artUrl'",
+        "description": "the url of the cover image"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "'xesam:url'",
+        "description": "the url of the media"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "'xesam:title'",
+        "description": "the title of the media"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Array<string>"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "'xesam:artist'",
+        "description": "an array containing the artists"
+      }
+    ],
+    "type": {
+      "types": [
+        "Object"
+      ],
+      "optional": false,
+      "name": "Metadata"
+    }
+  },
+  {
+    "__docId__": 62,
+    "kind": "typedef",
+    "name": "Payload",
+    "memberof": "src/main/globals.js",
+    "static": true,
+    "longname": "src/main/globals.js~Payload",
+    "access": "public",
+    "description": "A payload that the native app understands",
+    "properties": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "PlaybackStatus",
+        "description": "Playing or Paused"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "LoopStatus"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "LoopStatus",
+        "description": "the loop status"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "boolean"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "Shuffle",
+        "description": "is shuffle on"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "Volume",
+        "description": "the volume"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "boolean"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "CanGoNext",
+        "description": "if the next button should be enabled"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "boolean"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "CanGoPrevious",
+        "description": "if previous button should be enabled"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "Identity",
+        "description": "the identity of the mpris player"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "Rate",
+        "description": "the playback speed of the media"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Metadata"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "Metadata",
+        "description": "the media specific information"
+      }
+    ],
+    "type": {
+      "types": [
+        "Object"
+      ],
+      "optional": false,
+      "name": "Payload"
+    }
+  },
+  {
+    "__docId__": 63,
+    "kind": "file",
+    "name": "src/main/host.js",
+    "content": "/**\n *\n * A class in charge of communicating back and forth with the native app.\n *\n * There should be no need to modify/extend this class\n * as it uses {@link Playback} to build the messages to send\n * and as the receiver of all messages from the MPRIS2 interfase\n *\n */\nclass Host {\n    /**\n     *\n     * @param {Playback} playback - the playback of the current site\n     * @param {Messenger} messenger\n     * @param {Object} port - see {@link https://developer.chrome.com/apps/runtime#type-Port}\n     */\n    constructor (playback, messenger, port) {\n        /**\n         * The playback to interact with\n         * @type {Playback}\n         */\n        this.playback = playback;\n        /**\n         * A messenger for caching and building the payloads\n         * @type {Messenger}\n         */\n        this.messenger = messenger;\n        /**\n         * A chrome.runtime.Port\n         * @see https://developer.chrome.com/apps/runtime#type-Port\n         * @type {Object}\n         */\n        this.port = port;\n\n        /**\n         * The default Payload.Identity for the MPRIS2 Interface\n         * @type {string}\n         */\n        this.source = 'browser';\n\n        this.port.onMessage.addListener((r, s, sr) => this.messageListener(r, s, sr));\n    }\n\n    /**\n     * Send a message to host app\n     *\n     * @param {MessageType} type\n     * @param {Object} [payload]\n     */\n    sendMessage (type, payload) {\n        this.port.postMessage({\n            source: this.source,\n            type: type,\n            args: [payload]\n        });\n    }\n\n    /**\n     * Send a change message to host app\n     */\n    change () {\n        if (this.playback.activePlayer) {\n            let payload = this.messenger.requestPayload(this.playback);\n            if (Object.keys(payload).length)\n                this.sendMessage(\n                  MessageType.CHANGE,\n                  payload\n                );\n        }\n    }\n\n    /**\n     *\n     * @param {Player} player\n     */\n    start (player) {\n        this.playback.setActivePlayer(player);\n        this.change();\n    }\n\n    /**\n     *\n     * @param {MessageMethod} method\n     * @param {Object} args\n     */\n    return (method, args) {\n        this.port.postMessage({\n            source: this.source,\n            type: MessageType.RETURN,\n            method, args\n        });\n    }\n\n    /**\n     * Send a seeked message to host\n     *\n     * @param {Player} player\n     */\n    seeked (player) {\n        this.sendMessage(\n          MessageType.SEEK,\n          player.getPosition()\n        );\n    }\n\n    /**\n     * Send a quit message to host\n     */\n    quit () {\n        this.sendMessage(\n          MessageType.QUIT\n        );\n    }\n\n    /**\n     * Listener for messages from native application (aka: mpris interface)\n     *\n     * @param {Object} request\n     * @param {MessageMethod} request.method\n     * @param {Array}  request.args\n     */\n    messageListener (request) {\n        let result;\n        if (request.method === MessageMethod.GET) {\n            result = this.get(...request.args);\n        } else if (request.method === MessageMethod.SET) {\n            result = this.set(...request.args);\n        } else {\n            result = this.command(request.method, ...request.args);\n        }\n        if (result) {\n            this.return(request.method, result);\n        } else {\n            this.change();\n        }\n    }\n\n    /**\n     * Native application wants to Get a property from client\n     *\n     * @param {string} _ - org.mpris.MediaPlayer2.Player\n     * @param {MessageProperty} propName - property that should be returned\n     * @returns {number}\n     */\n    get (_, propName) {\n        switch (propName) {\n            case MessageProperty.POSITION:\n                return this.playback.getPosition();\n        }\n    }\n\n    /**\n     * Native application wants to Set a property\n     * in the client.\n     *\n     * @param {string} _ - org.mpris.MediaPlayer2.Player\n     * @param {MessageProperty} propName - property to set\n     * @param {*} newValue - depends on the property to set\n     */\n    set (_, propName, newValue) {\n        switch (propName) {\n            case MessageProperty.RATE:\n                this.playback.setRate(newValue);\n                break;\n\n            case MessageProperty.VOLUME:\n                this.playback.setVolume(newValue);\n                break;\n\n            case MessageProperty.SHUFFLE:\n                this.playback.setShuffle(newValue);\n                break;\n\n            case MessageProperty.LOOP_STATUS:\n                this.playback.setLoopStatus(newValue);\n                break;\n\n            case MessageProperty.FULL_SCREEN:\n                this.playback.toggleFullScreen();\n                break;\n        }\n    }\n\n    /**\n     * Native application wants to run a command on playback\n     *\n     * @param {MessageMethod} name\n     */\n    command (name) {\n        switch (name) {\n            case MessageMethod.PLAY:\n                this.playback.play();\n                break;\n            case MessageMethod.PAUSE:\n                this.playback.pause();\n                break;\n            case MessageMethod.TOGGLE:\n                this.playback.togglePlayback();\n                break;\n            case MessageMethod.STOP:\n                this.playback.stop();\n                break;\n            case MessageMethod.NEXT:\n                this.playback.next();\n                break;\n            case MessageMethod.PREVIOUS:\n                this.playback.previous();\n                break;\n            case MessageMethod.SEEK:\n                this.playback.seek(arguments[1]);\n                break;\n            case MessageMethod.SET_POSITION: //why is this not in set?\n                this.playback.setPosition(arguments[1], arguments[2]);\n                break;\n        }\n    }\n}\n",
+    "static": true,
+    "longname": "/home/joaco/src/chrome-extensions/browser-mpris2/src/main/host.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 64,
+    "kind": "class",
+    "name": "Host",
+    "memberof": "src/main/host.js",
+    "static": true,
+    "longname": "src/main/host.js~Host",
+    "access": "public",
+    "export": false,
+    "importPath": "browser-mpris2/src/main/host.js",
+    "importStyle": null,
+    "description": "\nA class in charge of communicating back and forth with the native app.\n\nThere should be no need to modify/extend this class\nas it uses {@link Playback} to build the messages to send\nand as the receiver of all messages from the MPRIS2 interfase",
+    "lineNumber": 10,
+    "interface": false
+  },
+  {
+    "__docId__": 65,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/main/host.js~Host",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/host.js~Host#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 17,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Playback"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "playback",
+        "description": "the playback of the current site"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Messenger"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "messenger",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "port",
+        "description": "see {@link https://developer.chrome.com/apps/runtime#type-Port}"
+      }
+    ]
+  },
+  {
+    "__docId__": 66,
+    "kind": "member",
+    "name": "playback",
+    "memberof": "src/main/host.js~Host",
+    "static": false,
+    "longname": "src/main/host.js~Host#playback",
+    "access": "public",
+    "description": "The playback to interact with",
+    "lineNumber": 22,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Playback"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 67,
+    "kind": "member",
+    "name": "messenger",
+    "memberof": "src/main/host.js~Host",
+    "static": false,
+    "longname": "src/main/host.js~Host#messenger",
+    "access": "public",
+    "description": "A messenger for caching and building the payloads",
+    "lineNumber": 27,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Messenger"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 68,
+    "kind": "member",
+    "name": "port",
+    "memberof": "src/main/host.js~Host",
+    "static": false,
+    "longname": "src/main/host.js~Host#port",
+    "access": "public",
+    "description": "A chrome.runtime.Port",
+    "see": [
+      "https://developer.chrome.com/apps/runtime#type-Port"
+    ],
+    "lineNumber": 33,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 69,
+    "kind": "member",
+    "name": "source",
+    "memberof": "src/main/host.js~Host",
+    "static": false,
+    "longname": "src/main/host.js~Host#source",
+    "access": "public",
+    "description": "The default Payload.Identity for the MPRIS2 Interface",
+    "lineNumber": 39,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 70,
+    "kind": "method",
+    "name": "sendMessage",
+    "memberof": "src/main/host.js~Host",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/host.js~Host#sendMessage",
+    "access": "public",
+    "description": "Send a message to host app",
+    "lineNumber": 50,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "MessageType"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "type",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "payload",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 71,
+    "kind": "method",
+    "name": "change",
+    "memberof": "src/main/host.js~Host",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/host.js~Host#change",
+    "access": "public",
+    "description": "Send a change message to host app",
+    "lineNumber": 61,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 72,
+    "kind": "method",
+    "name": "start",
+    "memberof": "src/main/host.js~Host",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/host.js~Host#start",
+    "access": "public",
+    "description": "",
+    "lineNumber": 76,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Player"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "player",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 73,
+    "kind": "method",
+    "name": "return",
+    "memberof": "src/main/host.js~Host",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/host.js~Host#return",
+    "access": "public",
+    "description": "",
+    "lineNumber": 86,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "MessageMethod"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "method",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "args",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 74,
+    "kind": "method",
+    "name": "seeked",
+    "memberof": "src/main/host.js~Host",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/host.js~Host#seeked",
+    "access": "public",
+    "description": "Send a seeked message to host",
+    "lineNumber": 99,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Player"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "player",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 75,
+    "kind": "method",
+    "name": "quit",
+    "memberof": "src/main/host.js~Host",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/host.js~Host#quit",
+    "access": "public",
+    "description": "Send a quit message to host",
+    "lineNumber": 109,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 76,
+    "kind": "method",
+    "name": "messageListener",
+    "memberof": "src/main/host.js~Host",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/host.js~Host#messageListener",
+    "access": "public",
+    "description": "Listener for messages from native application (aka: mpris interface)",
+    "lineNumber": 122,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "request",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "MessageMethod"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "request.method",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Array"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "request.args",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 77,
+    "kind": "method",
+    "name": "get",
+    "memberof": "src/main/host.js~Host",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/host.js~Host#get",
+    "access": "public",
+    "description": "Native application wants to Get a property from client",
+    "lineNumber": 145,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "_",
+        "description": "org.mpris.MediaPlayer2.Player"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "MessageProperty"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "propName",
+        "description": "property that should be returned"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 78,
+    "kind": "method",
+    "name": "set",
+    "memberof": "src/main/host.js~Host",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/host.js~Host#set",
+    "access": "public",
+    "description": "Native application wants to Set a property\nin the client.",
+    "lineNumber": 160,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "_",
+        "description": "org.mpris.MediaPlayer2.Player"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "MessageProperty"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "propName",
+        "description": "property to set"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "newValue",
+        "description": "depends on the property to set"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 79,
+    "kind": "method",
+    "name": "command",
+    "memberof": "src/main/host.js~Host",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/host.js~Host#command",
+    "access": "public",
+    "description": "Native application wants to run a command on playback",
+    "lineNumber": 189,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "MessageMethod"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "name",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 80,
+    "kind": "file",
+    "name": "src/main/messenger.js",
+    "content": "/**\n * A class in charge of building the payload expected by the native app\n * the payload must be a {@link Payload}\n */\nclass Messenger {\n    /**\n     * Generate a new {@link Messenger}\n     */\n    constructor () {\n        /**\n         *\n         * @type {Payload}\n         */\n        this.last = {};\n    }\n\n    /**\n     *\n     * @param {Payload} payload\n     */\n    store (payload) {\n        this.last = payload;\n    }\n\n    /**\n     *\n     * @param {Playback} playback\n     * @returns {Payload}\n     */\n    payloadFrom (playback) {\n        return {\n            PlaybackStatus: playback.getStatus(),\n            LoopStatus: playback.getLoopStatus(),\n            Shuffle: playback.isShuffle(),\n            Volume: playback.getVolume(),\n            CanGoNext: playback.canGoNext(),\n            CanGoPrevious: playback.canGoPrevious(),\n            Identity: playback.getIdentity(),\n            Rate: playback.getRate(),\n            Metadata: {\n                'mpris:trackid': playback.activePlayer.getId(),\n                'mpris:length': playback.activePlayer.getLength(),\n                'mpris:artUrl': playback.activePlayer.getCover(),\n                'xesam:url': playback.activePlayer.getUrl(),\n                'xesam:title': playback.activePlayer.getTitle(),\n                'xesam:artist': playback.activePlayer.getArtists(),\n            }\n        };\n    }\n\n    /**\n     *\n     * @param {Payload} payload\n     * @return {Payload}\n     */\n    onlyUpdated (payload) {\n        return payload;\n    }\n\n    /**\n     *\n     * @param {Playback} playback\n     * @returns {Payload}\n     */\n    requestPayload (playback) {\n        let payload = this.payloadFrom(playback);\n        let diffs = this.onlyUpdated(payload);\n        this.store(payload);\n        return diffs;\n    }\n}\n",
+    "static": true,
+    "longname": "/home/joaco/src/chrome-extensions/browser-mpris2/src/main/messenger.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 81,
+    "kind": "class",
+    "name": "Messenger",
+    "memberof": "src/main/messenger.js",
+    "static": true,
+    "longname": "src/main/messenger.js~Messenger",
+    "access": "public",
+    "export": false,
+    "importPath": "browser-mpris2/src/main/messenger.js",
+    "importStyle": null,
+    "description": "A class in charge of building the payload expected by the native app\nthe payload must be a {@link Payload}",
+    "lineNumber": 5,
+    "interface": false
+  },
+  {
+    "__docId__": 82,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/main/messenger.js~Messenger",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/messenger.js~Messenger#constructor",
+    "access": "public",
+    "description": "Generate a new {@link Messenger}",
+    "lineNumber": 9
+  },
+  {
+    "__docId__": 83,
+    "kind": "member",
+    "name": "last",
+    "memberof": "src/main/messenger.js~Messenger",
+    "static": false,
+    "longname": "src/main/messenger.js~Messenger#last",
+    "access": "public",
+    "description": "",
+    "lineNumber": 14,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Payload"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 84,
+    "kind": "method",
+    "name": "store",
+    "memberof": "src/main/messenger.js~Messenger",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/messenger.js~Messenger#store",
+    "access": "public",
+    "description": "",
+    "lineNumber": 21,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Payload"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "payload",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 86,
+    "kind": "method",
+    "name": "payloadFrom",
+    "memberof": "src/main/messenger.js~Messenger",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/messenger.js~Messenger#payloadFrom",
+    "access": "public",
+    "description": "",
+    "lineNumber": 30,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Payload}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Playback"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "playback",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Payload"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 87,
+    "kind": "method",
+    "name": "onlyUpdated",
+    "memberof": "src/main/messenger.js~Messenger",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/messenger.js~Messenger#onlyUpdated",
+    "access": "public",
+    "description": "",
+    "lineNumber": 56,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Payload"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "payload",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Payload"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 88,
+    "kind": "method",
+    "name": "requestPayload",
+    "memberof": "src/main/messenger.js~Messenger",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/messenger.js~Messenger#requestPayload",
+    "access": "public",
+    "description": "",
+    "lineNumber": 65,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Payload}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Playback"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "playback",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Payload"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 89,
+    "kind": "file",
+    "name": "src/main/page.js",
+    "content": "/**\n * A class in charge of detecting new {@link HTMLMediaElement}s in current page\n * and registering them as players.\n *\n * The expected usage is call {@link checkForMediaElements} and {@link observeForMedia}\n * upon window.load event.\n */\nclass Page {\n    /**\n     *\n     *\n     * @param {Document} document\n     * @param {Playback} playback\n     * @param {Host} host\n     */\n    constructor (document, playback, host) {\n        /**\n         * The current document to keep as context\n         * @type {Document}\n         */\n        this.document = document;\n\n        /**\n         * Current {@link Playback} on the page\n         * @type {Playback}\n         */\n        this.playback = playback;\n\n        /**\n         * Current {@link Host} to trigger changes\n         * @type {Host}\n         */\n        this.host = host;\n\n        /**\n         * An array holding all {@link Player}s present in the page\n         *\n         * @type {Array.<Player>}\n         */\n        this.players = [];\n\n        /**\n         * Upon load of a page this property can be used by providers\n         * to cache html elements that are likely to be used repeatedly.\n         *\n         * @see src/providers/soundcloud.js - for an example.\n         *\n         * @type {Object.<string, HTMLElement>}\n         */\n        this.elements = {};\n\n        /**\n         * An observer for added media elements\n         * use {@link observeForMedia} to observer elements\n         *\n         * @type {MutationObserver}\n         * @private\n         */\n        this._mediaObserver = new MutationObserver(m => this.onMutate(m));\n\n        /**\n         * An observer to trigger change events on the host\n         * use {@link observeForChanges} to add elements\n         *\n         * @type {MutationObserver}\n         * @private\n         */\n        this._changesObserver = new MutationObserver(() => this.host.change());\n    }\n\n    /**\n     * Take the element and add it to the list of players\n     * if it's not already there\n     *\n     * Use when detecting a new element on the DOM\n     *\n     * If the element is playing it will be set as the active player.\n     *\n     * @param element\n     * @return {boolean}\n     */\n    registerPlayer (element) {\n        if (this.players.find(player => player.element === element)) {\n            return false;\n        }\n\n        let player = new Player(this, this.host, element);\n\n        this.players.push(player);\n\n        // Ignore short sounds, they are most likely a chat notification sound\n        // but still allow when undetermined (e.g. video stream)\n        if (player.isPlaying() && !(isNaN(element.duration) || (element.duration > 0 && element.duration < 5))) {\n            this.setActivePlayer(player);\n        }\n        return true;\n    }\n\n    /**\n     * Set element to be observed by {@link this._mediaObserver}\n     *\n     * @param {Element} element\n     */\n    observeForMedia (element) {\n        this._mediaObserver.observe(element, {\n            childList: true,\n            subtree: true\n        });\n    }\n\n    /**\n     * Set element to be observed by {@link this._changesObserver}\n     * by default check for any changes to itself or it's children\n     *\n     * @param {Element} element\n     * @param {MutationObserverInit} options\n     */\n    observeForChanges (element, options = { childList: true, subtree: true }) {\n        this._changesObserver.observe(element, options);\n    }\n\n    /**\n     * Callback called by {@link this._mediaObserver}\n     * Given an array of mutations check if there where any added nodes that are media\n     *\n     * @param {Array<MutationRecord>} mutations\n     */\n    onMutate (mutations) {\n        mutations.forEach(mutation => {\n            mutation.addedNodes.forEach(node => {\n                if (typeof node.matches !== 'function' || typeof node.querySelectorAll !== 'function') {\n                    return;\n                }\n\n                // first check whether the node itself is audio/video\n                if (node.matches('video,audio')) {\n                    this.registerPlayer(node);\n                    return;\n                }\n\n                // if not, check whether any of its children are\n                node.querySelectorAll('video,audio')\n                  .forEach(player => this.registerPlayer(player));\n            });\n        });\n    }\n\n    /**\n     * Search DOM for any &lt;video&gt; or &lt;audio&gt; elements\n     */\n    checkForMediaElements () {\n        this.document.querySelectorAll('video,audio')\n          .forEach(player => page.registerPlayer(player));\n    }\n\n    /**\n     * Set the playback's active player\n     *\n     * @param {Player} player\n     */\n    setActivePlayer (player) {\n        this.playback.setActivePlayer(player);\n    }\n\n    /**\n     * Get the playbacks active player\n     *\n     * @returns {Player}\n     */\n    getActivePlayer () {\n        return this.playback.activePlayer;\n    }\n\n    /**\n     * Get the page's title\n     *\n     * @returns {string}\n     */\n    getTitle () {\n        return this.document.title;\n    }\n\n    /**\n     * Get the page's favicon\n     *\n     * @returns {string}\n     */\n    getIcon () {\n        return this.document\n          .querySelector('link[rel=\"shortcut icon\"],link[rel=\"icon\"]')\n          .getAttribute('href');\n    }\n\n}\n",
+    "static": true,
+    "longname": "/home/joaco/src/chrome-extensions/browser-mpris2/src/main/page.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 90,
+    "kind": "class",
+    "name": "Page",
+    "memberof": "src/main/page.js",
+    "static": true,
+    "longname": "src/main/page.js~Page",
+    "access": "public",
+    "export": false,
+    "importPath": "browser-mpris2/src/main/page.js",
+    "importStyle": null,
+    "description": "A class in charge of detecting new {@link HTMLMediaElement}s in current page\nand registering them as players.\n\nThe expected usage is call {@link checkForMediaElements} and {@link observeForMedia}\nupon window.load event.",
+    "lineNumber": 8,
+    "interface": false
+  },
+  {
+    "__docId__": 91,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/main/page.js~Page",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/page.js~Page#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 16,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Document"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "document",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Playback"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "playback",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Host"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "host",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "__docId__": 92,
+    "kind": "member",
+    "name": "document",
+    "memberof": "src/main/page.js~Page",
+    "static": false,
+    "longname": "src/main/page.js~Page#document",
+    "access": "public",
+    "description": "The current document to keep as context",
+    "lineNumber": 21,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Document"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 93,
+    "kind": "member",
+    "name": "playback",
+    "memberof": "src/main/page.js~Page",
+    "static": false,
+    "longname": "src/main/page.js~Page#playback",
+    "access": "public",
+    "description": "Current {@link Playback} on the page",
+    "lineNumber": 27,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Playback"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 94,
+    "kind": "member",
+    "name": "host",
+    "memberof": "src/main/page.js~Page",
+    "static": false,
+    "longname": "src/main/page.js~Page#host",
+    "access": "public",
+    "description": "Current {@link Host} to trigger changes",
+    "lineNumber": 33,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Host"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 95,
+    "kind": "member",
+    "name": "players",
+    "memberof": "src/main/page.js~Page",
+    "static": false,
+    "longname": "src/main/page.js~Page#players",
+    "access": "public",
+    "description": "An array holding all {@link Player}s present in the page",
+    "lineNumber": 40,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Array.<Player>"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 96,
+    "kind": "member",
+    "name": "elements",
+    "memberof": "src/main/page.js~Page",
+    "static": false,
+    "longname": "src/main/page.js~Page#elements",
+    "access": "public",
+    "description": "Upon load of a page this property can be used by providers\nto cache html elements that are likely to be used repeatedly.",
+    "see": [
+      "src/providers/soundcloud.js - for an example."
+    ],
+    "lineNumber": 50,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Object.<string, HTMLElement>"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 97,
+    "kind": "member",
+    "name": "_mediaObserver",
+    "memberof": "src/main/page.js~Page",
+    "static": false,
+    "longname": "src/main/page.js~Page#_mediaObserver",
+    "access": "private",
+    "description": "An observer for added media elements\nuse {@link observeForMedia} to observer elements",
+    "lineNumber": 59,
+    "type": {
+      "nullable": null,
+      "types": [
+        "MutationObserver"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 98,
+    "kind": "member",
+    "name": "_changesObserver",
+    "memberof": "src/main/page.js~Page",
+    "static": false,
+    "longname": "src/main/page.js~Page#_changesObserver",
+    "access": "private",
+    "description": "An observer to trigger change events on the host\nuse {@link observeForChanges} to add elements",
+    "lineNumber": 68,
+    "type": {
+      "nullable": null,
+      "types": [
+        "MutationObserver"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 99,
+    "kind": "method",
+    "name": "registerPlayer",
+    "memberof": "src/main/page.js~Page",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/page.js~Page#registerPlayer",
+    "access": "public",
+    "description": "Take the element and add it to the list of players\nif it's not already there\n\nUse when detecting a new element on the DOM\n\nIf the element is playing it will be set as the active player.",
+    "lineNumber": 82,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "element",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 100,
+    "kind": "method",
+    "name": "observeForMedia",
+    "memberof": "src/main/page.js~Page",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/page.js~Page#observeForMedia",
+    "access": "public",
+    "description": "Set element to be observed by {@link this._mediaObserver}",
+    "lineNumber": 104,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Element"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "element",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 101,
+    "kind": "method",
+    "name": "observeForChanges",
+    "memberof": "src/main/page.js~Page",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/page.js~Page#observeForChanges",
+    "access": "public",
+    "description": "Set element to be observed by {@link this._changesObserver}\nby default check for any changes to itself or it's children",
+    "lineNumber": 118,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Element"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "element",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "MutationObserverInit"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 102,
+    "kind": "method",
+    "name": "onMutate",
+    "memberof": "src/main/page.js~Page",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/page.js~Page#onMutate",
+    "access": "public",
+    "description": "Callback called by {@link this._mediaObserver}\nGiven an array of mutations check if there where any added nodes that are media",
+    "lineNumber": 128,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Array<MutationRecord>"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "mutations",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 103,
+    "kind": "method",
+    "name": "checkForMediaElements",
+    "memberof": "src/main/page.js~Page",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/page.js~Page#checkForMediaElements",
+    "access": "public",
+    "description": "Search DOM for any &lt;video&gt; or &lt;audio&gt; elements",
+    "lineNumber": 151,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 104,
+    "kind": "method",
+    "name": "setActivePlayer",
+    "memberof": "src/main/page.js~Page",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/page.js~Page#setActivePlayer",
+    "access": "public",
+    "description": "Set the playback's active player",
+    "lineNumber": 161,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Player"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "player",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 105,
+    "kind": "method",
+    "name": "getActivePlayer",
+    "memberof": "src/main/page.js~Page",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/page.js~Page#getActivePlayer",
+    "access": "public",
+    "description": "Get the playbacks active player",
+    "lineNumber": 170,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Player}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Player"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 106,
+    "kind": "method",
+    "name": "getTitle",
+    "memberof": "src/main/page.js~Page",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/page.js~Page#getTitle",
+    "access": "public",
+    "description": "Get the page's title",
+    "lineNumber": 179,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{string}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 107,
+    "kind": "method",
+    "name": "getIcon",
+    "memberof": "src/main/page.js~Page",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/page.js~Page#getIcon",
+    "access": "public",
+    "description": "Get the page's favicon",
+    "lineNumber": 188,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{string}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 108,
+    "kind": "file",
+    "name": "src/main/playback.js",
+    "content": "/**\n * There should be one instance of Playback per page\n *\n * This class is in charge of handling the playback of the active player\n * it receives the commands from its {@link Host} and communicates the accordingly\n * to the player.\n *\n * It's also the responsible for exposing all the getters necessary\n * to conform the {@link Payload} message.\n *\n * By default all properties of {@link Payload} are extracted from the {@link this.activePlayer}\n * although it is expected that this functionality is overridden by the providers.\n */\nclass Playback {\n    /**\n     * Create a new instance\n     */\n    constructor () {\n        /**\n         * A dictionary of any controls extracted from the DOM\n         * @type {Object.<string, HTMLElement>}\n         */\n        this.controls = {};\n\n        /**\n         * The current player being shown by the MPRIS2 interface\n         *\n         * @type {Player}\n         */\n        this.activePlayer = null;\n    }\n\n    /**\n     * One of {@link PlaybackStatus.PLAYING} or {@link PlaybackStatus.PAUSED}\n     * @returns {string}\n     */\n    getStatus () {\n        return this.activePlayer && this.activePlayer.isPlaying() ? PlaybackStatus.PLAYING : PlaybackStatus.PAUSED;\n    }\n\n    /**\n     * Set the volume of playback\n     * @param {number} volume\n     */\n    setVolume (volume) {\n        this.activePlayer && this.activePlayer.setVolume(volume);\n    }\n\n    /**\n     * Get the volume of playback\n     * @returns {number}\n     */\n    getVolume () {\n        return this.activePlayer && this.activePlayer.getVolume();\n    }\n\n    /**\n     * Set the rate of playback.\n     * @example\n     * playback.setRate(1.5);\n     * @param {number} rate\n     */\n    setRate (rate) {\n        this.activePlayer && this.activePlayer.setRate(rate);\n    }\n\n    /**\n     * Get the rate of playback\n     * @returns {number}\n     */\n    getRate () {\n        return this.activePlayer && this.activePlayer.getRate();\n    }\n\n    /**\n     * Set the shuffle between tracks of playback\n     * @param {boolean} isShuffle\n     */\n    setShuffle (isShuffle) {}\n\n    /**\n     * Get if the playback is shuffling between tracks\n     * @return {boolean}\n     */\n    isShuffle () {\n        return false;\n    }\n\n    /**\n     * By default we don't support playlist looping ({@link LoopStatus}.PLAYLIST)\n     * so we force {@link LoopStatus}.TRACK loop if any loop other than {@link LoopStatus}.NONE is specified\n     *\n     * @param {LoopStatus} status\n     */\n    setLoopStatus (status) {\n        let loopStatus = status === LoopStatus.PLAYLIST ? LoopStatus.TRACK : status;\n        this.activePlayer && this.activePlayer.setLoop(loopStatus === LoopStatus.TRACK);\n    }\n\n    /**\n     * Get the loop status of playback\n     * @returns {LoopStatus}\n     */\n    getLoopStatus () {\n        return this.activePlayer && this.activePlayer.isLooping() ?\n          LoopStatus.TRACK : LoopStatus.NONE;\n    }\n\n    /**\n     * Check current page for 'next' functionality\n     *\n     * @returns {boolean}\n     */\n    canGoNext () {\n        return false;\n    }\n\n    /**\n     * Check current page for 'previous' functionality\n     *\n     * @returns {boolean}\n     */\n    canGoPrevious () {\n        return false;\n    }\n\n    /**\n     * Go to next media\n     * This should be implemented per provider\n     */\n    next () {}\n\n    /**\n     * Go to previous\n     * This should be implemented per provider\n     */\n    previous () {}\n\n    /**\n     * **COMMAND** Start to play active player\n     */\n    play () {\n        this.activePlayer && this.activePlayer.play();\n    }\n\n    /**\n     * **COMMAND** Pause active player\n     */\n    pause () {\n        this.activePlayer && this.activePlayer.pause();\n    }\n\n    /**\n     * **COMMAND** Toggle between play and pause\n     */\n    togglePlayback () {\n        this.activePlayer && this.activePlayer.playPause();\n    }\n\n    /**\n     * **COMMAND** Stop active player\n     */\n    stop () {\n        this.activePlayer && this.activePlayer.stop();\n    }\n\n    /**\n     * **COMMAND** Seek activePlayer to offset\n     *\n     * @param {number} offset\n     */\n    seek (offset) {\n        this.activePlayer && this.activePlayer.seek(offset);\n    }\n\n    /**\n     * **COMMAND** Set current position of active player\n     *\n     * @param {string} id - the id of the player\n     * @param {number} position\n     */\n    setPosition (id, position) {\n        this.activePlayer && this.activePlayer.setPosition(position);\n    }\n\n    /**\n     * **COMMAND** Get active player's position\n     *\n     * @returns {number}\n     */\n    getPosition () {\n        return this.activePlayer !== null ? this.activePlayer.getPosition() : null;\n    }\n\n    /**\n     * Set the current active player\n     *\n     * @param {Player} player\n     */\n    setActivePlayer (player) {\n        this.activePlayer = player;\n    }\n\n    /**\n     * **COMMAND** Toggle the fullscreen state\n     *\n     * @todo test this works\n     */\n    toggleFullScreen () {\n        this.activePlayer && this.activePlayer.toggleFullScreen();\n    }\n\n    /**\n     * Get the identity of playback, by default it is the site's domain\n     *\n     * @returns {string}\n     */\n    getIdentity () {\n        return this.activePlayer && this.activePlayer.getSiteDomain();\n    }\n\n}\n",
+    "static": true,
+    "longname": "/home/joaco/src/chrome-extensions/browser-mpris2/src/main/playback.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 109,
+    "kind": "class",
+    "name": "Playback",
+    "memberof": "src/main/playback.js",
+    "static": true,
+    "longname": "src/main/playback.js~Playback",
+    "access": "public",
+    "export": false,
+    "importPath": "browser-mpris2/src/main/playback.js",
+    "importStyle": null,
+    "description": "There should be one instance of Playback per page\n\nThis class is in charge of handling the playback of the active player\nit receives the commands from its {@link Host} and communicates the accordingly\nto the player.\n\nIt's also the responsible for exposing all the getters necessary\nto conform the {@link Payload} message.\n\nBy default all properties of {@link Payload} are extracted from the {@link this.activePlayer}\nalthough it is expected that this functionality is overridden by the providers.",
+    "lineNumber": 14,
+    "interface": false
+  },
+  {
+    "__docId__": 110,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/main/playback.js~Playback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/playback.js~Playback#constructor",
+    "access": "public",
+    "description": "Create a new instance",
+    "lineNumber": 18
+  },
+  {
+    "__docId__": 111,
+    "kind": "member",
+    "name": "controls",
+    "memberof": "src/main/playback.js~Playback",
+    "static": false,
+    "longname": "src/main/playback.js~Playback#controls",
+    "access": "public",
+    "description": "A dictionary of any controls extracted from the DOM",
+    "lineNumber": 23,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Object.<string, HTMLElement>"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 112,
+    "kind": "member",
+    "name": "activePlayer",
+    "memberof": "src/main/playback.js~Playback",
+    "static": false,
+    "longname": "src/main/playback.js~Playback#activePlayer",
+    "access": "public",
+    "description": "The current player being shown by the MPRIS2 interface",
+    "lineNumber": 30,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Player"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 113,
+    "kind": "method",
+    "name": "getStatus",
+    "memberof": "src/main/playback.js~Playback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/playback.js~Playback#getStatus",
+    "access": "public",
+    "description": "One of {@link PlaybackStatus.PLAYING} or {@link PlaybackStatus.PAUSED}",
+    "lineNumber": 37,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{string}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 114,
+    "kind": "method",
+    "name": "setVolume",
+    "memberof": "src/main/playback.js~Playback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/playback.js~Playback#setVolume",
+    "access": "public",
+    "description": "Set the volume of playback",
+    "lineNumber": 45,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "volume",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 116,
+    "kind": "method",
+    "name": "getVolume",
+    "memberof": "src/main/playback.js~Playback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/playback.js~Playback#getVolume",
+    "access": "public",
+    "description": "Get the volume of playback",
+    "lineNumber": 53,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 117,
+    "kind": "method",
+    "name": "setRate",
+    "memberof": "src/main/playback.js~Playback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/playback.js~Playback#setRate",
+    "access": "public",
+    "description": "Set the rate of playback.",
+    "examples": [
+      "playback.setRate(1.5);"
+    ],
+    "lineNumber": 63,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "rate",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 119,
+    "kind": "method",
+    "name": "getRate",
+    "memberof": "src/main/playback.js~Playback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/playback.js~Playback#getRate",
+    "access": "public",
+    "description": "Get the rate of playback",
+    "lineNumber": 71,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 120,
+    "kind": "method",
+    "name": "setShuffle",
+    "memberof": "src/main/playback.js~Playback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/playback.js~Playback#setShuffle",
+    "access": "public",
+    "description": "Set the shuffle between tracks of playback",
+    "lineNumber": 79,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "boolean"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "isShuffle",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 121,
+    "kind": "method",
+    "name": "isShuffle",
+    "memberof": "src/main/playback.js~Playback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/playback.js~Playback#isShuffle",
+    "access": "public",
+    "description": "Get if the playback is shuffling between tracks",
+    "lineNumber": 85,
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 122,
+    "kind": "method",
+    "name": "setLoopStatus",
+    "memberof": "src/main/playback.js~Playback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/playback.js~Playback#setLoopStatus",
+    "access": "public",
+    "description": "By default we don't support playlist looping ({@link LoopStatus}.PLAYLIST)\nso we force {@link LoopStatus}.TRACK loop if any loop other than {@link LoopStatus}.NONE is specified",
+    "lineNumber": 95,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "LoopStatus"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "status",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 124,
+    "kind": "method",
+    "name": "getLoopStatus",
+    "memberof": "src/main/playback.js~Playback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/playback.js~Playback#getLoopStatus",
+    "access": "public",
+    "description": "Get the loop status of playback",
+    "lineNumber": 104,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{LoopStatus}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "LoopStatus"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 125,
+    "kind": "method",
+    "name": "canGoNext",
+    "memberof": "src/main/playback.js~Playback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/playback.js~Playback#canGoNext",
+    "access": "public",
+    "description": "Check current page for 'next' functionality",
+    "lineNumber": 114,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 126,
+    "kind": "method",
+    "name": "canGoPrevious",
+    "memberof": "src/main/playback.js~Playback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/playback.js~Playback#canGoPrevious",
+    "access": "public",
+    "description": "Check current page for 'previous' functionality",
+    "lineNumber": 123,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 127,
+    "kind": "method",
+    "name": "next",
+    "memberof": "src/main/playback.js~Playback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/playback.js~Playback#next",
+    "access": "public",
+    "description": "Go to next media\nThis should be implemented per provider",
+    "lineNumber": 131,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 128,
+    "kind": "method",
+    "name": "previous",
+    "memberof": "src/main/playback.js~Playback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/playback.js~Playback#previous",
+    "access": "public",
+    "description": "Go to previous\nThis should be implemented per provider",
+    "lineNumber": 137,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 129,
+    "kind": "method",
+    "name": "play",
+    "memberof": "src/main/playback.js~Playback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/playback.js~Playback#play",
+    "access": "public",
+    "description": "**COMMAND** Start to play active player",
+    "lineNumber": 142,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 131,
+    "kind": "method",
+    "name": "pause",
+    "memberof": "src/main/playback.js~Playback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/playback.js~Playback#pause",
+    "access": "public",
+    "description": "**COMMAND** Pause active player",
+    "lineNumber": 149,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 133,
+    "kind": "method",
+    "name": "togglePlayback",
+    "memberof": "src/main/playback.js~Playback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/playback.js~Playback#togglePlayback",
+    "access": "public",
+    "description": "**COMMAND** Toggle between play and pause",
+    "lineNumber": 156,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 135,
+    "kind": "method",
+    "name": "stop",
+    "memberof": "src/main/playback.js~Playback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/playback.js~Playback#stop",
+    "access": "public",
+    "description": "**COMMAND** Stop active player",
+    "lineNumber": 163,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 137,
+    "kind": "method",
+    "name": "seek",
+    "memberof": "src/main/playback.js~Playback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/playback.js~Playback#seek",
+    "access": "public",
+    "description": "**COMMAND** Seek activePlayer to offset",
+    "lineNumber": 172,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "offset",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 139,
+    "kind": "method",
+    "name": "setPosition",
+    "memberof": "src/main/playback.js~Playback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/playback.js~Playback#setPosition",
+    "access": "public",
+    "description": "**COMMAND** Set current position of active player",
+    "lineNumber": 182,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "id",
+        "description": "the id of the player"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "position",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 141,
+    "kind": "method",
+    "name": "getPosition",
+    "memberof": "src/main/playback.js~Playback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/playback.js~Playback#getPosition",
+    "access": "public",
+    "description": "**COMMAND** Get active player's position",
+    "lineNumber": 191,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 142,
+    "kind": "method",
+    "name": "setActivePlayer",
+    "memberof": "src/main/playback.js~Playback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/playback.js~Playback#setActivePlayer",
+    "access": "public",
+    "description": "Set the current active player",
+    "lineNumber": 200,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Player"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "player",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 144,
+    "kind": "method",
+    "name": "toggleFullScreen",
+    "memberof": "src/main/playback.js~Playback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/playback.js~Playback#toggleFullScreen",
+    "access": "public",
+    "description": "**COMMAND** Toggle the fullscreen state",
+    "lineNumber": 209,
+    "todo": [
+      "test this works"
+    ],
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 146,
+    "kind": "method",
+    "name": "getIdentity",
+    "memberof": "src/main/playback.js~Playback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/playback.js~Playback#getIdentity",
+    "access": "public",
+    "description": "Get the identity of playback, by default it is the site's domain",
+    "lineNumber": 218,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{string}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 147,
+    "kind": "file",
+    "name": "src/main/player.js",
+    "content": "/**\n * A class that wraps around HTMLMediaElement\n *\n * It sends to the {@link Host} all relevant media events (ie: play, pause, etc)\n *\n * This class should be extended in order to give **provider** specific support.\n * By default all getter and setters interact with the media element, this can be overwritten\n * by extending this class so it gets and sets by interacting with the relevant places for each **provider**.\n */\nclass Player {\n    /**\n     * Create a new instance of player\n     * @param {Page} page\n     * @param {Host} host\n     * @param {HTMLMediaElement} element\n     */\n    constructor (page, host, element) {\n        /**\n         * The {@link Page} that holds the player\n         * @type {Page}\n         */\n        this.page = page;\n        /**\n         * The {@link Host} to communicate with\n         * @type {Host}\n         */\n        this.host = host;\n        /**\n         * The media element\n         * @type {HTMLMediaElement}\n         */\n        this.element = element;\n        /**\n         * A URL with the media baseURI\n         * It's updated in {@link refresh} whenever metadata changes\n         * @type {URL}\n         */\n        this.URL = new URL(element.baseURI);\n        this.initMediaListeners();\n    }\n\n    /**\n     * Add listeners on this.element so we propagate all necessary\n     * events to the this.host\n     */\n    initMediaListeners () {\n        this.element.addEventListener('play', () => this.host.start(this));\n        // this.element.addEventListener('waiting', () => this.host.start(this));\n        this.element.addEventListener('durationchange', () => this.host.start(this));\n        this.element.addEventListener('pause', () => this.host.change());\n        this.element.addEventListener('playing', () => this.host.change());\n        this.element.addEventListener('ratechange', () => this.host.change());\n        this.element.addEventListener('seeked', () => this.host.seeked(this));\n        this.element.addEventListener('volumechange', () => this.host.change());\n        this.element.addEventListener('loadedmetadata', e => this.refresh(e));\n    }\n\n    /**\n     * Update this.URL so getter read the correct data.\n     * Also trigger a {@link this.host.start} event on the {@link Host}.\n     */\n    refresh () {\n        this.URL = new URL(this.element.baseURI);\n        this.host.start(this);\n    }\n\n    /**\n     * Get the id of the player\n     * @returns {string} the elements source\n     */\n    getId () {\n        return this.element.baseURI;\n    }\n\n    /**\n     * Is the media playing?\n     *\n     * @returns {boolean}\n     */\n    isPlaying () {\n        return !this.element.paused;\n    }\n\n    /**\n     * Length is expected in microseconds by host\n     *\n     * @returns {number}\n     */\n    getLength () {\n        return Math.trunc(this.element.duration * 1e6);\n    }\n\n    /**\n     * Set the volume of the media\n     * @param {number} volume\n     */\n    setVolume (volume) {\n        this.element.volume = volume;\n    }\n\n    /**\n     * If media is muted return 0\n     *\n     * @returns {number}\n     */\n    getVolume () {\n        return this.element.muted ? 0.0 : this.element.volume;\n    }\n\n    /**\n     * Set the playback rate\n     * @param {number} rate\n     */\n    setRate (rate) {\n        this.element.playbackRate = rate;\n    }\n\n    /**\n     * Get the playback rate\n     * @returns {number}\n     */\n    getRate () {\n        return this.element.playbackRate;\n    }\n\n    /**\n     * Get the title of the player. The page's title by default.\n     *\n     * @returns {string}\n     */\n    getTitle () {\n        return this.page.getTitle();\n    }\n\n    /**\n     * Get the artists of the player\n     *\n     * @returns {Array<string>}\n     */\n    getArtists () {\n        return [this.URL.host];\n    }\n\n    /**\n     * Get the cover of the player.\n     *\n     * Using logo.clearbit.com API seems to work quite nicely.\n     * The other alternative is to get the logo from the page's favicon ({@link this.page.getIcon()})\n     *\n     * @returns {string}\n     */\n    getCover () {\n        return `http://logo.clearbit.com/${this.URL.host}`;\n    }\n\n    /**\n     * Get the current time of the media\n     *\n     * @returns {number} media current time\n     */\n    getPosition () {\n        return Math.trunc(this.element.currentTime * 1e6);\n    }\n\n    /**\n     * Is the media looping?\n     * @returns {boolean}\n     */\n    isLooping () {\n        return this.element.loop;\n    }\n\n    /**\n     * Should media loop when it reaches the end.\n     *\n     * @param {boolean} loop\n     */\n    setLoop (loop) {\n        this.element.loop = loop;\n    }\n\n    /**\n     * Play media element\n     */\n    play () {\n        this.element.play()\n          .then(() => {\n              console.debug('playing');\n          })\n          .catch((e) => {\n              console.debug(e);\n          });\n    }\n\n    /**\n     * Pause media element\n     */\n    pause () {\n        this.element.pause();\n    }\n\n    /**\n     * If media is playing then pause\n     * else play it\n     */\n    playPause () {\n        if (this.isPlaying())\n            this.pause();\n        else\n            this.play();\n    }\n\n    /**\n     * Pause media and set position to 0\n     */\n    stop () {\n        this.pause();\n        this.setPosition(0);\n    }\n\n    /**\n     * seek by an offset to position\n     *\n     * @param {number} offset - offset to currentTime in microseconds\n     */\n    seek (offset) {\n        this.element.currentTime += offset / 1e6;\n    }\n\n    /**\n     * Set the position of playback\n     * @param {number} position - new currentTime in microseconds\n     */\n    setPosition (position) {\n        this.element.currentTime = position / 1e6;\n    }\n\n    /**\n     * Toogle the fullscreen state of the media.\n     * @todo test this works\n     */\n    toggleFullScreen () {\n        if (this.element.mozRequestFullScreen) {\n            this.element.mozRequestFullScreen();\n        } else if (this.element.webkitRequestFullScreen) {\n            this.element.webkitRequestFullScreen();\n        }\n    }\n\n    /**\n     * Get the site domain (host)\n     * @returns {string}\n     */\n    getSiteDomain () {\n        return this.URL.host;\n    }\n\n    /**\n     * Get the elements url\n     * @returns {string}\n     */\n    getUrl () {\n        return this.element.baseURI;\n    }\n\n    /**\n     * Check if element is visible to the user\n     * \n     * @returns {boolean}\n     */\n    isHidden () {\n        return this.element.offsetParent === null;\n    }\n}\n",
+    "static": true,
+    "longname": "/home/joaco/src/chrome-extensions/browser-mpris2/src/main/player.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 148,
+    "kind": "class",
+    "name": "Player",
+    "memberof": "src/main/player.js",
+    "static": true,
+    "longname": "src/main/player.js~Player",
+    "access": "public",
+    "export": false,
+    "importPath": "browser-mpris2/src/main/player.js",
+    "importStyle": null,
+    "description": "A class that wraps around HTMLMediaElement\n\nIt sends to the {@link Host} all relevant media events (ie: play, pause, etc)\n\nThis class should be extended in order to give **provider** specific support.\nBy default all getter and setters interact with the media element, this can be overwritten\nby extending this class so it gets and sets by interacting with the relevant places for each **provider**.",
+    "lineNumber": 10,
+    "interface": false
+  },
+  {
+    "__docId__": 149,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#constructor",
+    "access": "public",
+    "description": "Create a new instance of player",
+    "lineNumber": 17,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Page"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "page",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Host"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "host",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "HTMLMediaElement"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "element",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "__docId__": 150,
+    "kind": "member",
+    "name": "page",
+    "memberof": "src/main/player.js~Player",
+    "static": false,
+    "longname": "src/main/player.js~Player#page",
+    "access": "public",
+    "description": "The {@link Page} that holds the player",
+    "lineNumber": 22,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Page"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 151,
+    "kind": "member",
+    "name": "host",
+    "memberof": "src/main/player.js~Player",
+    "static": false,
+    "longname": "src/main/player.js~Player#host",
+    "access": "public",
+    "description": "The {@link Host} to communicate with",
+    "lineNumber": 27,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Host"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 152,
+    "kind": "member",
+    "name": "element",
+    "memberof": "src/main/player.js~Player",
+    "static": false,
+    "longname": "src/main/player.js~Player#element",
+    "access": "public",
+    "description": "The media element",
+    "lineNumber": 32,
+    "type": {
+      "nullable": null,
+      "types": [
+        "HTMLMediaElement"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 153,
+    "kind": "member",
+    "name": "URL",
+    "memberof": "src/main/player.js~Player",
+    "static": false,
+    "longname": "src/main/player.js~Player#URL",
+    "access": "public",
+    "description": "A URL with the media baseURI\nIt's updated in {@link refresh} whenever metadata changes",
+    "lineNumber": 38,
+    "type": {
+      "nullable": null,
+      "types": [
+        "URL"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 154,
+    "kind": "method",
+    "name": "initMediaListeners",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#initMediaListeners",
+    "access": "public",
+    "description": "Add listeners on this.element so we propagate all necessary\nevents to the this.host",
+    "lineNumber": 46,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 155,
+    "kind": "method",
+    "name": "refresh",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#refresh",
+    "access": "public",
+    "description": "Update this.URL so getter read the correct data.\nAlso trigger a {@link this.host.start} event on the {@link Host}.",
+    "lineNumber": 62,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 157,
+    "kind": "method",
+    "name": "getId",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#getId",
+    "access": "public",
+    "description": "Get the id of the player",
+    "lineNumber": 71,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{string} the elements source"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": "the elements source"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 158,
+    "kind": "method",
+    "name": "isPlaying",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#isPlaying",
+    "access": "public",
+    "description": "Is the media playing?",
+    "lineNumber": 80,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 159,
+    "kind": "method",
+    "name": "getLength",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#getLength",
+    "access": "public",
+    "description": "Length is expected in microseconds by host",
+    "lineNumber": 89,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 160,
+    "kind": "method",
+    "name": "setVolume",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#setVolume",
+    "access": "public",
+    "description": "Set the volume of the media",
+    "lineNumber": 97,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "volume",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 161,
+    "kind": "method",
+    "name": "getVolume",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#getVolume",
+    "access": "public",
+    "description": "If media is muted return 0",
+    "lineNumber": 106,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 162,
+    "kind": "method",
+    "name": "setRate",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#setRate",
+    "access": "public",
+    "description": "Set the playback rate",
+    "lineNumber": 114,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "rate",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 163,
+    "kind": "method",
+    "name": "getRate",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#getRate",
+    "access": "public",
+    "description": "Get the playback rate",
+    "lineNumber": 122,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 164,
+    "kind": "method",
+    "name": "getTitle",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#getTitle",
+    "access": "public",
+    "description": "Get the title of the player. The page's title by default.",
+    "lineNumber": 131,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{string}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 165,
+    "kind": "method",
+    "name": "getArtists",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#getArtists",
+    "access": "public",
+    "description": "Get the artists of the player",
+    "lineNumber": 140,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Array<string>}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Array<string>"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 166,
+    "kind": "method",
+    "name": "getCover",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#getCover",
+    "access": "public",
+    "description": "Get the cover of the player.\n\nUsing logo.clearbit.com API seems to work quite nicely.\nThe other alternative is to get the logo from the page's favicon ({@link this.page.getIcon()})",
+    "lineNumber": 152,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{string}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 167,
+    "kind": "method",
+    "name": "getPosition",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#getPosition",
+    "access": "public",
+    "description": "Get the current time of the media",
+    "lineNumber": 161,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number} media current time"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": "media current time"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 168,
+    "kind": "method",
+    "name": "isLooping",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#isLooping",
+    "access": "public",
+    "description": "Is the media looping?",
+    "lineNumber": 169,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 169,
+    "kind": "method",
+    "name": "setLoop",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#setLoop",
+    "access": "public",
+    "description": "Should media loop when it reaches the end.",
+    "lineNumber": 178,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "boolean"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "loop",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 170,
+    "kind": "method",
+    "name": "play",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#play",
+    "access": "public",
+    "description": "Play media element",
+    "lineNumber": 185,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 171,
+    "kind": "method",
+    "name": "pause",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#pause",
+    "access": "public",
+    "description": "Pause media element",
+    "lineNumber": 198,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 172,
+    "kind": "method",
+    "name": "playPause",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#playPause",
+    "access": "public",
+    "description": "If media is playing then pause\nelse play it",
+    "lineNumber": 206,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 173,
+    "kind": "method",
+    "name": "stop",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#stop",
+    "access": "public",
+    "description": "Pause media and set position to 0",
+    "lineNumber": 216,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 174,
+    "kind": "method",
+    "name": "seek",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#seek",
+    "access": "public",
+    "description": "seek by an offset to position",
+    "lineNumber": 226,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "offset",
+        "description": "offset to currentTime in microseconds"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 175,
+    "kind": "method",
+    "name": "setPosition",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#setPosition",
+    "access": "public",
+    "description": "Set the position of playback",
+    "lineNumber": 234,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "position",
+        "description": "new currentTime in microseconds"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 176,
+    "kind": "method",
+    "name": "toggleFullScreen",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#toggleFullScreen",
+    "access": "public",
+    "description": "Toogle the fullscreen state of the media.",
+    "lineNumber": 242,
+    "todo": [
+      "test this works"
+    ],
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 177,
+    "kind": "method",
+    "name": "getSiteDomain",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#getSiteDomain",
+    "access": "public",
+    "description": "Get the site domain (host)",
+    "lineNumber": 254,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{string}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 178,
+    "kind": "method",
+    "name": "getUrl",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#getUrl",
+    "access": "public",
+    "description": "Get the elements url",
+    "lineNumber": 262,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{string}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 179,
+    "kind": "method",
+    "name": "isHidden",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#isHidden",
+    "access": "public",
+    "description": "Check if element is visible to the user",
+    "lineNumber": 271,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 180,
+    "kind": "file",
+    "name": "src/providers/netflix.js",
+    "content": "/**\n *\n * This file adds support for Soundcloud specific playback\n *\n * by extending and overriding the classes {@link Page},\n * {@link Playback}, and {@link Player}.\n * we can define how we'll interact with the site\n *\n *\n */\n\nclass NetflixPlayer extends Player {\n\n    getId () {\n        return this.URL.searchParams.get('trackId');\n    }\n\n    getLength () {\n        if (this.page.elements.progress) {\n            return Math.trunc(this.page.elements.progress.getAttribute('aria-valuemax') * 1e6);\n        } else\n            return super.getLength();\n    }\n\n    getCover () {\n        if (this.page.elements.avatar) {\n            return this.page.elements.avatar.style.backgroundImage\n              .slice(5, -2) //remove url( )\n              .replace('t50x50', 't500x500'); //we want the big thumbnail\n        } else\n            return super.getCover();\n    }\n\n    getTitle () {\n        let title = this.page.elements.title.lastElementChild;\n        return (title && title.textContent) || super.getTitle();\n    }\n\n    getArtists () {\n        return (this.page.elements.artists && [this.page.elements.artists.textContent]) ||\n          super.getArtists();\n    }\n\n}\n\nPlayer = NetflixPlayer;\n",
+    "static": true,
+    "longname": "/home/joaco/src/chrome-extensions/browser-mpris2/src/providers/netflix.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 181,
+    "kind": "class",
+    "name": "NetflixPlayer",
+    "memberof": "src/providers/netflix.js",
+    "static": true,
+    "longname": "src/providers/netflix.js~NetflixPlayer",
+    "access": "public",
+    "export": false,
+    "importPath": "browser-mpris2/src/providers/netflix.js",
+    "importStyle": null,
+    "description": "\nThis file adds support for Soundcloud specific playback\n\nby extending and overriding the classes {@link Page},\n{@link Playback}, and {@link Player}.\nwe can define how we'll interact with the site",
+    "lineNumber": 12,
+    "interface": false,
+    "extends": [
+      "Player"
+    ]
+  },
+  {
+    "__docId__": 182,
+    "kind": "method",
+    "name": "getId",
+    "memberof": "src/providers/netflix.js~NetflixPlayer",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/netflix.js~NetflixPlayer#getId",
+    "access": "public",
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 183,
+    "kind": "method",
+    "name": "getLength",
+    "memberof": "src/providers/netflix.js~NetflixPlayer",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/netflix.js~NetflixPlayer#getLength",
+    "access": "public",
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 184,
+    "kind": "method",
+    "name": "getCover",
+    "memberof": "src/providers/netflix.js~NetflixPlayer",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/netflix.js~NetflixPlayer#getCover",
+    "access": "public",
+    "description": null,
+    "lineNumber": 25,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 185,
+    "kind": "method",
+    "name": "getTitle",
+    "memberof": "src/providers/netflix.js~NetflixPlayer",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/netflix.js~NetflixPlayer#getTitle",
+    "access": "public",
+    "description": null,
+    "lineNumber": 34,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 186,
+    "kind": "method",
+    "name": "getArtists",
+    "memberof": "src/providers/netflix.js~NetflixPlayer",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/netflix.js~NetflixPlayer#getArtists",
+    "access": "public",
+    "description": null,
+    "lineNumber": 39,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 187,
+    "kind": "file",
+    "name": "src/providers/soundcloud.js",
+    "content": "/**\n *\n * This file adds support for Soundcloud specific playback\n *\n * by extending and overriding the classes {@link Page},\n * {@link Playback}, and {@link Player}.\n * we can define how we'll interact with the site\n *\n *\n */\n\nclass SoundCloudPlayer extends Player {\n\n    getId () {\n        return (this.page.elements.title && this.page.elements.title.textContent) ||\n          super.getTitle();\n    }\n\n    getLength () {\n        if (this.page.elements.progress) {\n            return Math.trunc(this.page.elements.progress.getAttribute('aria-valuemax') * 1e6);\n        } else\n            return super.getLength();\n    }\n\n    getCover () {\n        if (this.page.elements.avatar) {\n            return this.page.elements.avatar.style.backgroundImage\n              .slice(5, -2) //remove url( )\n              .replace('t50x50', 't500x500'); //we want the big thumbnail\n        } else\n            return super.getCover();\n    }\n\n    getTitle () {\n        let title = this.page.elements.title.lastElementChild;\n        return (title && title.textContent) || super.getTitle();\n    }\n\n    getArtists () {\n        return (this.page.elements.artists && [this.page.elements.artists.textContent]) ||\n          super.getArtists();\n    }\n\n}\n\nPlayer = SoundCloudPlayer;\n\nclass SoundCloudPlayback extends Playback {\n\n    setVolume (volume) {\n        super.setVolume(volume);\n        let btn = this.controls.volumeButton;\n        let icon = btn.parentElement.parentElement;\n        if (volume === 0)\n            icon && icon.classList.add('muted');\n        else\n            icon && icon.classList.remove('muted');\n\n        if (this.controls.volumeHandle) {\n            this.controls.volumeHandle.style.top = `${102 - 92 * volume}px`;\n            this.controls.volumeProgress.style.height = `${92 * volume}px`;\n        }\n    }\n\n    canGoNext () {\n        return !!this.controls.nextButton;\n    }\n\n    canGoPrevious () {\n        return !!this.controls.previousButton;\n    }\n\n    next () {\n        this.controls.nextButton.click();\n    }\n\n    previous () {\n        this.controls.previousButton.click();\n    }\n\n    isShuffle () {\n        return this.controls.shuffleButton &&\n          this.controls.shuffleButton.classList.contains('m-shuffling');\n    }\n\n    setShuffle (isShuffle) {\n        if (this.controls.shuffleButton) {\n            if ((!this.isShuffle() && isShuffle) || (this.isShuffle() && !isShuffle))\n                this.controls.shuffleButton.click();\n        }\n    }\n\n    setRate (rate) {\n        // the soundcloud UI doesn't expose any rate controls so I don't think\n        // it'd be a good idea to expose them through MPRIS; users couldn't\n        // change them back from the webpage\n    }\n\n    getLoopStatus () {\n        if (this.controls.repeatButton.classList.contains('m-all')) {\n            return LoopStatus.PLAYLIST;\n        } else if (this.controls.repeatButton.classList.contains('m-one')) {\n            return LoopStatus.TRACK;\n        } else {\n            return LoopStatus.NONE;\n        }\n    }\n\n    setLoopStatus (status) {\n        if (this.controls.repeatButton)\n            this.controls.repeatButton.click();\n    }\n\n}\n\nPlayback = SoundCloudPlayback;\n\nwindow.addEventListener('mpris2-setup', function () {\n    page.playback.controls = {\n        shuffleButton: document.querySelector('.shuffleControl'),\n        repeatButton: document.querySelector('.repeatControl'),\n        nextButton: document.querySelector('.skipControl__next'),\n        previousButton: document.querySelector('.skipControl__previous'),\n        volumeButton: document.querySelector('.volume__button'),\n        volumeHandle: document.querySelector('.volume__sliderHandle'),\n        volumeProgress: document.querySelector('.volume__sliderProgress')\n    };\n\n    page.elements = {\n        title: document.querySelector('.playbackSoundBadge__titleLink'),\n        progress: document.querySelector('.playbackTimeline__progressWrapper'),\n        avatar: document.querySelector('.playbackSoundBadge__avatar span'),\n        artists: document.querySelector('.playbackSoundBadge__lightLink')\n    };\n\n    const observer = new MutationObserver(() => {\n        Object.assign(page.elements, {\n            title: document.querySelector('.playbackSoundBadge__titleLink'),\n            progress: document.querySelector('.playbackTimeline__progressWrapper'),\n            avatar: document.querySelector('.playbackSoundBadge__avatar span'),\n            artists: document.querySelector('.playbackSoundBadge__lightLink')\n        });\n    });\n    observer.observe(document.querySelector('.playControls__soundBadge'), {\n        subtree: true,\n        childList: true\n    });\n\n    page.playback.controls.shuffleButton\n      .addEventListener('click', () => page.host.change());\n    page.playback.controls.repeatButton\n      .addEventListener('click', () => page.host.change());\n});\n",
+    "static": true,
+    "longname": "/home/joaco/src/chrome-extensions/browser-mpris2/src/providers/soundcloud.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 188,
+    "kind": "class",
+    "name": "SoundCloudPlayer",
+    "memberof": "src/providers/soundcloud.js",
+    "static": true,
+    "longname": "src/providers/soundcloud.js~SoundCloudPlayer",
+    "access": "public",
+    "export": false,
+    "importPath": "browser-mpris2/src/providers/soundcloud.js",
+    "importStyle": null,
+    "description": "\nThis file adds support for Soundcloud specific playback\n\nby extending and overriding the classes {@link Page},\n{@link Playback}, and {@link Player}.\nwe can define how we'll interact with the site",
+    "lineNumber": 12,
+    "interface": false,
+    "extends": [
+      "Player"
+    ]
+  },
+  {
+    "__docId__": 189,
+    "kind": "method",
+    "name": "getId",
+    "memberof": "src/providers/soundcloud.js~SoundCloudPlayer",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/soundcloud.js~SoundCloudPlayer#getId",
+    "access": "public",
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 190,
+    "kind": "method",
+    "name": "getLength",
+    "memberof": "src/providers/soundcloud.js~SoundCloudPlayer",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/soundcloud.js~SoundCloudPlayer#getLength",
+    "access": "public",
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 191,
+    "kind": "method",
+    "name": "getCover",
+    "memberof": "src/providers/soundcloud.js~SoundCloudPlayer",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/soundcloud.js~SoundCloudPlayer#getCover",
+    "access": "public",
+    "description": null,
+    "lineNumber": 26,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 192,
+    "kind": "method",
+    "name": "getTitle",
+    "memberof": "src/providers/soundcloud.js~SoundCloudPlayer",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/soundcloud.js~SoundCloudPlayer#getTitle",
+    "access": "public",
+    "description": null,
+    "lineNumber": 35,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 193,
+    "kind": "method",
+    "name": "getArtists",
+    "memberof": "src/providers/soundcloud.js~SoundCloudPlayer",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/soundcloud.js~SoundCloudPlayer#getArtists",
+    "access": "public",
+    "description": null,
+    "lineNumber": 40,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 194,
+    "kind": "class",
+    "name": "SoundCloudPlayback",
+    "memberof": "src/providers/soundcloud.js",
+    "static": true,
+    "longname": "src/providers/soundcloud.js~SoundCloudPlayback",
+    "access": "public",
+    "export": false,
+    "importPath": "browser-mpris2/src/providers/soundcloud.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 49,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "Playback"
+    ]
+  },
+  {
+    "__docId__": 195,
+    "kind": "method",
+    "name": "setVolume",
+    "memberof": "src/providers/soundcloud.js~SoundCloudPlayback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/soundcloud.js~SoundCloudPlayback#setVolume",
+    "access": "public",
+    "description": null,
+    "lineNumber": 51,
+    "undocument": true,
+    "params": [
+      {
+        "name": "volume",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 196,
+    "kind": "method",
+    "name": "canGoNext",
+    "memberof": "src/providers/soundcloud.js~SoundCloudPlayback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/soundcloud.js~SoundCloudPlayback#canGoNext",
+    "access": "public",
+    "description": null,
+    "lineNumber": 66,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 197,
+    "kind": "method",
+    "name": "canGoPrevious",
+    "memberof": "src/providers/soundcloud.js~SoundCloudPlayback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/soundcloud.js~SoundCloudPlayback#canGoPrevious",
+    "access": "public",
+    "description": null,
+    "lineNumber": 70,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 198,
+    "kind": "method",
+    "name": "next",
+    "memberof": "src/providers/soundcloud.js~SoundCloudPlayback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/soundcloud.js~SoundCloudPlayback#next",
+    "access": "public",
+    "description": null,
+    "lineNumber": 74,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 199,
+    "kind": "method",
+    "name": "previous",
+    "memberof": "src/providers/soundcloud.js~SoundCloudPlayback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/soundcloud.js~SoundCloudPlayback#previous",
+    "access": "public",
+    "description": null,
+    "lineNumber": 78,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 200,
+    "kind": "method",
+    "name": "isShuffle",
+    "memberof": "src/providers/soundcloud.js~SoundCloudPlayback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/soundcloud.js~SoundCloudPlayback#isShuffle",
+    "access": "public",
+    "description": null,
+    "lineNumber": 82,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 201,
+    "kind": "method",
+    "name": "setShuffle",
+    "memberof": "src/providers/soundcloud.js~SoundCloudPlayback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/soundcloud.js~SoundCloudPlayback#setShuffle",
+    "access": "public",
+    "description": null,
+    "lineNumber": 87,
+    "undocument": true,
+    "params": [
+      {
+        "name": "isShuffle",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 202,
+    "kind": "method",
+    "name": "setRate",
+    "memberof": "src/providers/soundcloud.js~SoundCloudPlayback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/soundcloud.js~SoundCloudPlayback#setRate",
+    "access": "public",
+    "description": null,
+    "lineNumber": 94,
+    "undocument": true,
+    "params": [
+      {
+        "name": "rate",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 203,
+    "kind": "method",
+    "name": "getLoopStatus",
+    "memberof": "src/providers/soundcloud.js~SoundCloudPlayback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/soundcloud.js~SoundCloudPlayback#getLoopStatus",
+    "access": "public",
+    "description": null,
+    "lineNumber": 100,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 204,
+    "kind": "method",
+    "name": "setLoopStatus",
+    "memberof": "src/providers/soundcloud.js~SoundCloudPlayback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/soundcloud.js~SoundCloudPlayback#setLoopStatus",
+    "access": "public",
+    "description": null,
+    "lineNumber": 110,
+    "undocument": true,
+    "params": [
+      {
+        "name": "status",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 205,
+    "kind": "file",
+    "name": "src/providers/youtube.js",
+    "content": "/**\n *\n * This file adds support for Youtube specific playback\n *\n * by extending and overriding the classes {@link Page},\n * {@link Playback}, and {@link Player}.\n * we can define how we'll interact with youtube's site\n *\n *\n */\n\n/**\n * The metadata sent to the mpris host is defined\n * by the {@link Player} implementation\n *\n * For youtube we get:\n *  - the song title from the html\n *  - the artist from the uploader\n *  - the cover image from the static resource of the thumbnail\n */\nclass YouTubePlayer extends Player {\n\n    /**\n     * A youtube video can have 4 different baseURLs\n     *\n     * 1. /watch?v=ID_OF_VIDEO - when watching the default way\n     * 2. /embed/ID_OF_VIDEO - when it is embedded on a different site\n     * 3. /user/nprmusic - when in a users page\n     * 4. /channel/UCC6mthPyZTpbk-Klz9RMxMw - when in a channels page\n     *\n     * In cases 3 and 4 we don't have a way to figure out it's video id\n     * so the player id will be the full URL\n     *\n     * @returns {string}\n     */\n    getId () {\n        if (this.URL.pathname === '/watch') {\n            return this.URL.searchParams.get('v');\n        } else if (this.URL.pathname.match('/embed')) {\n            return this.URL.pathname.split('/').pop();\n        } else\n            return this.getUrl();\n    }\n\n    getTitle () {\n        let title = document.querySelector('.ytp-title-text');\n        return (title && title.textContent) || super.getTitle();\n    }\n\n    getArtists () {\n        let owner = document.querySelector('#owner-name a');\n        return owner && [owner.textContent];\n    }\n\n    /**\n     * If we couldn't figure out the video id (see {@link getId})\n     * then the player's id will be the element's baseURI, if that's the case\n     * we won't be able to get the thumbnail. so call super\n     *\n     * @returns {string}\n     */\n    getCover () {\n        if (this.getId().includes('/'))\n            return super.getCover();\n        return `https://i.ytimg.com/vi/${this.getId()}/hqdefault.jpg`;\n    }\n}\n\nPlayer = YouTubePlayer;\n\n/*\n    PLAYBACK\n */\n\nclass YouTubePlayback extends Playback {\n\n    setRate (rate) {\n        if (rate <= 0)\n            return;\n        const closestRate = rate <= 1.75 ? Math.ceil(rate * 4) : 7;\n\n        // first make the settings menu appear\n        document.querySelector('.ytp-settings-button').click();\n        // then the \"speed\" submenu\n        document.querySelectorAll('.ytp-settings-menu .ytp-menuitem')\n          .forEach(each => {\n              if (each.firstElementChild.innerText === 'Speed')\n                  each.click();\n          });\n\n        // set a timeout because of animation delays\n        setTimeout(() => {\n            // select the closest speed\n            document.querySelectorAll('.ytp-settings-menu .ytp-menuitem')\n              [closestRate - 1].click();\n            // and close the settings menu again\n            document.querySelector('.ytp-settings-button').click();\n        }, 300);\n    }\n\n    setVolume (volume) {\n        super.setVolume(volume);\n        if (volume === 0 && this.controls.volumeButton && this.controls.volumeButton.title.includes('Mute'))\n            this.controls.volumeButton.click();\n        else {\n            if (this.controls.volumeButton && this.controls.volumeButton.title.includes('Unmute'))\n                this.controls.volumeButton.click();\n\n            if (this.controls.volumeHandle) {\n                this.controls.volumeHandle.style.left = `${40 * volume}px`;\n            }\n        }\n\n    };\n\n    isShuffle () {\n        return this.isControlAvailable(this.controls.shuffleButton) &&\n          this.isActionPressed(this.controls.shuffleButton);\n    }\n\n    setShuffle (isShuffle) {\n        if (this.controls.shuffleButton)\n            this.controls.shuffleButton.click();\n    }\n\n    getLoopStatus () {\n        if (this.isControlAvailable(this.controls.loopPlaylistButton) &&\n          this.isActionPressed(this.controls.loopPlaylistButton))\n            return LoopStatus.PLAYLIST;\n        else\n            return super.getLoopStatus();\n    }\n\n    setLoopStatus (status) {\n        if (this.isControlAvailable(this.controls.loopPlaylistButton)) {\n            if (status === LoopStatus.PLAYLIST) {\n                if (!this.isActionPressed(this.controls.loopPlaylistButton))\n                    this.controls.loopPlaylistButton.click();\n            } else {\n                if (this.isActionPressed(this.controls.loopPlaylistButton))\n                    this.controls.loopPlaylistButton.click();\n                super.setLoopStatus(status);\n            }\n        } else\n            super.setLoopStatus(status);\n    }\n\n    canGoNext () {\n        return !this.isButtonDisabled(this.controls.nextButton);\n    }\n\n    canGoPrevious () {\n        return !this.isButtonDisabled(this.controls.previousButton);\n    }\n\n    next () {\n        if (!this.isButtonDisabled(this.controls.nextButton))\n            this.controls.nextButton.click();\n    }\n\n    previous () {\n        if (!this.isButtonDisabled(this.controls.previousButton))\n            this.controls.previousButton.click();\n    }\n\n    /**\n     *\n     * @param {HTMLElement} button\n     * @returns {boolean}\n     */\n    isActionPressed (button) {\n        return button.firstElementChild.getAttribute('aria-pressed') === 'true';\n    }\n\n    /**\n     *\n     * @param {HTMLElement} button\n     * @returns {*|string}\n     */\n    isButtonDisabled (button) {\n        return !button || button.getAttribute('aria-disabled') === 'true';\n    }\n\n    /**\n     *\n     * @param {HTMLElement} element\n     * @returns {boolean}\n     */\n    isControlAvailable (element) {\n        return !!(element && element.offsetParent);\n    }\n}\n\nPlayback = YouTubePlayback;\n\nclass YouTubePage extends Page {\n\n    registerPlayer (element) {\n        if (this.players.find(player => player.element === element)) {\n            return;\n        }\n\n        let player = new Player(this, this.host, element);\n\n        this.players.push(player);\n\n        let container = element.parentElement.parentElement;\n\n        this.playback.controls = {\n            ...this.playback.controls,\n            nextButton: (container || document).querySelector('.ytp-next-button'),\n            previousButton: (container || document).querySelector('.ytp-prev-button'),\n            volumeButton: (container || document).querySelector('.ytp-mute-button.ytp-button'),\n            volumeHandle: (container || document).querySelector('.ytp-volume-slider-handle')\n        };\n\n        // Ignore short sounds, they are most likely a chat notification sound\n        // but still allow when undetermined (e.g. video stream)\n        if (player.isPlaying() && !(isNaN(element.duration) || (element.duration > 0 && element.duration < 5))) {\n            this.setActivePlayer(player);\n        }\n    }\n\n}\n\nPage = YouTubePage;\n\n/*\n    for youtube we need to listen for yt-page-data-updated\n    we subscribe to mpris2-setup to make sure page is defined\n */\nwindow.addEventListener('mpris2-setup', () => {\n    window.addEventListener('yt-page-data-updated', function () {\n        let playlistActionsButtons = document.querySelectorAll('#playlist-actions a');\n\n        playlistActionsButtons.forEach(each => {\n            page.observeForChanges(each.firstElementChild, {\n                attributeFilter: ['aria-pressed']\n            });\n        });\n\n        page.playback.controls = {\n            ...page.playback.controls,\n            shuffleButton: playlistActionsButtons[1],\n            loopPlaylistButton: playlistActionsButtons[0]\n        };\n\n        document.querySelectorAll('video,audio')\n          .forEach(player => page.registerPlayer(player));\n\n        if (page.getActivePlayer()) {\n            if (page.getActivePlayer().isHidden() && !page.getActivePlayer().isPlaying())\n                page.host.quit(page.getActivePlayer());\n            else\n                page.host.start(page.getActivePlayer());\n        }\n    });\n});\n",
+    "static": true,
+    "longname": "/home/joaco/src/chrome-extensions/browser-mpris2/src/providers/youtube.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 206,
+    "kind": "class",
+    "name": "YouTubePlayer",
+    "memberof": "src/providers/youtube.js",
+    "static": true,
+    "longname": "src/providers/youtube.js~YouTubePlayer",
+    "access": "public",
+    "export": false,
+    "importPath": "browser-mpris2/src/providers/youtube.js",
+    "importStyle": null,
+    "description": "The metadata sent to the mpris host is defined\nby the {@link Player} implementation\n\nFor youtube we get:\n - the song title from the html\n - the artist from the uploader\n - the cover image from the static resource of the thumbnail",
+    "lineNumber": 21,
+    "interface": false,
+    "extends": [
+      "Player"
+    ]
+  },
+  {
+    "__docId__": 207,
+    "kind": "method",
+    "name": "getId",
+    "memberof": "src/providers/youtube.js~YouTubePlayer",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/youtube.js~YouTubePlayer#getId",
+    "access": "public",
+    "description": "A youtube video can have 4 different baseURLs\n\n1. /watch?v=ID_OF_VIDEO - when watching the default way\n2. /embed/ID_OF_VIDEO - when it is embedded on a different site\n3. /user/nprmusic - when in a users page\n4. /channel/UCC6mthPyZTpbk-Klz9RMxMw - when in a channels page\n\nIn cases 3 and 4 we don't have a way to figure out it's video id\nso the player id will be the full URL",
+    "lineNumber": 36,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{string}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 208,
+    "kind": "method",
+    "name": "getTitle",
+    "memberof": "src/providers/youtube.js~YouTubePlayer",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/youtube.js~YouTubePlayer#getTitle",
+    "access": "public",
+    "description": null,
+    "lineNumber": 45,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 209,
+    "kind": "method",
+    "name": "getArtists",
+    "memberof": "src/providers/youtube.js~YouTubePlayer",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/youtube.js~YouTubePlayer#getArtists",
+    "access": "public",
+    "description": null,
+    "lineNumber": 50,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 210,
+    "kind": "method",
+    "name": "getCover",
+    "memberof": "src/providers/youtube.js~YouTubePlayer",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/youtube.js~YouTubePlayer#getCover",
+    "access": "public",
+    "description": "If we couldn't figure out the video id (see {@link getId})\nthen the player's id will be the element's baseURI, if that's the case\nwe won't be able to get the thumbnail. so call super",
+    "lineNumber": 62,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{string}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 211,
+    "kind": "class",
+    "name": "YouTubePlayback",
+    "memberof": "src/providers/youtube.js",
+    "static": true,
+    "longname": "src/providers/youtube.js~YouTubePlayback",
+    "access": "public",
+    "export": false,
+    "importPath": "browser-mpris2/src/providers/youtube.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 75,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "Playback"
+    ]
+  },
+  {
+    "__docId__": 212,
+    "kind": "method",
+    "name": "setRate",
+    "memberof": "src/providers/youtube.js~YouTubePlayback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/youtube.js~YouTubePlayback#setRate",
+    "access": "public",
+    "description": null,
+    "lineNumber": 77,
+    "undocument": true,
+    "params": [
+      {
+        "name": "rate",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 213,
+    "kind": "method",
+    "name": "setVolume",
+    "memberof": "src/providers/youtube.js~YouTubePlayback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/youtube.js~YouTubePlayback#setVolume",
+    "access": "public",
+    "description": null,
+    "lineNumber": 101,
+    "undocument": true,
+    "params": [
+      {
+        "name": "volume",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 214,
+    "kind": "method",
+    "name": "isShuffle",
+    "memberof": "src/providers/youtube.js~YouTubePlayback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/youtube.js~YouTubePlayback#isShuffle",
+    "access": "public",
+    "description": null,
+    "lineNumber": 116,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 215,
+    "kind": "method",
+    "name": "setShuffle",
+    "memberof": "src/providers/youtube.js~YouTubePlayback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/youtube.js~YouTubePlayback#setShuffle",
+    "access": "public",
+    "description": null,
+    "lineNumber": 121,
+    "undocument": true,
+    "params": [
+      {
+        "name": "isShuffle",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 216,
+    "kind": "method",
+    "name": "getLoopStatus",
+    "memberof": "src/providers/youtube.js~YouTubePlayback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/youtube.js~YouTubePlayback#getLoopStatus",
+    "access": "public",
+    "description": null,
+    "lineNumber": 126,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 217,
+    "kind": "method",
+    "name": "setLoopStatus",
+    "memberof": "src/providers/youtube.js~YouTubePlayback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/youtube.js~YouTubePlayback#setLoopStatus",
+    "access": "public",
+    "description": null,
+    "lineNumber": 134,
+    "undocument": true,
+    "params": [
+      {
+        "name": "status",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 218,
+    "kind": "method",
+    "name": "canGoNext",
+    "memberof": "src/providers/youtube.js~YouTubePlayback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/youtube.js~YouTubePlayback#canGoNext",
+    "access": "public",
+    "description": null,
+    "lineNumber": 148,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 219,
+    "kind": "method",
+    "name": "canGoPrevious",
+    "memberof": "src/providers/youtube.js~YouTubePlayback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/youtube.js~YouTubePlayback#canGoPrevious",
+    "access": "public",
+    "description": null,
+    "lineNumber": 152,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 220,
+    "kind": "method",
+    "name": "next",
+    "memberof": "src/providers/youtube.js~YouTubePlayback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/youtube.js~YouTubePlayback#next",
+    "access": "public",
+    "description": null,
+    "lineNumber": 156,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 221,
+    "kind": "method",
+    "name": "previous",
+    "memberof": "src/providers/youtube.js~YouTubePlayback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/youtube.js~YouTubePlayback#previous",
+    "access": "public",
+    "description": null,
+    "lineNumber": 161,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 222,
+    "kind": "method",
+    "name": "isActionPressed",
+    "memberof": "src/providers/youtube.js~YouTubePlayback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/youtube.js~YouTubePlayback#isActionPressed",
+    "access": "public",
+    "description": "",
+    "lineNumber": 171,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "HTMLElement"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "button",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 223,
+    "kind": "method",
+    "name": "isButtonDisabled",
+    "memberof": "src/providers/youtube.js~YouTubePlayback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/youtube.js~YouTubePlayback#isButtonDisabled",
+    "access": "public",
+    "description": "",
+    "lineNumber": 180,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{*|string}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "HTMLElement"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "button",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "*",
+        "string"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 224,
+    "kind": "method",
+    "name": "isControlAvailable",
+    "memberof": "src/providers/youtube.js~YouTubePlayback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/youtube.js~YouTubePlayback#isControlAvailable",
+    "access": "public",
+    "description": "",
+    "lineNumber": 189,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "HTMLElement"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "element",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 225,
+    "kind": "class",
+    "name": "YouTubePage",
+    "memberof": "src/providers/youtube.js",
+    "static": true,
+    "longname": "src/providers/youtube.js~YouTubePage",
+    "access": "public",
+    "export": false,
+    "importPath": "browser-mpris2/src/providers/youtube.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 196,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "Page"
+    ]
+  },
+  {
+    "__docId__": 226,
+    "kind": "method",
+    "name": "registerPlayer",
+    "memberof": "src/providers/youtube.js~YouTubePage",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/youtube.js~YouTubePage#registerPlayer",
+    "access": "public",
+    "description": null,
+    "lineNumber": 198,
+    "undocument": true,
+    "params": [
+      {
+        "name": "element",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "kind": "index",
+    "content": "# browser-mpris2\nImplements the MPRIS2 interface for Chrome and Firefox.\n\nCurrently, the following sites are supported with almost all of the capabilities MPRIS2 allows:\n* [YouTube](https://youtube.com)\n* [SoundCloud](https://soundcloud.com)\n\nPull requests are welcome.\n\n## Installation (for Chrome)\n1. First, in Chrome, go to `Tools > Extensions` (or `chrome://extensions`), enable `Developer mode` and `Load unpacked extension...` with the root of this repo.  Notice, the extension ID.\n2. Next, place [chrome-mpris2](native/chrome-mpris2) somewhere in your `$PATH` and run [install-chrome.py](native/install-chrome.py) giving it the extension ID and optionally the path (not just the directory) of your just-installed chrome-mpris2 (defaults to `~/bin/chrome-mpris2`).  This will check that you have all the dependencies and tell Chrome about chrome-mpris2 (so that the plugin can use it).\n3. ???\n4. Profit\n\nIf on GNOME or similar you should be able to take advantage of your new powers immediately.  Otherwise, you can use something like [playerctl](https://github.com/acrisci/playerctl), perhaps bind it to a key or `XF86AudioPlay` and the like if your keyboard has them.\n## Similar Projects\n* [plasma-browser-integration](https://github.com/KDE/plasma-browser-integration)\n  It's more general as it works on `<audio>` and `<video>` elements, though it misses out on some of the more \"advanced\" capabilities, such as cover art support.\n* [shwsh/web-mpris2](https://github.com/shwsh/web-mpris2)\n  A port of this extension to Tampermonkey/Greasemonkey (and WebSockets).\n\n## TODO\n -  (read on this) Support the (supposedly experimental) [Media Session API](https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API) that sites can use to set metadata.  plasma-browser-integration uses where available.\n - Add support for playlist, loop, shuffle\n - Add support for provider per domain\n - Tests? (yes, but how)\n",
+    "longname": "/home/joaco/src/chrome-extensions/browser-mpris2/README.md",
+    "name": "./README.md",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "packageJSON",
+    "content": "{\n  \"name\": \"browser-mpris2\",\n  \"version\": \"0.2.0\",\n  \"description\": \"Implements the MPRIS2 interface for Chrome and Firefox\",\n  \"main\": \"src/init.js\",\n  \"directories\": {\n    \"doc\": \"docs\",\n    \"test\": \"tests\"\n  },\n  \"scripts\": {\n    \"esdoc\": \"esdoc\",\n    \"test\": \"echo \\\"Error: no test specified\\\" && exit 1\"\n  },\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git+https://github.com/Lt-Mayonesa/browser-mpris2.git\"\n  },\n  \"keywords\": [\n    \"mpris2\",\n    \"chrome\",\n    \"firefox\"\n  ],\n  \"author\": \"lt-mayonesa\",\n  \"license\": \"MIT\",\n  \"bugs\": {\n    \"url\": \"https://github.com/Lt-Mayonesa/browser-mpris2/issues\"\n  },\n  \"homepage\": \"https://lt-mayonesa.github.io/browser-mpris2/\",\n  \"dependencies\": {},\n  \"devDependencies\": {\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-ecmascript-proposal-plugin\": \"^1.0.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\"\n  }\n}\n",
+    "longname": "/home/joaco/src/chrome-extensions/browser-mpris2/package.json",
+    "name": "package.json",
+    "static": true,
+    "access": "public"
+  }
+]

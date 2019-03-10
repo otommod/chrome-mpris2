@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/main/player.js | browser-mpris2</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Implements the MPRIS2 interface for Chrome and Firefox"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="browser-mpris2"><meta property="twitter:description" content="Implements the MPRIS2 interface for Chrome and Firefox"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/Lt-Mayonesa/browser-mpris2"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-hackAudioTags">hackAudioTags</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-host">host</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-messenger">messenger</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-page">page</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-playback">playback</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#main">main</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/main/host.js~Host.html">Host</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/main/messenger.js~Messenger.html">Messenger</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/main/page.js~Page.html">Page</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/main/playback.js~Playback.html">Playback</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/main/player.js~Player.html">Player</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LoopStatus">LoopStatus</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MessageMethod">MessageMethod</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MessageProperty">MessageProperty</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MessageType">MessageType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PlaybackStatus">PlaybackStatus</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Metadata">Metadata</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Payload">Payload</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#providers">providers</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/providers/netflix.js~NetflixPlayer.html">NetflixPlayer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/providers/soundcloud.js~SoundCloudPlayback.html">SoundCloudPlayback</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/providers/soundcloud.js~SoundCloudPlayer.html">SoundCloudPlayer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/providers/youtube.js~YouTubePage.html">YouTubePage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/providers/youtube.js~YouTubePlayback.html">YouTubePlayback</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/providers/youtube.js~YouTubePlayer.html">YouTubePlayer</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/main/player.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * A class that wraps around HTMLMediaElement
+ *
+ * It sends to the {@link Host} all relevant media events (ie: play, pause, etc)
+ *
+ * This class should be extended in order to give **provider** specific support.
+ * By default all getter and setters interact with the media element, this can be overwritten
+ * by extending this class so it gets and sets by interacting with the relevant places for each **provider**.
+ */
+class Player {
+    /**
+     * Create a new instance of player
+     * @param {Page} page
+     * @param {Host} host
+     * @param {HTMLMediaElement} element
+     */
+    constructor (page, host, element) {
+        /**
+         * The {@link Page} that holds the player
+         * @type {Page}
+         */
+        this.page = page;
+        /**
+         * The {@link Host} to communicate with
+         * @type {Host}
+         */
+        this.host = host;
+        /**
+         * The media element
+         * @type {HTMLMediaElement}
+         */
+        this.element = element;
+        /**
+         * A URL with the media baseURI
+         * It&apos;s updated in {@link refresh} whenever metadata changes
+         * @type {URL}
+         */
+        this.URL = new URL(element.baseURI);
+        this.initMediaListeners();
+    }
+
+    /**
+     * Add listeners on this.element so we propagate all necessary
+     * events to the this.host
+     */
+    initMediaListeners () {
+        this.element.addEventListener(&apos;play&apos;, () =&gt; this.host.start(this));
+        // this.element.addEventListener(&apos;waiting&apos;, () =&gt; this.host.start(this));
+        this.element.addEventListener(&apos;durationchange&apos;, () =&gt; this.host.start(this));
+        this.element.addEventListener(&apos;pause&apos;, () =&gt; this.host.change());
+        this.element.addEventListener(&apos;playing&apos;, () =&gt; this.host.change());
+        this.element.addEventListener(&apos;ratechange&apos;, () =&gt; this.host.change());
+        this.element.addEventListener(&apos;seeked&apos;, () =&gt; this.host.seeked(this));
+        this.element.addEventListener(&apos;volumechange&apos;, () =&gt; this.host.change());
+        this.element.addEventListener(&apos;loadedmetadata&apos;, e =&gt; this.refresh(e));
+    }
+
+    /**
+     * Update this.URL so getter read the correct data.
+     * Also trigger a {@link this.host.start} event on the {@link Host}.
+     */
+    refresh () {
+        this.URL = new URL(this.element.baseURI);
+        this.host.start(this);
+    }
+
+    /**
+     * Get the id of the player
+     * @returns {string} the elements source
+     */
+    getId () {
+        return this.element.baseURI;
+    }
+
+    /**
+     * Is the media playing?
+     *
+     * @returns {boolean}
+     */
+    isPlaying () {
+        return !this.element.paused;
+    }
+
+    /**
+     * Length is expected in microseconds by host
+     *
+     * @returns {number}
+     */
+    getLength () {
+        return Math.trunc(this.element.duration * 1e6);
+    }
+
+    /**
+     * Set the volume of the media
+     * @param {number} volume
+     */
+    setVolume (volume) {
+        this.element.volume = volume;
+    }
+
+    /**
+     * If media is muted return 0
+     *
+     * @returns {number}
+     */
+    getVolume () {
+        return this.element.muted ? 0.0 : this.element.volume;
+    }
+
+    /**
+     * Set the playback rate
+     * @param {number} rate
+     */
+    setRate (rate) {
+        this.element.playbackRate = rate;
+    }
+
+    /**
+     * Get the playback rate
+     * @returns {number}
+     */
+    getRate () {
+        return this.element.playbackRate;
+    }
+
+    /**
+     * Get the title of the player. The page&apos;s title by default.
+     *
+     * @returns {string}
+     */
+    getTitle () {
+        return this.page.getTitle();
+    }
+
+    /**
+     * Get the artists of the player
+     *
+     * @returns {Array&lt;string&gt;}
+     */
+    getArtists () {
+        return [this.URL.host];
+    }
+
+    /**
+     * Get the cover of the player.
+     *
+     * Using logo.clearbit.com API seems to work quite nicely.
+     * The other alternative is to get the logo from the page&apos;s favicon ({@link this.page.getIcon()})
+     *
+     * @returns {string}
+     */
+    getCover () {
+        return `http://logo.clearbit.com/${this.URL.host}`;
+    }
+
+    /**
+     * Get the current time of the media
+     *
+     * @returns {number} media current time
+     */
+    getPosition () {
+        return Math.trunc(this.element.currentTime * 1e6);
+    }
+
+    /**
+     * Is the media looping?
+     * @returns {boolean}
+     */
+    isLooping () {
+        return this.element.loop;
+    }
+
+    /**
+     * Should media loop when it reaches the end.
+     *
+     * @param {boolean} loop
+     */
+    setLoop (loop) {
+        this.element.loop = loop;
+    }
+
+    /**
+     * Play media element
+     */
+    play () {
+        this.element.play()
+          .then(() =&gt; {
+              console.debug(&apos;playing&apos;);
+          })
+          .catch((e) =&gt; {
+              console.debug(e);
+          });
+    }
+
+    /**
+     * Pause media element
+     */
+    pause () {
+        this.element.pause();
+    }
+
+    /**
+     * If media is playing then pause
+     * else play it
+     */
+    playPause () {
+        if (this.isPlaying())
+            this.pause();
+        else
+            this.play();
+    }
+
+    /**
+     * Pause media and set position to 0
+     */
+    stop () {
+        this.pause();
+        this.setPosition(0);
+    }
+
+    /**
+     * seek by an offset to position
+     *
+     * @param {number} offset - offset to currentTime in microseconds
+     */
+    seek (offset) {
+        this.element.currentTime += offset / 1e6;
+    }
+
+    /**
+     * Set the position of playback
+     * @param {number} position - new currentTime in microseconds
+     */
+    setPosition (position) {
+        this.element.currentTime = position / 1e6;
+    }
+
+    /**
+     * Toogle the fullscreen state of the media.
+     * @todo test this works
+     */
+    toggleFullScreen () {
+        if (this.element.mozRequestFullScreen) {
+            this.element.mozRequestFullScreen();
+        } else if (this.element.webkitRequestFullScreen) {
+            this.element.webkitRequestFullScreen();
+        }
+    }
+
+    /**
+     * Get the site domain (host)
+     * @returns {string}
+     */
+    getSiteDomain () {
+        return this.URL.host;
+    }
+
+    /**
+     * Get the elements url
+     * @returns {string}
+     */
+    getUrl () {
+        return this.element.baseURI;
+    }
+
+    /**
+     * Check if element is visible to the user
+     * 
+     * @returns {boolean}
+     */
+    isHidden () {
+        return this.element.offsetParent === null;
+    }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+{
+  "coverage": "76.62%",
+  "expectCount": 154,
+  "actualCount": 118,
+  "files": {
+    "src/init.js": {
+      "expectCount": 6,
+      "actualCount": 6,
+      "undocumentLines": []
+    },
+    "src/main/globals.js": {
+      "expectCount": 5,
+      "actualCount": 5,
+      "undocumentLines": []
+    },
+    "src/main/host.js": {
+      "expectCount": 16,
+      "actualCount": 16,
+      "undocumentLines": []
+    },
+    "src/main/messenger.js": {
+      "expectCount": 7,
+      "actualCount": 7,
+      "undocumentLines": []
+    },
+    "src/main/page.js": {
+      "expectCount": 18,
+      "actualCount": 18,
+      "undocumentLines": []
+    },
+    "src/main/playback.js": {
+      "expectCount": 27,
+      "actualCount": 27,
+      "undocumentLines": []
+    },
+    "src/main/player.js": {
+      "expectCount": 31,
+      "actualCount": 31,
+      "undocumentLines": []
+    },
+    "src/providers/netflix.js": {
+      "expectCount": 6,
+      "actualCount": 1,
+      "undocumentLines": [
+        14,
+        18,
+        25,
+        34,
+        39
+      ]
+    },
+    "src/providers/soundcloud.js": {
+      "expectCount": 17,
+      "actualCount": 1,
+      "undocumentLines": [
+        14,
+        19,
+        26,
+        35,
+        40,
+        49,
+        51,
+        66,
+        70,
+        74,
+        78,
+        82,
+        87,
+        94,
+        100,
+        110
+      ]
+    },
+    "src/providers/youtube.js": {
+      "expectCount": 21,
+      "actualCount": 6,
+      "undocumentLines": [
+        45,
+        50,
+        75,
+        77,
+        101,
+        116,
+        121,
+        126,
+        134,
+        148,
+        152,
+        156,
+        161,
+        196,
+        198
+      ]
+    }
+  }
+}
