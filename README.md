@@ -6,7 +6,7 @@ Currently, all sites should be supported with reduced capabilities (play, pause,
 And the following sites are supported with almost all of the capabilities MPRIS2 allows:
 * [YouTube](https://youtube.com)
 * [SoundCloud](https://soundcloud.com)
-* [Netflix](https://netflix.com) - Coming Soon
+* [Netflix](https://netflix.com)
 
 Pull requests are welcome.
 
