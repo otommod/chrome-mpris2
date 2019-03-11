@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "src/init.js",
-    "content": "hackAudioTags();\n\n// If this project grows we should consider dependency injection\n/**\n *\n * @const {Playback}\n */\nconst playback = new Playback();\n/**\n *\n * @const {Messenger}\n */\nconst messenger = new Messenger();\n/**\n *\n * @const {Host}\n */\nconst host = new Host(playback, messenger, chrome.runtime.connect());\n/**\n *\n * @const {Page}\n */\nconst page = new Page(document, playback, host);\n\nwindow.addEventListener('load', () => {\n\n    page.checkForMediaElements();\n\n    page.observeForMedia(document.documentElement);\n\n    setTimeout(() => {\n        page.checkForMediaElements();\n    }, 1000);\n\n    window.dispatchEvent(new Event('mpris2-setup'));\n});\n\nwindow.addEventListener('DOMContentLoaded', () => {\n    page.checkForMediaElements();\n});\n\n/**\n * Here we replace the <b>document.createElement</b> function with our own so we can detect\n * when an &lt;audio&gt; tag is created that is not added to the DOM which most pages do\n * while a &lt;video&gt; tag typically ends up being displayed to the user, audio is not.\n *\n * Original code from {@link https://github.com/KDE/plasma-browser-integration/blob/master/extension/content-script.js}\n */\nfunction hackAudioTags () {\n    // Bug 379087: Only inject this stuff if we're a proper HTML page\n    // otherwise we might end up messing up XML stuff\n    // only if our documentElement is a \"html\" tag we'll do it\n    // the rest is only set up in DOMContentLoaded which is only executed for proper pages anyway\n\n    // tagName always returned \"HTML\" for me but I wouldn't trust it always being uppercase\n    if (document.documentElement.tagName.toLowerCase() === 'html') {\n        // HACK We cannot really pass variables from the page's scope to our content-script's scope\n        // so we just blatantly insert the <audio> tag in the DOM and pick it up through our regular\n        // mechanism. Let's see how this goes :D\n\n        executeScript(`function() {\n                var oldCreateElement = document.createElement;\n                document.createElement = function () {\n                    var createdTag = oldCreateElement.apply(this, arguments);\n                    var tagName = arguments[0];\n                    if (typeof tagName === \"string\" && tagName.toLowerCase() === \"audio\") {\n                        (document.head || document.documentElement).appendChild(createdTag);\n                    }\n                    return createdTag;\n                };\n            }\n        `);\n\n        // We also briefly add items created as new Audio() to the DOM so we can control it\n        // similar to the document.createElement hack above\n        executeScript(`function() {\n                var oldAudio = window.Audio;\n                window.Audio = function () {\n                    var createdAudio = new (Function.prototype.bind.apply(oldAudio, arguments));\n                    (document.head || document.documentElement).appendChild(createdAudio);\n                    createdAudio.parentNode.removeChild(createdAudio);\n                    return createdAudio;\n                };\n            }\n        `);\n    }\n}\n\n/**\n * Execute a script on the current context and then remove it\n *\n * @ignore\n * @param {string} script\n */\nfunction executeScript (script) {\n    let element = document.createElement('script');\n    element.innerHTML = '(' + script + ')();';\n    (document.body || document.head || document.documentElement).appendChild(element);\n    // We need to remove the script tag after inserting or else websites relying on the order of items in\n    // document.getElementsByTagName(\"script\") will break (looking at you, Google Hangouts)\n    element.parentNode.removeChild(element);\n}\n",
+    "content": "hackAudioTags();\n\n// If this project grows we should consider dependency injection\n/**\n * The instance of {@link Playback} for this web site.\n * We define it here so it can be accessed by any provider specific code.\n * @const {Playback}\n */\nconst playback = new Playback();\n\n/**\n * The instance of {@link Messenger} for this web site.\n * There should be no need to interact directly with it.\n * @const {Messenger}\n */\nconst messenger = new Messenger();\n\n/**\n * The instance of {@link Host} for this web site.\n * There should be no need to interact directly with it.\n * @const {Host}\n */\nconst host = new Host(playback, messenger, chrome.runtime.connect());\n\n/**\n * The instance of {@link Page} for this web site.\n * We define it here so it can be accessed by any provider specific code.\n * @const {Page}\n */\nconst page = new Page(document, playback, host);\n\nwindow.addEventListener('load', () => {\n\n    page.checkForMediaElements();\n\n    page.observeForMedia(document.documentElement);\n\n    setTimeout(() => {\n        page.checkForMediaElements();\n    }, 1000);\n\n    window.dispatchEvent(new Event('mpris2-setup'));\n});\n\nwindow.addEventListener('DOMContentLoaded', () => {\n    page.checkForMediaElements();\n});\n\n/**\n * Here we replace the <b>document.createElement</b> function with our own so we can detect\n * when an &lt;audio&gt; tag is created that is not added to the DOM which most pages do\n * while a &lt;video&gt; tag typically ends up being displayed to the user, audio is not.\n *\n * Original code from {@link https://github.com/KDE/plasma-browser-integration/blob/master/extension/content-script.js}\n * @ignore\n */\nfunction hackAudioTags () {\n    // Bug 379087: Only inject this stuff if we're a proper HTML page\n    // otherwise we might end up messing up XML stuff\n    // only if our documentElement is a \"html\" tag we'll do it\n    // the rest is only set up in DOMContentLoaded which is only executed for proper pages anyway\n\n    // tagName always returned \"HTML\" for me but I wouldn't trust it always being uppercase\n    if (document.documentElement.tagName.toLowerCase() === 'html') {\n        // HACK We cannot really pass variables from the page's scope to our content-script's scope\n        // so we just blatantly insert the <audio> tag in the DOM and pick it up through our regular\n        // mechanism. Let's see how this goes :D\n\n        executeScript(`function() {\n                var oldCreateElement = document.createElement;\n                document.createElement = function () {\n                    var createdTag = oldCreateElement.apply(this, arguments);\n                    var tagName = arguments[0];\n                    if (typeof tagName === \"string\" && tagName.toLowerCase() === \"audio\") {\n                        (document.head || document.documentElement).appendChild(createdTag);\n                    }\n                    return createdTag;\n                };\n            }\n        `);\n\n        // We also briefly add items created as new Audio() to the DOM so we can control it\n        // similar to the document.createElement hack above\n        executeScript(`function() {\n                var oldAudio = window.Audio;\n                window.Audio = function () {\n                    var createdAudio = new (Function.prototype.bind.apply(oldAudio, arguments));\n                    (document.head || document.documentElement).appendChild(createdAudio);\n                    createdAudio.parentNode.removeChild(createdAudio);\n                    return createdAudio;\n                };\n            }\n        `);\n    }\n}\n\n/**\n * Execute a script on the current context and then remove it\n *\n * @ignore\n * @param {string} script\n */\nfunction executeScript (script) {\n    let element = document.createElement('script');\n    element.innerHTML = '(' + script + ')();';\n    (document.body || document.head || document.documentElement).appendChild(element);\n    // We need to remove the script tag after inserting or else websites relying on the order of items in\n    // document.getElementsByTagName(\"script\") will break (looking at you, Google Hangouts)\n    element.parentNode.removeChild(element);\n}\n",
     "static": true,
     "longname": "/home/joaco/src/chrome-extensions/browser-mpris2/src/init.js",
     "access": "public",
@@ -585,8 +585,8 @@
     "export": false,
     "importPath": "browser-mpris2",
     "importStyle": null,
-    "description": "",
-    "lineNumber": 8,
+    "description": "The instance of {@link Playback} for this web site.\nWe define it here so it can be accessed by any provider specific code.",
+    "lineNumber": 9,
     "unknown": [
       {
         "tagName": "@const",
@@ -610,8 +610,8 @@
     "export": false,
     "importPath": "browser-mpris2",
     "importStyle": null,
-    "description": "",
-    "lineNumber": 13,
+    "description": "The instance of {@link Messenger} for this web site.\nThere should be no need to interact directly with it.",
+    "lineNumber": 16,
     "unknown": [
       {
         "tagName": "@const",
@@ -635,8 +635,8 @@
     "export": false,
     "importPath": "browser-mpris2",
     "importStyle": null,
-    "description": "",
-    "lineNumber": 18,
+    "description": "The instance of {@link Host} for this web site.\nThere should be no need to interact directly with it.",
+    "lineNumber": 23,
     "unknown": [
       {
         "tagName": "@const",
@@ -660,8 +660,8 @@
     "export": false,
     "importPath": "browser-mpris2",
     "importStyle": null,
-    "description": "",
-    "lineNumber": 23,
+    "description": "The instance of {@link Page} for this web site.\nWe define it here so it can be accessed by any provider specific code.",
+    "lineNumber": 30,
     "unknown": [
       {
         "tagName": "@const",
@@ -688,7 +688,8 @@
     "importPath": "browser-mpris2",
     "importStyle": null,
     "description": "Here we replace the <b>document.createElement</b> function with our own so we can detect\nwhen an &lt;audio&gt; tag is created that is not added to the DOM which most pages do\nwhile a &lt;video&gt; tag typically ends up being displayed to the user, audio is not.\n\nOriginal code from {@link https://github.com/KDE/plasma-browser-integration/blob/master/extension/content-script.js}",
-    "lineNumber": 49,
+    "lineNumber": 57,
+    "ignore": true,
     "params": [],
     "return": null
   },
@@ -706,7 +707,7 @@
     "importPath": "browser-mpris2",
     "importStyle": null,
     "description": "Execute a script on the current context and then remove it",
-    "lineNumber": 95,
+    "lineNumber": 103,
     "ignore": true,
     "params": [
       {
@@ -2023,7 +2024,7 @@
     "__docId__": 89,
     "kind": "file",
     "name": "src/main/page.js",
-    "content": "/**\n * A class in charge of detecting new {@link HTMLMediaElement}s in current page\n * and registering them as players.\n *\n * The expected usage is call {@link checkForMediaElements} and {@link observeForMedia}\n * upon window.load event.\n */\nclass Page {\n    /**\n     *\n     *\n     * @param {Document} document\n     * @param {Playback} playback\n     * @param {Host} host\n     */\n    constructor (document, playback, host) {\n        /**\n         * The current document to keep as context\n         * @type {Document}\n         */\n        this.document = document;\n\n        /**\n         * Current {@link Playback} on the page\n         * @type {Playback}\n         */\n        this.playback = playback;\n\n        /**\n         * Current {@link Host} to trigger changes\n         * @type {Host}\n         */\n        this.host = host;\n\n        /**\n         * An array holding all {@link Player}s present in the page\n         *\n         * @type {Array.<Player>}\n         */\n        this.players = [];\n\n        /**\n         * Upon load of a page this property can be used by providers\n         * to cache html elements that are likely to be used repeatedly.\n         *\n         * @see src/providers/soundcloud.js - for an example.\n         *\n         * @type {Object.<string, HTMLElement>}\n         */\n        this.elements = {};\n\n        /**\n         * An observer for added media elements\n         * use {@link observeForMedia} to observer elements\n         *\n         * @type {MutationObserver}\n         * @private\n         */\n        this._mediaObserver = new MutationObserver(m => this.onMutate(m));\n\n        /**\n         * An observer to trigger change events on the host\n         * use {@link observeForChanges} to add elements\n         *\n         * @type {MutationObserver}\n         * @private\n         */\n        this._changesObserver = new MutationObserver(() => this.host.change());\n    }\n\n    /**\n     * Take the element and add it to the list of players\n     * if it's not already there\n     *\n     * Use when detecting a new element on the DOM\n     *\n     * If the element is playing it will be set as the active player.\n     *\n     * @param element\n     * @return {boolean}\n     */\n    registerPlayer (element) {\n        if (this.players.find(player => player.element === element)) {\n            return false;\n        }\n\n        if (isNaN(element.duration) || (element.duration > 0 && element.duration < 5)) {\n            return false;\n        }\n\n        let player = new Player(this, this.host, element);\n\n        this.players.push(player);\n\n        // Ignore short sounds, they are most likely a chat notification sound\n        // but still allow when undetermined (e.g. video stream)\n        if (player.isPlaying()) {\n            this.setActivePlayer(player);\n        }\n        return true;\n    }\n\n    /**\n     * Set element to be observed by {@link this._mediaObserver}\n     *\n     * @param {Element} element\n     */\n    observeForMedia (element) {\n        this._mediaObserver.observe(element, {\n            childList: true,\n            subtree: true\n        });\n    }\n\n    /**\n     * Set element to be observed by {@link this._changesObserver}\n     * by default check for any changes to itself or it's children\n     *\n     * @param {Element} element\n     * @param {MutationObserverInit} options\n     */\n    observeForChanges (element, options = { childList: true, subtree: true }) {\n        this._changesObserver.observe(element, options);\n    }\n\n    /**\n     * Callback called by {@link this._mediaObserver}\n     * Given an array of mutations check if there where any added nodes that are media\n     *\n     * @param {Array<MutationRecord>} mutations\n     */\n    onMutate (mutations) {\n        mutations.forEach(mutation => {\n            mutation.addedNodes.forEach(node => {\n                if (typeof node.matches !== 'function' || typeof node.querySelectorAll !== 'function') {\n                    return;\n                }\n\n                // first check whether the node itself is audio/video\n                if (node.matches('video,audio')) {\n                    this.registerPlayer(node);\n                    return;\n                }\n\n                // if not, check whether any of its children are\n                node.querySelectorAll('video,audio')\n                  .forEach(player => this.registerPlayer(player));\n            });\n        });\n    }\n\n    /**\n     * Search DOM for any &lt;video&gt; or &lt;audio&gt; elements\n     */\n    checkForMediaElements () {\n        this.document.querySelectorAll('video,audio')\n          .forEach(player => page.registerPlayer(player));\n    }\n\n    /**\n     * Set the playback's active player\n     *\n     * @param {Player} player\n     */\n    setActivePlayer (player) {\n        this.playback.setActivePlayer(player);\n    }\n\n    /**\n     * Get the playbacks active player\n     *\n     * @returns {Player}\n     */\n    getActivePlayer () {\n        return this.playback.activePlayer;\n    }\n\n    /**\n     * Get the page's title\n     *\n     * @returns {string}\n     */\n    getTitle () {\n        return this.document.title;\n    }\n\n    /**\n     * Get the page's favicon\n     *\n     * @returns {string}\n     */\n    getIcon () {\n        return this.document\n          .querySelector('link[rel=\"shortcut icon\"],link[rel=\"icon\"]')\n          .getAttribute('href');\n    }\n\n}\n",
+    "content": "/**\n * A class in charge of detecting new {@link HTMLMediaElement}s in current page\n * and registering them as players.\n *\n * The expected usage is call {@link checkForMediaElements} and {@link observeForMedia}\n * upon window.load event.\n */\nclass Page {\n    /**\n     *\n     *\n     * @param {Document} document\n     * @param {Playback} playback\n     * @param {Host} host\n     */\n    constructor (document, playback, host) {\n        /**\n         * The current document to keep as context\n         * @type {Document}\n         */\n        this.document = document;\n\n        /**\n         * Current {@link Playback} on the page\n         * @type {Playback}\n         */\n        this.playback = playback;\n\n        /**\n         * Current {@link Host} to trigger changes\n         * @type {Host}\n         */\n        this.host = host;\n\n        /**\n         * An array holding all {@link Player}s present in the page\n         *\n         * @type {Array.<Player>}\n         */\n        this.players = [];\n\n        /**\n         * Upon load of a page this property can be used by providers\n         * to cache html elements that are likely to be used repeatedly.\n         *\n         * @see src/providers/soundcloud.js - for an example.\n         *\n         * @type {Object.<string, HTMLElement>}\n         */\n        this.elements = {};\n\n        /**\n         * An observer for added media elements\n         * use {@link observeForMedia} to observer elements\n         *\n         * @type {MutationObserver}\n         * @private\n         */\n        this._mediaObserver = new MutationObserver(m => this.onMutate(m));\n\n        /**\n         * An observer to trigger change events on the host\n         * use {@link observeForChanges} to add elements\n         *\n         * @type {MutationObserver}\n         * @private\n         */\n        this._changesObserver = new MutationObserver(() => this.host.change());\n    }\n\n    /**\n     * Take the element and add it to the list of players\n     * if it's not already there\n     *\n     * Use when detecting a new element on the DOM\n     *\n     * If the element is playing it will be set as the active player.\n     *\n     * @param element\n     * @return {boolean}\n     */\n    registerPlayer (element) {\n        if (this.players.find(player => player.element === element)) {\n            return false;\n        }\n\n        let player = new Player(this, this.host, element);\n\n        this.players.push(player);\n\n        // Ignore short sounds, they are most likely a chat notification sound\n        // but still allow when undetermined (e.g. video stream)\n        if (player.isPlaying()) {\n            this.setActivePlayer(player);\n        }\n        return true;\n    }\n\n    /**\n     * Set element to be observed by {@link this._mediaObserver}\n     *\n     * @param {Element} element\n     */\n    observeForMedia (element) {\n        this._mediaObserver.observe(element, {\n            childList: true,\n            subtree: true\n        });\n    }\n\n    /**\n     * Set element to be observed by {@link this._changesObserver}\n     * by default check for any changes to itself or it's children\n     *\n     * @param {Element} element\n     * @param {MutationObserverInit} options\n     */\n    observeForChanges (element, options = { childList: true, subtree: true }) {\n        this._changesObserver.observe(element, options);\n    }\n\n    /**\n     * Callback called by {@link this._mediaObserver}\n     * Given an array of mutations check if there where any added nodes that are media\n     *\n     * @param {Array<MutationRecord>} mutations\n     */\n    onMutate (mutations) {\n        mutations.forEach(mutation => {\n            mutation.addedNodes.forEach(node => {\n                if (typeof node.matches !== 'function' || typeof node.querySelectorAll !== 'function') {\n                    return;\n                }\n\n                // first check whether the node itself is audio/video\n                if (node.matches('video,audio')) {\n                    this.registerPlayer(node);\n                    return;\n                }\n\n                // if not, check whether any of its children are\n                node.querySelectorAll('video,audio')\n                  .forEach(player => this.registerPlayer(player));\n            });\n        });\n    }\n\n    /**\n     * Search DOM for any &lt;video&gt; or &lt;audio&gt; elements\n     */\n    checkForMediaElements () {\n        this.document.querySelectorAll('video,audio')\n          .forEach(player => page.registerPlayer(player));\n    }\n\n    /**\n     * Set the playback's active player\n     *\n     * @param {Player} player\n     */\n    setActivePlayer (player) {\n        this.host.start(player);\n    }\n\n    /**\n     * Get the playbacks active player\n     *\n     * @returns {Player}\n     */\n    getActivePlayer () {\n        return this.playback.activePlayer;\n    }\n\n    /**\n     * Get the page's title\n     *\n     * @returns {string}\n     */\n    getTitle () {\n        return this.document.title;\n    }\n\n    /**\n     * Get the page's favicon\n     *\n     * @returns {string}\n     */\n    getIcon () {\n        return this.document\n          .querySelector('link[rel=\"shortcut icon\"],link[rel=\"icon\"]')\n          .getAttribute('href');\n    }\n\n}\n",
     "static": true,
     "longname": "/home/joaco/src/chrome-extensions/browser-mpris2/src/main/page.js",
     "access": "public",
@@ -2270,7 +2271,7 @@
     "longname": "src/main/page.js~Page#observeForMedia",
     "access": "public",
     "description": "Set element to be observed by {@link this._mediaObserver}",
-    "lineNumber": 108,
+    "lineNumber": 104,
     "params": [
       {
         "nullable": null,
@@ -2296,7 +2297,7 @@
     "longname": "src/main/page.js~Page#observeForChanges",
     "access": "public",
     "description": "Set element to be observed by {@link this._changesObserver}\nby default check for any changes to itself or it's children",
-    "lineNumber": 122,
+    "lineNumber": 118,
     "params": [
       {
         "nullable": null,
@@ -2332,7 +2333,7 @@
     "longname": "src/main/page.js~Page#onMutate",
     "access": "public",
     "description": "Callback called by {@link this._mediaObserver}\nGiven an array of mutations check if there where any added nodes that are media",
-    "lineNumber": 132,
+    "lineNumber": 128,
     "params": [
       {
         "nullable": null,
@@ -2358,7 +2359,7 @@
     "longname": "src/main/page.js~Page#checkForMediaElements",
     "access": "public",
     "description": "Search DOM for any &lt;video&gt; or &lt;audio&gt; elements",
-    "lineNumber": 155,
+    "lineNumber": 151,
     "params": [],
     "return": null
   },
@@ -2373,7 +2374,7 @@
     "longname": "src/main/page.js~Page#setActivePlayer",
     "access": "public",
     "description": "Set the playback's active player",
-    "lineNumber": 165,
+    "lineNumber": 161,
     "params": [
       {
         "nullable": null,
@@ -2399,7 +2400,7 @@
     "longname": "src/main/page.js~Page#getActivePlayer",
     "access": "public",
     "description": "Get the playbacks active player",
-    "lineNumber": 174,
+    "lineNumber": 170,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2427,7 +2428,7 @@
     "longname": "src/main/page.js~Page#getTitle",
     "access": "public",
     "description": "Get the page's title",
-    "lineNumber": 183,
+    "lineNumber": 179,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2455,7 +2456,7 @@
     "longname": "src/main/page.js~Page#getIcon",
     "access": "public",
     "description": "Get the page's favicon",
-    "lineNumber": 192,
+    "lineNumber": 188,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2476,7 +2477,7 @@
     "__docId__": 108,
     "kind": "file",
     "name": "src/main/playback.js",
-    "content": "/**\n * There should be one instance of Playback per page\n *\n * This class is in charge of handling the playback of the active player\n * it receives the commands from its {@link Host} and communicates the accordingly\n * to the player.\n *\n * It's also the responsible for exposing all the getters necessary\n * to conform the {@link Payload} message.\n *\n * By default all properties of {@link Payload} are extracted from the {@link this.activePlayer}\n * although it is expected that this functionality is overridden by the providers.\n */\nclass Playback {\n    /**\n     * Create a new instance\n     */\n    constructor () {\n        /**\n         * A dictionary of any controls extracted from the DOM\n         * @type {Object.<string, HTMLElement>}\n         */\n        this.controls = {};\n\n        /**\n         * The current player being shown by the MPRIS2 interface\n         *\n         * @type {Player}\n         */\n        this.activePlayer = null;\n    }\n\n    /**\n     * One of {@link PlaybackStatus.PLAYING} or {@link PlaybackStatus.PAUSED}\n     * @returns {string}\n     */\n    getStatus () {\n        return this.activePlayer && this.activePlayer.isPlaying() ? PlaybackStatus.PLAYING : PlaybackStatus.PAUSED;\n    }\n\n    /**\n     * Set the volume of playback\n     * @param {number} volume\n     */\n    setVolume (volume) {\n        this.activePlayer && this.activePlayer.setVolume(volume);\n    }\n\n    /**\n     * Get the volume of playback\n     * @returns {number}\n     */\n    getVolume () {\n        return this.activePlayer && this.activePlayer.getVolume();\n    }\n\n    /**\n     * Set the rate of playback.\n     * @example\n     * playback.setRate(1.5);\n     * @param {number} rate\n     */\n    setRate (rate) {\n        this.activePlayer && this.activePlayer.setRate(rate);\n    }\n\n    /**\n     * Get the rate of playback\n     * @returns {number}\n     */\n    getRate () {\n        return this.activePlayer && this.activePlayer.getRate();\n    }\n\n    /**\n     * Set the shuffle between tracks of playback\n     * @param {boolean} isShuffle\n     */\n    setShuffle (isShuffle) {}\n\n    /**\n     * Get if the playback is shuffling between tracks\n     * @return {boolean}\n     */\n    isShuffle () {\n        return false;\n    }\n\n    /**\n     * By default we don't support playlist looping ({@link LoopStatus}.PLAYLIST)\n     * so we force {@link LoopStatus}.TRACK loop if any loop other than {@link LoopStatus}.NONE is specified\n     *\n     * @param {LoopStatus} status\n     */\n    setLoopStatus (status) {\n        let loopStatus = status === LoopStatus.PLAYLIST ? LoopStatus.TRACK : status;\n        this.activePlayer && this.activePlayer.setLoop(loopStatus === LoopStatus.TRACK);\n    }\n\n    /**\n     * Get the loop status of playback\n     * @returns {LoopStatus}\n     */\n    getLoopStatus () {\n        return this.activePlayer && this.activePlayer.isLooping() ?\n          LoopStatus.TRACK : LoopStatus.NONE;\n    }\n\n    /**\n     * Check current page for 'next' functionality\n     *\n     * @returns {boolean}\n     */\n    canGoNext () {\n        return false;\n    }\n\n    /**\n     * Check current page for 'previous' functionality\n     *\n     * @returns {boolean}\n     */\n    canGoPrevious () {\n        return false;\n    }\n\n    /**\n     * Go to next media\n     * This should be implemented per provider\n     */\n    next () {}\n\n    /**\n     * Go to previous\n     * This should be implemented per provider\n     */\n    previous () {}\n\n    /**\n     * **COMMAND** Start to play active player\n     */\n    play () {\n        this.activePlayer && this.activePlayer.play();\n    }\n\n    /**\n     * **COMMAND** Pause active player\n     */\n    pause () {\n        this.activePlayer && this.activePlayer.pause();\n    }\n\n    /**\n     * **COMMAND** Toggle between play and pause\n     */\n    togglePlayback () {\n        this.activePlayer && this.activePlayer.playPause();\n    }\n\n    /**\n     * **COMMAND** Stop active player\n     */\n    stop () {\n        this.activePlayer && this.activePlayer.stop();\n    }\n\n    /**\n     * **COMMAND** Seek activePlayer to offset\n     *\n     * @param {number} offset\n     */\n    seek (offset) {\n        this.activePlayer && this.activePlayer.seek(offset);\n    }\n\n    /**\n     * **COMMAND** Set current position of active player\n     *\n     * @param {string} id - the id of the player\n     * @param {number} position\n     */\n    setPosition (id, position) {\n        this.activePlayer && this.activePlayer.setPosition(position);\n    }\n\n    /**\n     * **COMMAND** Get active player's position\n     *\n     * @returns {number}\n     */\n    getPosition () {\n        return this.activePlayer !== null ? this.activePlayer.getPosition() : null;\n    }\n\n    /**\n     * Set the current active player\n     *\n     * @param {Player} player\n     */\n    setActivePlayer (player) {\n        this.activePlayer = player;\n    }\n\n    /**\n     * **COMMAND** Toggle the fullscreen state\n     *\n     * @todo test this works\n     */\n    toggleFullScreen () {\n        this.activePlayer && this.activePlayer.toggleFullScreen();\n    }\n\n    /**\n     * Get the identity of playback, by default it is the site's domain\n     *\n     * @returns {string}\n     */\n    getIdentity () {\n        return this.activePlayer && this.activePlayer.getSiteDomain();\n    }\n\n}\n",
+    "content": "/**\n * There should be one instance of Playback per page\n *\n * This class is in charge of handling the playback of the active player\n * it receives the commands from its {@link Host} and communicates the accordingly\n * to the player.\n *\n * It's also the responsible for exposing all the getters necessary\n * to conform the {@link Payload} message.\n *\n * By default all properties of {@link Payload} are extracted from the {@link this.activePlayer}\n * although it is expected that this functionality is overridden by the providers.\n */\nclass Playback {\n    /**\n     * Create a new instance\n     */\n    constructor () {\n        /**\n         * A dictionary of any controls extracted from the DOM\n         * @type {Object.<string, HTMLElement>}\n         */\n        this.controls = {};\n\n        /**\n         * The current player being shown by the MPRIS2 interface\n         *\n         * @type {Player}\n         */\n        this.activePlayer = null;\n    }\n\n    /**\n     * One of {@link PlaybackStatus.PLAYING} or {@link PlaybackStatus.PAUSED}\n     * @returns {string}\n     */\n    getStatus () {\n        return this.activePlayer && this.activePlayer.isPlaying() ? PlaybackStatus.PLAYING : PlaybackStatus.PAUSED;\n    }\n\n    /**\n     * Set the volume of playback\n     * @param {number} volume\n     */\n    setVolume (volume) {\n        this.activePlayer && this.activePlayer.setVolume(volume);\n    }\n\n    /**\n     * Get the volume of playback\n     * @returns {number}\n     */\n    getVolume () {\n        return this.activePlayer && this.activePlayer.getVolume();\n    }\n\n    /**\n     * Set the rate of playback.\n     * @example\n     * playback.setRate(1.5);\n     * @param {number} rate\n     */\n    setRate (rate) {\n        this.activePlayer && this.activePlayer.setRate(rate);\n    }\n\n    /**\n     * Get the rate of playback\n     * @returns {number}\n     */\n    getRate () {\n        return this.activePlayer && this.activePlayer.getRate();\n    }\n\n    /**\n     * Set the shuffle between tracks of playback\n     * @param {boolean} isShuffle\n     */\n    setShuffle (isShuffle) {}\n\n    /**\n     * Get if the playback is shuffling between tracks\n     * @return {boolean}\n     */\n    isShuffle () {\n        return false;\n    }\n\n    /**\n     * By default we don't support playlist looping ({@link LoopStatus}.PLAYLIST)\n     * so we force {@link LoopStatus}.TRACK loop if any loop other than {@link LoopStatus}.NONE is specified\n     *\n     * @param {LoopStatus} status\n     */\n    setLoopStatus (status) {\n        let loopStatus = status === LoopStatus.PLAYLIST ? LoopStatus.TRACK : status;\n        this.activePlayer && this.activePlayer.setLoop(loopStatus === LoopStatus.TRACK);\n    }\n\n    /**\n     * Get the loop status of playback\n     * @returns {LoopStatus}\n     */\n    getLoopStatus () {\n        return this.activePlayer && this.activePlayer.isLooping() ?\n          LoopStatus.TRACK : LoopStatus.NONE;\n    }\n\n    /**\n     * Check current page for 'next' functionality\n     *\n     * @returns {boolean}\n     */\n    canGoNext () {\n        return false;\n    }\n\n    /**\n     * Check current page for 'previous' functionality\n     *\n     * @returns {boolean}\n     */\n    canGoPrevious () {\n        return false;\n    }\n\n    /**\n     * Go to next media\n     * This should be implemented per provider\n     */\n    next () {}\n\n    /**\n     * Go to previous\n     * This should be implemented per provider\n     */\n    previous () {}\n\n    /**\n     * **COMMAND** Start to play active player\n     */\n    play () {\n        this.activePlayer && this.activePlayer.play();\n    }\n\n    /**\n     * **COMMAND** Pause active player\n     */\n    pause () {\n        this.activePlayer && this.activePlayer.pause();\n    }\n\n    /**\n     * **COMMAND** Toggle between play and pause\n     */\n    togglePlayback () {\n        this.activePlayer && this.activePlayer.playPause();\n    }\n\n    /**\n     * **COMMAND** Stop active player\n     */\n    stop () {\n        this.activePlayer && this.activePlayer.stop();\n    }\n\n    /**\n     * **COMMAND** Seek activePlayer to offset\n     *\n     * @param {number} offset\n     */\n    seek (offset) {\n        this.activePlayer && this.activePlayer.seek(offset);\n    }\n\n    /**\n     * **COMMAND** Set current position of active player\n     *\n     * @param {string} id - the id of the player\n     * @param {number} position\n     */\n    setPosition (id, position) {\n        this.activePlayer && this.activePlayer.setPosition(position);\n    }\n\n    /**\n     * **COMMAND** Get active player's position\n     *\n     * @returns {number}\n     */\n    getPosition () {\n        return this.activePlayer !== null ? this.activePlayer.getPosition() : null;\n    }\n\n    /**\n     * Set the current active player\n     *\n     * @param {Player} player\n     */\n    setActivePlayer (player) {\n        if (player.isValid()) {\n            this.activePlayer = player;\n        }\n    }\n\n    /**\n     * **COMMAND** Toggle the fullscreen state\n     *\n     * @todo test this works\n     */\n    toggleFullScreen () {\n        this.activePlayer && this.activePlayer.toggleFullScreen();\n    }\n\n    /**\n     * Get the identity of playback, by default it is the site's domain\n     *\n     * @returns {string}\n     */\n    getIdentity () {\n        return this.activePlayer && this.activePlayer.getSiteDomain();\n    }\n\n}\n",
     "static": true,
     "longname": "/home/joaco/src/chrome-extensions/browser-mpris2/src/main/playback.js",
     "access": "public",
@@ -3063,7 +3064,7 @@
     "longname": "src/main/playback.js~Playback#toggleFullScreen",
     "access": "public",
     "description": "**COMMAND** Toggle the fullscreen state",
-    "lineNumber": 209,
+    "lineNumber": 211,
     "todo": [
       "test this works"
     ],
@@ -3081,7 +3082,7 @@
     "longname": "src/main/playback.js~Playback#getIdentity",
     "access": "public",
     "description": "Get the identity of playback, by default it is the site's domain",
-    "lineNumber": 218,
+    "lineNumber": 220,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3102,7 +3103,7 @@
     "__docId__": 147,
     "kind": "file",
     "name": "src/main/player.js",
-    "content": "/**\n * A class that wraps around HTMLMediaElement\n *\n * It sends to the {@link Host} all relevant media events (ie: play, pause, etc)\n *\n * This class should be extended in order to give **provider** specific support.\n * By default all getter and setters interact with the media element, this can be overwritten\n * by extending this class so it gets and sets by interacting with the relevant places for each **provider**.\n */\nclass Player {\n    /**\n     * Create a new instance of player\n     * @param {Page} page\n     * @param {Host} host\n     * @param {HTMLMediaElement} element\n     */\n    constructor (page, host, element) {\n        /**\n         * The {@link Page} that holds the player\n         * @type {Page}\n         */\n        this.page = page;\n        /**\n         * The {@link Host} to communicate with\n         * @type {Host}\n         */\n        this.host = host;\n        /**\n         * The media element\n         * @type {HTMLMediaElement}\n         */\n        this.element = element;\n        /**\n         * A URL with the media baseURI\n         * It's updated in {@link refresh} whenever metadata changes\n         * @type {URL}\n         */\n        this.URL = new URL(element.baseURI);\n        this.initMediaListeners();\n    }\n\n    /**\n     * Add listeners on this.element so we propagate all necessary\n     * events to the this.host\n     */\n    initMediaListeners () {\n        this.element.addEventListener('play', () => this.host.start(this));\n        // this.element.addEventListener('waiting', () => this.host.start(this));\n        this.element.addEventListener('durationchange', () => this.host.start(this));\n        this.element.addEventListener('pause', () => this.host.change());\n        this.element.addEventListener('playing', () => this.host.change());\n        this.element.addEventListener('ratechange', () => this.host.change());\n        this.element.addEventListener('seeked', () => this.host.seeked(this));\n        this.element.addEventListener('volumechange', () => this.host.change());\n        this.element.addEventListener('loadedmetadata', e => this.refresh(e));\n    }\n\n    /**\n     * Update this.URL so getter read the correct data.\n     * Also trigger a {@link this.host.start} event on the {@link Host}.\n     */\n    refresh () {\n        this.URL = new URL(this.element.baseURI);\n        this.host.start(this);\n    }\n\n    /**\n     * Get the id of the player\n     * @returns {string} the elements source\n     */\n    getId () {\n        return this.element.baseURI;\n    }\n\n    /**\n     * Is the media playing?\n     *\n     * @returns {boolean}\n     */\n    isPlaying () {\n        return !this.element.paused;\n    }\n\n    /**\n     * Length is expected in microseconds by host\n     *\n     * @returns {number}\n     */\n    getLength () {\n        return Math.trunc(this.element.duration * 1e6);\n    }\n\n    /**\n     * Set the volume of the media\n     * @param {number} volume\n     */\n    setVolume (volume) {\n        this.element.volume = volume;\n    }\n\n    /**\n     * If media is muted return 0\n     *\n     * @returns {number}\n     */\n    getVolume () {\n        return this.element.muted ? 0.0 : this.element.volume;\n    }\n\n    /**\n     * Set the playback rate\n     * @param {number} rate\n     */\n    setRate (rate) {\n        this.element.playbackRate = rate;\n    }\n\n    /**\n     * Get the playback rate\n     * @returns {number}\n     */\n    getRate () {\n        return this.element.playbackRate;\n    }\n\n    /**\n     * Get the title of the player. The page's title by default.\n     *\n     * @returns {string}\n     */\n    getTitle () {\n        return this.page.getTitle();\n    }\n\n    /**\n     * Get the artists of the player\n     *\n     * @returns {Array<string>}\n     */\n    getArtists () {\n        return [this.URL.host];\n    }\n\n    /**\n     * Get the cover of the player.\n     *\n     * Using logo.clearbit.com API seems to work quite nicely.\n     * The other alternative is to get the logo from the page's favicon ({@link this.page.getIcon()})\n     *\n     * @returns {string}\n     */\n    getCover () {\n        return `http://logo.clearbit.com/${this.URL.host}`;\n    }\n\n    /**\n     * Get the current time of the media\n     *\n     * @returns {number} media current time\n     */\n    getPosition () {\n        return Math.trunc(this.element.currentTime * 1e6);\n    }\n\n    /**\n     * Is the media looping?\n     * @returns {boolean}\n     */\n    isLooping () {\n        return this.element.loop;\n    }\n\n    /**\n     * Should media loop when it reaches the end.\n     *\n     * @param {boolean} loop\n     */\n    setLoop (loop) {\n        this.element.loop = loop;\n    }\n\n    /**\n     * Play media element\n     */\n    play () {\n        this.element.play()\n          .then(() => {\n              console.debug('playing');\n          })\n          .catch((e) => {\n              console.debug(e);\n          });\n    }\n\n    /**\n     * Pause media element\n     */\n    pause () {\n        this.element.pause();\n    }\n\n    /**\n     * If media is playing then pause\n     * else play it\n     */\n    playPause () {\n        if (this.isPlaying())\n            this.pause();\n        else\n            this.play();\n    }\n\n    /**\n     * Pause media and set position to 0\n     */\n    stop () {\n        this.pause();\n        this.setPosition(0);\n    }\n\n    /**\n     * seek by an offset to position\n     *\n     * @param {number} offset - offset to currentTime in microseconds\n     */\n    seek (offset) {\n        this.element.currentTime += offset / 1e6;\n    }\n\n    /**\n     * Set the position of playback\n     * @param {number} position - new currentTime in microseconds\n     */\n    setPosition (position) {\n        this.element.currentTime = position / 1e6;\n    }\n\n    /**\n     * Toogle the fullscreen state of the media.\n     * @todo test this works\n     */\n    toggleFullScreen () {\n        if (this.element.mozRequestFullScreen) {\n            this.element.mozRequestFullScreen();\n        } else if (this.element.webkitRequestFullScreen) {\n            this.element.webkitRequestFullScreen();\n        }\n    }\n\n    /**\n     * Get the site domain (host)\n     * @returns {string}\n     */\n    getSiteDomain () {\n        return this.URL.host;\n    }\n\n    /**\n     * Get the elements url\n     * @returns {string}\n     */\n    getUrl () {\n        return this.element.baseURI;\n    }\n\n    /**\n     * Check if element is visible to the user\n     *\n     * @returns {boolean}\n     */\n    isHidden () {\n        return this.element.offsetParent === null;\n    }\n}\n",
+    "content": "/**\n * A class that wraps around HTMLMediaElement\n *\n * It sends to the {@link Host} all relevant media events (ie: play, pause, etc)\n *\n * This class should be extended in order to give **provider** specific support.\n * By default all getter and setters interact with the media element, this can be overwritten\n * by extending this class so it gets and sets by interacting with the relevant places for each **provider**.\n */\nclass Player {\n    /**\n     * Create a new instance of player\n     * @param {Page} page\n     * @param {Host} host\n     * @param {HTMLMediaElement} element\n     */\n    constructor (page, host, element) {\n        /**\n         * The {@link Page} that holds the player\n         * @type {Page}\n         */\n        this.page = page;\n        /**\n         * The {@link Host} to communicate with\n         * @type {Host}\n         */\n        this.host = host;\n        /**\n         * The media element\n         * @type {HTMLMediaElement}\n         */\n        this.element = element;\n        /**\n         * A URL with the media baseURI\n         * It's updated in {@link refresh} whenever metadata changes\n         * @type {URL}\n         */\n        this.URL = new URL(element.baseURI);\n        this.initDefaultMediaListeners();\n    }\n\n    /**\n     * Add listeners on this.element so we propagate all necessary\n     * events to the this.host\n     */\n    initDefaultMediaListeners () {\n        this.element.addEventListener('play', () => this.refresh());\n        this.element.addEventListener('durationchange', () => this.refresh());\n        this.element.addEventListener('loadedmetadata', () => this.refresh());\n        this.element.addEventListener('loadstart', () => this.refresh());\n    }\n\n    /**\n     * Update this.URL so getter read the correct data.\n     * Also trigger a {@link this.host.start} event on the {@link Host}.\n     */\n    refresh () {\n        this.URL = new URL(this.element.baseURI);\n        if (this.isValid()) {\n            this.element.addEventListener('pause', () => this.host.change());\n            this.element.addEventListener('playing', () => this.host.change());\n            this.element.addEventListener('ratechange', () => this.host.change());\n            this.element.addEventListener('seeked', () => this.host.seeked(this));\n            this.element.addEventListener('volumechange', () => this.host.change());\n            this.host.start(this);\n        }\n    }\n\n    /**\n     * Get the id of the player\n     * @returns {string} the elements source\n     */\n    getId () {\n        return this.element.baseURI;\n    }\n\n    /**\n     * Is the media playing?\n     *\n     * @returns {boolean}\n     */\n    isPlaying () {\n        return !this.element.paused;\n    }\n\n    /**\n     * Length is expected in microseconds by host\n     *\n     * @returns {number}\n     */\n    getLength () {\n        return Math.trunc(this.element.duration * 1e6);\n    }\n\n    /**\n     * Set the volume of the media\n     * @param {number} volume\n     */\n    setVolume (volume) {\n        this.element.volume = volume;\n    }\n\n    /**\n     * If media is muted return 0\n     *\n     * @returns {number}\n     */\n    getVolume () {\n        return this.element.muted ? 0.0 : this.element.volume;\n    }\n\n    /**\n     * Set the playback rate\n     * @param {number} rate\n     */\n    setRate (rate) {\n        this.element.playbackRate = rate;\n    }\n\n    /**\n     * Get the playback rate\n     * @returns {number}\n     */\n    getRate () {\n        return this.element.playbackRate;\n    }\n\n    /**\n     * Get the title of the player. The page's title by default.\n     *\n     * @returns {string}\n     */\n    getTitle () {\n        return this.page.getTitle();\n    }\n\n    /**\n     * Get the artists of the player\n     *\n     * @returns {Array<string>}\n     */\n    getArtists () {\n        return [this.URL.host];\n    }\n\n    /**\n     * Get the cover of the player.\n     *\n     * Using logo.clearbit.com API seems to work quite nicely.\n     * The other alternative is to get the logo from the page's favicon ({@link this.page.getIcon()})\n     *\n     * @returns {string}\n     */\n    getCover () {\n        return `http://logo.clearbit.com/${this.URL.host}`;\n    }\n\n    /**\n     * Get the current time of the media\n     *\n     * @returns {number} media current time\n     */\n    getPosition () {\n        return Math.trunc(this.element.currentTime * 1e6);\n    }\n\n    /**\n     * Is the media looping?\n     * @returns {boolean}\n     */\n    isLooping () {\n        return this.element.loop;\n    }\n\n    /**\n     * Should media loop when it reaches the end.\n     *\n     * @param {boolean} loop\n     */\n    setLoop (loop) {\n        this.element.loop = loop;\n    }\n\n    /**\n     * Play media element\n     */\n    play () {\n        this.element.play()\n          .then(() => {\n              console.debug('playing');\n          })\n          .catch((e) => {\n              console.debug(e);\n          });\n    }\n\n    /**\n     * Pause media element\n     */\n    pause () {\n        this.element.pause();\n    }\n\n    /**\n     * If media is playing then pause\n     * else play it\n     */\n    playPause () {\n        if (this.isPlaying())\n            this.pause();\n        else\n            this.play();\n    }\n\n    /**\n     * Pause media and set position to 0\n     */\n    stop () {\n        this.pause();\n        this.setPosition(0);\n    }\n\n    /**\n     * seek by an offset to position\n     *\n     * @param {number} offset - offset to currentTime in microseconds\n     */\n    seek (offset) {\n        this.element.currentTime += offset / 1e6;\n    }\n\n    /**\n     * Set the position of playback\n     * @param {number} position - new currentTime in microseconds\n     */\n    setPosition (position) {\n        this.element.currentTime = position / 1e6;\n    }\n\n    /**\n     * Toogle the fullscreen state of the media.\n     * @todo test this works\n     */\n    toggleFullScreen () {\n        if (this.element.mozRequestFullScreen) {\n            this.element.mozRequestFullScreen();\n        } else if (this.element.webkitRequestFullScreen) {\n            this.element.webkitRequestFullScreen();\n        }\n    }\n\n    /**\n     * Get the site domain (host)\n     * @returns {string}\n     */\n    getSiteDomain () {\n        return this.URL.host;\n    }\n\n    /**\n     * Get the elements url\n     * @returns {string}\n     */\n    getUrl () {\n        return this.element.baseURI;\n    }\n\n    /**\n     * Check if element is visible to the user\n     *\n     * @returns {boolean}\n     */\n    isHidden () {\n        return this.element.offsetParent === null;\n    }\n\n    /**\n     *\n     * @return {boolean}\n     */\n    isValid () {\n        return !isNaN(this.element.duration) && this.element.duration > 5;\n    }\n}\n",
     "static": true,
     "longname": "/home/joaco/src/chrome-extensions/browser-mpris2/src/main/player.js",
     "access": "public",
@@ -3248,12 +3249,12 @@
   {
     "__docId__": 154,
     "kind": "method",
-    "name": "initMediaListeners",
+    "name": "initDefaultMediaListeners",
     "memberof": "src/main/player.js~Player",
     "generator": false,
     "async": false,
     "static": false,
-    "longname": "src/main/player.js~Player#initMediaListeners",
+    "longname": "src/main/player.js~Player#initDefaultMediaListeners",
     "access": "public",
     "description": "Add listeners on this.element so we propagate all necessary\nevents to the this.host",
     "lineNumber": 46,
@@ -3271,7 +3272,7 @@
     "longname": "src/main/player.js~Player#refresh",
     "access": "public",
     "description": "Update this.URL so getter read the correct data.\nAlso trigger a {@link this.host.start} event on the {@link Host}.",
-    "lineNumber": 62,
+    "lineNumber": 57,
     "params": [],
     "return": null
   },
@@ -3286,7 +3287,7 @@
     "longname": "src/main/player.js~Player#getId",
     "access": "public",
     "description": "Get the id of the player",
-    "lineNumber": 71,
+    "lineNumber": 73,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3314,7 +3315,7 @@
     "longname": "src/main/player.js~Player#isPlaying",
     "access": "public",
     "description": "Is the media playing?",
-    "lineNumber": 80,
+    "lineNumber": 82,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3342,7 +3343,7 @@
     "longname": "src/main/player.js~Player#getLength",
     "access": "public",
     "description": "Length is expected in microseconds by host",
-    "lineNumber": 89,
+    "lineNumber": 91,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3370,7 +3371,7 @@
     "longname": "src/main/player.js~Player#setVolume",
     "access": "public",
     "description": "Set the volume of the media",
-    "lineNumber": 97,
+    "lineNumber": 99,
     "params": [
       {
         "nullable": null,
@@ -3396,7 +3397,7 @@
     "longname": "src/main/player.js~Player#getVolume",
     "access": "public",
     "description": "If media is muted return 0",
-    "lineNumber": 106,
+    "lineNumber": 108,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3424,7 +3425,7 @@
     "longname": "src/main/player.js~Player#setRate",
     "access": "public",
     "description": "Set the playback rate",
-    "lineNumber": 114,
+    "lineNumber": 116,
     "params": [
       {
         "nullable": null,
@@ -3450,7 +3451,7 @@
     "longname": "src/main/player.js~Player#getRate",
     "access": "public",
     "description": "Get the playback rate",
-    "lineNumber": 122,
+    "lineNumber": 124,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3478,7 +3479,7 @@
     "longname": "src/main/player.js~Player#getTitle",
     "access": "public",
     "description": "Get the title of the player. The page's title by default.",
-    "lineNumber": 131,
+    "lineNumber": 133,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3506,7 +3507,7 @@
     "longname": "src/main/player.js~Player#getArtists",
     "access": "public",
     "description": "Get the artists of the player",
-    "lineNumber": 140,
+    "lineNumber": 142,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3534,7 +3535,7 @@
     "longname": "src/main/player.js~Player#getCover",
     "access": "public",
     "description": "Get the cover of the player.\n\nUsing logo.clearbit.com API seems to work quite nicely.\nThe other alternative is to get the logo from the page's favicon ({@link this.page.getIcon()})",
-    "lineNumber": 152,
+    "lineNumber": 154,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3562,7 +3563,7 @@
     "longname": "src/main/player.js~Player#getPosition",
     "access": "public",
     "description": "Get the current time of the media",
-    "lineNumber": 161,
+    "lineNumber": 163,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3590,7 +3591,7 @@
     "longname": "src/main/player.js~Player#isLooping",
     "access": "public",
     "description": "Is the media looping?",
-    "lineNumber": 169,
+    "lineNumber": 171,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3618,7 +3619,7 @@
     "longname": "src/main/player.js~Player#setLoop",
     "access": "public",
     "description": "Should media loop when it reaches the end.",
-    "lineNumber": 178,
+    "lineNumber": 180,
     "params": [
       {
         "nullable": null,
@@ -3644,7 +3645,7 @@
     "longname": "src/main/player.js~Player#play",
     "access": "public",
     "description": "Play media element",
-    "lineNumber": 185,
+    "lineNumber": 187,
     "params": [],
     "return": null
   },
@@ -3659,7 +3660,7 @@
     "longname": "src/main/player.js~Player#pause",
     "access": "public",
     "description": "Pause media element",
-    "lineNumber": 198,
+    "lineNumber": 200,
     "params": [],
     "return": null
   },
@@ -3674,7 +3675,7 @@
     "longname": "src/main/player.js~Player#playPause",
     "access": "public",
     "description": "If media is playing then pause\nelse play it",
-    "lineNumber": 206,
+    "lineNumber": 208,
     "params": [],
     "return": null
   },
@@ -3689,7 +3690,7 @@
     "longname": "src/main/player.js~Player#stop",
     "access": "public",
     "description": "Pause media and set position to 0",
-    "lineNumber": 216,
+    "lineNumber": 218,
     "params": [],
     "return": null
   },
@@ -3704,7 +3705,7 @@
     "longname": "src/main/player.js~Player#seek",
     "access": "public",
     "description": "seek by an offset to position",
-    "lineNumber": 226,
+    "lineNumber": 228,
     "params": [
       {
         "nullable": null,
@@ -3730,7 +3731,7 @@
     "longname": "src/main/player.js~Player#setPosition",
     "access": "public",
     "description": "Set the position of playback",
-    "lineNumber": 234,
+    "lineNumber": 236,
     "params": [
       {
         "nullable": null,
@@ -3756,7 +3757,7 @@
     "longname": "src/main/player.js~Player#toggleFullScreen",
     "access": "public",
     "description": "Toogle the fullscreen state of the media.",
-    "lineNumber": 242,
+    "lineNumber": 244,
     "todo": [
       "test this works"
     ],
@@ -3774,7 +3775,7 @@
     "longname": "src/main/player.js~Player#getSiteDomain",
     "access": "public",
     "description": "Get the site domain (host)",
-    "lineNumber": 254,
+    "lineNumber": 256,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3802,7 +3803,7 @@
     "longname": "src/main/player.js~Player#getUrl",
     "access": "public",
     "description": "Get the elements url",
-    "lineNumber": 262,
+    "lineNumber": 264,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3830,7 +3831,7 @@
     "longname": "src/main/player.js~Player#isHidden",
     "access": "public",
     "description": "Check if element is visible to the user",
-    "lineNumber": 271,
+    "lineNumber": 273,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3849,9 +3850,31 @@
   },
   {
     "__docId__": 180,
+    "kind": "method",
+    "name": "isValid",
+    "memberof": "src/main/player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/main/player.js~Player#isValid",
+    "access": "public",
+    "description": "",
+    "lineNumber": 281,
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 181,
     "kind": "file",
     "name": "src/providers/netflix.js",
-    "content": "/**\n *\n * This file adds support for Soundcloud specific playback\n *\n * by extending and overriding the classes {@link Page},\n * {@link Playback}, and {@link Player}.\n * we can define how we'll interact with the site\n *\n *\n */\n\nclass NetflixPlayer extends Player {\n\n    getId () {\n        return this.URL.searchParams.get('trackId');\n    }\n\n    getLength () {\n        if (this.page.elements.progress) {\n            return Math.trunc(this.page.elements.progress.getAttribute('aria-valuemax') * 1e6);\n        } else\n            return super.getLength();\n    }\n\n    getCover () {\n        if (this.page.elements.avatar) {\n            return this.page.elements.avatar.style.backgroundImage\n              .slice(5, -2) //remove url( )\n              .replace('t50x50', 't500x500'); //we want the big thumbnail\n        } else\n            return super.getCover();\n    }\n\n    getTitle () {\n        let title = this.page.elements.title.lastElementChild;\n        return (title && title.textContent) || super.getTitle();\n    }\n\n    getArtists () {\n        return (this.page.elements.artists && [this.page.elements.artists.textContent]) ||\n          super.getArtists();\n    }\n\n}\n\nPlayer = NetflixPlayer;\n",
+    "content": "/**\n *\n * This file adds support for Soundcloud specific playback\n *\n * by extending and overriding the classes {@link Page},\n * {@link Playback}, and {@link Player}.\n * we can define how we'll interact with the site\n *\n *\n */\n\nclass NetflixPlayer extends Player {\n\n    getId () {\n        return this.URL.searchParams.get('trackId');\n    }\n\n    getTitle () {\n        let spans = Array.prototype.slice.call(document.querySelectorAll('.video-title span'));\n        return (spans && spans.reduce((acc, cur) => (acc.textContent || acc) + ' ' + cur.textContent, '')) || super.getTitle();\n    }\n\n    getArtists () {\n        let h4 = document.querySelector('.video-title h4');\n        return (h4 && [h4.textContent]) || super.getArtists();\n    }\n\n    isValid () {\n        return this.URL.pathname.includes('/watch') && super.isValid();\n    }\n\n}\n\nPlayer = NetflixPlayer;\n\nclass NetflixPlayback extends Playback {\n\n    seek (offset) {\n        let btn;\n        if (offset === 10000000)\n            btn = document.querySelector('.button-nfplayerFastForward');\n        else if (offset === -10000000)\n            btn = document.querySelector('.button-nfplayerBackTen');\n\n        btn && btn.click();\n    }\n\n    canGoNext () {\n        return !!document.querySelector('.button-nfplayerNextEpisode');\n    }\n\n    next () {\n        let btn;\n        btn = document.querySelector('.skip-credits a');\n        if (!btn)\n            btn = document.querySelector('.button-nfplayerNextEpisode');\n        btn && btn.click();\n    }\n\n}\n\nPlayback = NetflixPlayback;\n\nclass NetflixPage extends Page {\n\n    registerPlayer (element) {\n        let result = super.registerPlayer(element);\n        if (result) {\n            let btn = document.querySelector('.button-nfplayerBack');\n            btn && btn.addEventListener('click', () => host.quit());\n        }\n        return result;\n    }\n\n}\n\nPage = NetflixPage;\n",
     "static": true,
     "longname": "/home/joaco/src/chrome-extensions/browser-mpris2/src/providers/netflix.js",
     "access": "public",
@@ -3859,7 +3882,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 181,
+    "__docId__": 182,
     "kind": "class",
     "name": "NetflixPlayer",
     "memberof": "src/providers/netflix.js",
@@ -3877,7 +3900,7 @@
     ]
   },
   {
-    "__docId__": 182,
+    "__docId__": 183,
     "kind": "method",
     "name": "getId",
     "memberof": "src/providers/netflix.js~NetflixPlayer",
@@ -3897,14 +3920,14 @@
     }
   },
   {
-    "__docId__": 183,
+    "__docId__": 184,
     "kind": "method",
-    "name": "getLength",
+    "name": "getTitle",
     "memberof": "src/providers/netflix.js~NetflixPlayer",
     "generator": false,
     "async": false,
     "static": false,
-    "longname": "src/providers/netflix.js~NetflixPlayer#getLength",
+    "longname": "src/providers/netflix.js~NetflixPlayer#getTitle",
     "access": "public",
     "description": null,
     "lineNumber": 18,
@@ -3917,37 +3940,17 @@
     }
   },
   {
-    "__docId__": 184,
-    "kind": "method",
-    "name": "getCover",
-    "memberof": "src/providers/netflix.js~NetflixPlayer",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "src/providers/netflix.js~NetflixPlayer#getCover",
-    "access": "public",
-    "description": null,
-    "lineNumber": 25,
-    "undocument": true,
-    "params": [],
-    "return": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
     "__docId__": 185,
     "kind": "method",
-    "name": "getTitle",
+    "name": "getArtists",
     "memberof": "src/providers/netflix.js~NetflixPlayer",
     "generator": false,
     "async": false,
     "static": false,
-    "longname": "src/providers/netflix.js~NetflixPlayer#getTitle",
+    "longname": "src/providers/netflix.js~NetflixPlayer#getArtists",
     "access": "public",
     "description": null,
-    "lineNumber": 34,
+    "lineNumber": 23,
     "undocument": true,
     "params": [],
     "return": {
@@ -3959,15 +3962,15 @@
   {
     "__docId__": 186,
     "kind": "method",
-    "name": "getArtists",
+    "name": "isValid",
     "memberof": "src/providers/netflix.js~NetflixPlayer",
     "generator": false,
     "async": false,
     "static": false,
-    "longname": "src/providers/netflix.js~NetflixPlayer#getArtists",
+    "longname": "src/providers/netflix.js~NetflixPlayer#isValid",
     "access": "public",
     "description": null,
-    "lineNumber": 39,
+    "lineNumber": 28,
     "undocument": true,
     "params": [],
     "return": {
@@ -3978,6 +3981,130 @@
   },
   {
     "__docId__": 187,
+    "kind": "class",
+    "name": "NetflixPlayback",
+    "memberof": "src/providers/netflix.js",
+    "static": true,
+    "longname": "src/providers/netflix.js~NetflixPlayback",
+    "access": "public",
+    "export": false,
+    "importPath": "browser-mpris2/src/providers/netflix.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 36,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "Playback"
+    ]
+  },
+  {
+    "__docId__": 188,
+    "kind": "method",
+    "name": "seek",
+    "memberof": "src/providers/netflix.js~NetflixPlayback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/netflix.js~NetflixPlayback#seek",
+    "access": "public",
+    "description": null,
+    "lineNumber": 38,
+    "undocument": true,
+    "params": [
+      {
+        "name": "offset",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 189,
+    "kind": "method",
+    "name": "canGoNext",
+    "memberof": "src/providers/netflix.js~NetflixPlayback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/netflix.js~NetflixPlayback#canGoNext",
+    "access": "public",
+    "description": null,
+    "lineNumber": 48,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 190,
+    "kind": "method",
+    "name": "next",
+    "memberof": "src/providers/netflix.js~NetflixPlayback",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/netflix.js~NetflixPlayback#next",
+    "access": "public",
+    "description": null,
+    "lineNumber": 52,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 191,
+    "kind": "class",
+    "name": "NetflixPage",
+    "memberof": "src/providers/netflix.js",
+    "static": true,
+    "longname": "src/providers/netflix.js~NetflixPage",
+    "access": "public",
+    "export": false,
+    "importPath": "browser-mpris2/src/providers/netflix.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 64,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "Page"
+    ]
+  },
+  {
+    "__docId__": 192,
+    "kind": "method",
+    "name": "registerPlayer",
+    "memberof": "src/providers/netflix.js~NetflixPage",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/providers/netflix.js~NetflixPage#registerPlayer",
+    "access": "public",
+    "description": null,
+    "lineNumber": 66,
+    "undocument": true,
+    "params": [
+      {
+        "name": "element",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 193,
     "kind": "file",
     "name": "src/providers/soundcloud.js",
     "content": "/**\n *\n * This file adds support for Soundcloud specific playback\n *\n * by extending and overriding the classes {@link Page},\n * {@link Playback}, and {@link Player}.\n * we can define how we'll interact with the site\n *\n *\n */\n\nclass SoundCloudPlayer extends Player {\n\n    getId () {\n        return (this.page.elements.title && this.page.elements.title.textContent) ||\n          super.getTitle();\n    }\n\n    getLength () {\n        if (this.page.elements.progress) {\n            return Math.trunc(this.page.elements.progress.getAttribute('aria-valuemax') * 1e6);\n        } else\n            return super.getLength();\n    }\n\n    getCover () {\n        if (this.page.elements.avatar) {\n            return this.page.elements.avatar.style.backgroundImage\n              .slice(5, -2) //remove url( )\n              .replace('t50x50', 't500x500'); //we want the big thumbnail\n        } else\n            return super.getCover();\n    }\n\n    getTitle () {\n        let title = this.page.elements.title.lastElementChild;\n        return (title && title.textContent) || super.getTitle();\n    }\n\n    getArtists () {\n        return (this.page.elements.artists && [this.page.elements.artists.textContent]) ||\n          super.getArtists();\n    }\n\n}\n\nPlayer = SoundCloudPlayer;\n\nclass SoundCloudPlayback extends Playback {\n\n    setVolume (volume) {\n        super.setVolume(volume);\n        let btn = this.controls.volumeButton;\n        let icon = btn.parentElement.parentElement;\n        if (volume === 0)\n            icon && icon.classList.add('muted');\n        else\n            icon && icon.classList.remove('muted');\n\n        if (this.controls.volumeHandle) {\n            this.controls.volumeHandle.style.top = `${102 - 92 * volume}px`;\n            this.controls.volumeProgress.style.height = `${92 * volume}px`;\n        }\n    }\n\n    canGoNext () {\n        return !!this.controls.nextButton;\n    }\n\n    canGoPrevious () {\n        return !!this.controls.previousButton;\n    }\n\n    next () {\n        this.controls.nextButton.click();\n    }\n\n    previous () {\n        this.controls.previousButton.click();\n    }\n\n    isShuffle () {\n        return this.controls.shuffleButton &&\n          this.controls.shuffleButton.classList.contains('m-shuffling');\n    }\n\n    setShuffle (isShuffle) {\n        if (this.controls.shuffleButton) {\n            if ((!this.isShuffle() && isShuffle) || (this.isShuffle() && !isShuffle))\n                this.controls.shuffleButton.click();\n        }\n    }\n\n    setRate (rate) {\n        // the soundcloud UI doesn't expose any rate controls so I don't think\n        // it'd be a good idea to expose them through MPRIS; users couldn't\n        // change them back from the webpage\n    }\n\n    getLoopStatus () {\n        if (this.controls.repeatButton.classList.contains('m-all')) {\n            return LoopStatus.PLAYLIST;\n        } else if (this.controls.repeatButton.classList.contains('m-one')) {\n            return LoopStatus.TRACK;\n        } else {\n            return LoopStatus.NONE;\n        }\n    }\n\n    setLoopStatus (status) {\n        if (this.controls.repeatButton)\n            this.controls.repeatButton.click();\n    }\n\n}\n\nPlayback = SoundCloudPlayback;\n\nwindow.addEventListener('mpris2-setup', function () {\n    page.playback.controls = {\n        shuffleButton: document.querySelector('.shuffleControl'),\n        repeatButton: document.querySelector('.repeatControl'),\n        nextButton: document.querySelector('.skipControl__next'),\n        previousButton: document.querySelector('.skipControl__previous'),\n        volumeButton: document.querySelector('.volume__button'),\n        volumeHandle: document.querySelector('.volume__sliderHandle'),\n        volumeProgress: document.querySelector('.volume__sliderProgress')\n    };\n\n    page.elements = {\n        title: document.querySelector('.playbackSoundBadge__titleLink'),\n        progress: document.querySelector('.playbackTimeline__progressWrapper'),\n        avatar: document.querySelector('.playbackSoundBadge__avatar span'),\n        artists: document.querySelector('.playbackSoundBadge__lightLink')\n    };\n\n    const observer = new MutationObserver(() => {\n        Object.assign(page.elements, {\n            title: document.querySelector('.playbackSoundBadge__titleLink'),\n            progress: document.querySelector('.playbackTimeline__progressWrapper'),\n            avatar: document.querySelector('.playbackSoundBadge__avatar span'),\n            artists: document.querySelector('.playbackSoundBadge__lightLink')\n        });\n    });\n    observer.observe(document.querySelector('.playControls__soundBadge'), {\n        subtree: true,\n        childList: true\n    });\n\n    page.playback.controls.shuffleButton\n      .addEventListener('click', () => page.host.change());\n    page.playback.controls.repeatButton\n      .addEventListener('click', () => page.host.change());\n});\n",
@@ -3988,7 +4115,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 188,
+    "__docId__": 194,
     "kind": "class",
     "name": "SoundCloudPlayer",
     "memberof": "src/providers/soundcloud.js",
@@ -4006,7 +4133,7 @@
     ]
   },
   {
-    "__docId__": 189,
+    "__docId__": 195,
     "kind": "method",
     "name": "getId",
     "memberof": "src/providers/soundcloud.js~SoundCloudPlayer",
@@ -4026,7 +4153,7 @@
     }
   },
   {
-    "__docId__": 190,
+    "__docId__": 196,
     "kind": "method",
     "name": "getLength",
     "memberof": "src/providers/soundcloud.js~SoundCloudPlayer",
@@ -4046,7 +4173,7 @@
     }
   },
   {
-    "__docId__": 191,
+    "__docId__": 197,
     "kind": "method",
     "name": "getCover",
     "memberof": "src/providers/soundcloud.js~SoundCloudPlayer",
@@ -4066,7 +4193,7 @@
     }
   },
   {
-    "__docId__": 192,
+    "__docId__": 198,
     "kind": "method",
     "name": "getTitle",
     "memberof": "src/providers/soundcloud.js~SoundCloudPlayer",
@@ -4086,7 +4213,7 @@
     }
   },
   {
-    "__docId__": 193,
+    "__docId__": 199,
     "kind": "method",
     "name": "getArtists",
     "memberof": "src/providers/soundcloud.js~SoundCloudPlayer",
@@ -4106,7 +4233,7 @@
     }
   },
   {
-    "__docId__": 194,
+    "__docId__": 200,
     "kind": "class",
     "name": "SoundCloudPlayback",
     "memberof": "src/providers/soundcloud.js",
@@ -4125,7 +4252,7 @@
     ]
   },
   {
-    "__docId__": 195,
+    "__docId__": 201,
     "kind": "method",
     "name": "setVolume",
     "memberof": "src/providers/soundcloud.js~SoundCloudPlayback",
@@ -4148,7 +4275,7 @@
     "return": null
   },
   {
-    "__docId__": 196,
+    "__docId__": 202,
     "kind": "method",
     "name": "canGoNext",
     "memberof": "src/providers/soundcloud.js~SoundCloudPlayback",
@@ -4168,7 +4295,7 @@
     }
   },
   {
-    "__docId__": 197,
+    "__docId__": 203,
     "kind": "method",
     "name": "canGoPrevious",
     "memberof": "src/providers/soundcloud.js~SoundCloudPlayback",
@@ -4188,7 +4315,7 @@
     }
   },
   {
-    "__docId__": 198,
+    "__docId__": 204,
     "kind": "method",
     "name": "next",
     "memberof": "src/providers/soundcloud.js~SoundCloudPlayback",
@@ -4204,7 +4331,7 @@
     "return": null
   },
   {
-    "__docId__": 199,
+    "__docId__": 205,
     "kind": "method",
     "name": "previous",
     "memberof": "src/providers/soundcloud.js~SoundCloudPlayback",
@@ -4220,7 +4347,7 @@
     "return": null
   },
   {
-    "__docId__": 200,
+    "__docId__": 206,
     "kind": "method",
     "name": "isShuffle",
     "memberof": "src/providers/soundcloud.js~SoundCloudPlayback",
@@ -4240,7 +4367,7 @@
     }
   },
   {
-    "__docId__": 201,
+    "__docId__": 207,
     "kind": "method",
     "name": "setShuffle",
     "memberof": "src/providers/soundcloud.js~SoundCloudPlayback",
@@ -4263,7 +4390,7 @@
     "return": null
   },
   {
-    "__docId__": 202,
+    "__docId__": 208,
     "kind": "method",
     "name": "setRate",
     "memberof": "src/providers/soundcloud.js~SoundCloudPlayback",
@@ -4286,7 +4413,7 @@
     "return": null
   },
   {
-    "__docId__": 203,
+    "__docId__": 209,
     "kind": "method",
     "name": "getLoopStatus",
     "memberof": "src/providers/soundcloud.js~SoundCloudPlayback",
@@ -4306,7 +4433,7 @@
     }
   },
   {
-    "__docId__": 204,
+    "__docId__": 210,
     "kind": "method",
     "name": "setLoopStatus",
     "memberof": "src/providers/soundcloud.js~SoundCloudPlayback",
@@ -4329,7 +4456,7 @@
     "return": null
   },
   {
-    "__docId__": 205,
+    "__docId__": 211,
     "kind": "file",
     "name": "src/providers/youtube.js",
     "content": "/**\n *\n * This file adds support for Youtube specific playback\n *\n * by extending and overriding the classes {@link Page},\n * {@link Playback}, and {@link Player}.\n * we can define how we'll interact with youtube's site\n *\n *\n */\n\n/**\n * The metadata sent to the mpris host is defined\n * by the {@link Player} implementation\n *\n * For youtube we get:\n *  - the song title from the html\n *  - the artist from the uploader\n *  - the cover image from the static resource of the thumbnail\n */\nclass YouTubePlayer extends Player {\n\n    /**\n     * A youtube video can have 4 different baseURLs\n     *\n     * 1. /watch?v=ID_OF_VIDEO - when watching the default way\n     * 2. /embed/ID_OF_VIDEO - when it is embedded on a different site\n     * 3. /user/nprmusic - when in a users page\n     * 4. /channel/UCC6mthPyZTpbk-Klz9RMxMw - when in a channels page\n     *\n     * In cases 3 and 4 we don't have a way to figure out it's video id\n     * so the player id will be the full URL\n     *\n     * @returns {string}\n     */\n    getId () {\n        if (this.URL.pathname === '/watch') {\n            return this.URL.searchParams.get('v');\n        } else if (this.URL.pathname.match('/embed')) {\n            return this.URL.pathname.split('/').pop();\n        } else\n            return this.getUrl();\n    }\n\n    getTitle () {\n        let title = document.querySelector('.ytp-title-text');\n        return (title && title.textContent) || super.getTitle();\n    }\n\n    getArtists () {\n        let owner = document.querySelector('#owner-name a');\n        return owner && [owner.textContent];\n    }\n\n    /**\n     * If we couldn't figure out the video id (see {@link getId})\n     * then the player's id will be the element's baseURI, if that's the case\n     * we won't be able to get the thumbnail. so call super\n     *\n     * @returns {string}\n     */\n    getCover () {\n        if (this.getId().includes('/'))\n            return super.getCover();\n        return `https://i.ytimg.com/vi/${this.getId()}/hqdefault.jpg`;\n    }\n}\n\nPlayer = YouTubePlayer;\n\n/*\n    PLAYBACK\n */\n\nclass YouTubePlayback extends Playback {\n\n    setRate (rate) {\n        if (rate <= 0)\n            return;\n        const closestRate = rate <= 1.75 ? Math.ceil(rate * 4) : 7;\n\n        // first make the settings menu appear\n        document.querySelector('.ytp-settings-button').click();\n        // then the \"speed\" submenu\n        document.querySelectorAll('.ytp-settings-menu .ytp-menuitem')\n          .forEach(each => {\n              if (each.firstElementChild.innerText === 'Speed')\n                  each.click();\n          });\n\n        // set a timeout because of animation delays\n        setTimeout(() => {\n            // select the closest speed\n            document.querySelectorAll('.ytp-settings-menu .ytp-menuitem')\n              [closestRate - 1].click();\n            // and close the settings menu again\n            document.querySelector('.ytp-settings-button').click();\n        }, 300);\n    }\n\n    setVolume (volume) {\n        super.setVolume(volume);\n        if (volume === 0 && this.controls.volumeButton && this.controls.volumeButton.title.includes('Mute'))\n            this.controls.volumeButton.click();\n        else {\n            if (this.controls.volumeButton && this.controls.volumeButton.title.includes('Unmute'))\n                this.controls.volumeButton.click();\n\n            if (this.controls.volumeHandle) {\n                this.controls.volumeHandle.style.left = `${40 * volume}px`;\n            }\n        }\n\n    };\n\n    isShuffle () {\n        return this.isControlAvailable(this.controls.shuffleButton) &&\n          this.isActionPressed(this.controls.shuffleButton);\n    }\n\n    setShuffle (isShuffle) {\n        if (this.controls.shuffleButton)\n            this.controls.shuffleButton.click();\n    }\n\n    getLoopStatus () {\n        if (this.isControlAvailable(this.controls.loopPlaylistButton) &&\n          this.isActionPressed(this.controls.loopPlaylistButton))\n            return LoopStatus.PLAYLIST;\n        else\n            return super.getLoopStatus();\n    }\n\n    setLoopStatus (status) {\n        if (this.isControlAvailable(this.controls.loopPlaylistButton)) {\n            if (status === LoopStatus.PLAYLIST) {\n                if (!this.isActionPressed(this.controls.loopPlaylistButton))\n                    this.controls.loopPlaylistButton.click();\n            } else {\n                if (this.isActionPressed(this.controls.loopPlaylistButton))\n                    this.controls.loopPlaylistButton.click();\n                super.setLoopStatus(status);\n            }\n        } else\n            super.setLoopStatus(status);\n    }\n\n    canGoNext () {\n        return !this.isButtonDisabled(this.controls.nextButton);\n    }\n\n    canGoPrevious () {\n        return !this.isButtonDisabled(this.controls.previousButton);\n    }\n\n    next () {\n        if (!this.isButtonDisabled(this.controls.nextButton))\n            this.controls.nextButton.click();\n    }\n\n    previous () {\n        if (!this.isButtonDisabled(this.controls.previousButton))\n            this.controls.previousButton.click();\n    }\n\n    /**\n     *\n     * @param {HTMLElement} button\n     * @returns {boolean}\n     */\n    isActionPressed (button) {\n        return button.firstElementChild.getAttribute('aria-pressed') === 'true';\n    }\n\n    /**\n     *\n     * @param {HTMLElement} button\n     * @returns {*|string}\n     */\n    isButtonDisabled (button) {\n        return !button || button.getAttribute('aria-disabled') === 'true';\n    }\n\n    /**\n     *\n     * @param {HTMLElement} element\n     * @returns {boolean}\n     */\n    isControlAvailable (element) {\n        return !!(element && element.offsetParent);\n    }\n}\n\nPlayback = YouTubePlayback;\n\nclass YouTubePage extends Page {\n\n    registerPlayer (element) {\n        if (this.players.find(player => player.element === element)) {\n            return;\n        }\n\n        let player = new Player(this, this.host, element);\n\n        this.players.push(player);\n\n        let container = element.parentElement.parentElement;\n\n        this.playback.controls = {\n            ...this.playback.controls,\n            nextButton: (container || document).querySelector('.ytp-next-button'),\n            previousButton: (container || document).querySelector('.ytp-prev-button'),\n            volumeButton: (container || document).querySelector('.ytp-mute-button.ytp-button'),\n            volumeHandle: (container || document).querySelector('.ytp-volume-slider-handle')\n        };\n\n        // Ignore short sounds, they are most likely a chat notification sound\n        // but still allow when undetermined (e.g. video stream)\n        if (player.isPlaying() && !(isNaN(element.duration) || (element.duration > 0 && element.duration < 5))) {\n            this.setActivePlayer(player);\n        }\n    }\n\n}\n\nPage = YouTubePage;\n\n/*\n    for youtube we need to listen for yt-page-data-updated\n    we subscribe to mpris2-setup to make sure page is defined\n */\nwindow.addEventListener('mpris2-setup', () => {\n    window.addEventListener('yt-page-data-updated', function () {\n        let playlistActionsButtons = document.querySelectorAll('#playlist-actions a');\n\n        playlistActionsButtons.forEach(each => {\n            page.observeForChanges(each.firstElementChild, {\n                attributeFilter: ['aria-pressed']\n            });\n        });\n\n        page.playback.controls = {\n            ...page.playback.controls,\n            shuffleButton: playlistActionsButtons[1],\n            loopPlaylistButton: playlistActionsButtons[0]\n        };\n\n        document.querySelectorAll('video,audio')\n          .forEach(player => page.registerPlayer(player));\n\n        if (page.getActivePlayer()) {\n            if (page.getActivePlayer().isHidden() && !page.getActivePlayer().isPlaying())\n                page.host.quit(page.getActivePlayer());\n            else\n                page.host.start(page.getActivePlayer());\n        }\n    });\n});\n",
@@ -4340,7 +4467,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 206,
+    "__docId__": 212,
     "kind": "class",
     "name": "YouTubePlayer",
     "memberof": "src/providers/youtube.js",
@@ -4358,7 +4485,7 @@
     ]
   },
   {
-    "__docId__": 207,
+    "__docId__": 213,
     "kind": "method",
     "name": "getId",
     "memberof": "src/providers/youtube.js~YouTubePlayer",
@@ -4386,7 +4513,7 @@
     "params": []
   },
   {
-    "__docId__": 208,
+    "__docId__": 214,
     "kind": "method",
     "name": "getTitle",
     "memberof": "src/providers/youtube.js~YouTubePlayer",
@@ -4406,7 +4533,7 @@
     }
   },
   {
-    "__docId__": 209,
+    "__docId__": 215,
     "kind": "method",
     "name": "getArtists",
     "memberof": "src/providers/youtube.js~YouTubePlayer",
@@ -4426,7 +4553,7 @@
     }
   },
   {
-    "__docId__": 210,
+    "__docId__": 216,
     "kind": "method",
     "name": "getCover",
     "memberof": "src/providers/youtube.js~YouTubePlayer",
@@ -4454,7 +4581,7 @@
     "params": []
   },
   {
-    "__docId__": 211,
+    "__docId__": 217,
     "kind": "class",
     "name": "YouTubePlayback",
     "memberof": "src/providers/youtube.js",
@@ -4473,7 +4600,7 @@
     ]
   },
   {
-    "__docId__": 212,
+    "__docId__": 218,
     "kind": "method",
     "name": "setRate",
     "memberof": "src/providers/youtube.js~YouTubePlayback",
@@ -4496,7 +4623,7 @@
     "return": null
   },
   {
-    "__docId__": 213,
+    "__docId__": 219,
     "kind": "method",
     "name": "setVolume",
     "memberof": "src/providers/youtube.js~YouTubePlayback",
@@ -4519,7 +4646,7 @@
     "return": null
   },
   {
-    "__docId__": 214,
+    "__docId__": 220,
     "kind": "method",
     "name": "isShuffle",
     "memberof": "src/providers/youtube.js~YouTubePlayback",
@@ -4539,7 +4666,7 @@
     }
   },
   {
-    "__docId__": 215,
+    "__docId__": 221,
     "kind": "method",
     "name": "setShuffle",
     "memberof": "src/providers/youtube.js~YouTubePlayback",
@@ -4562,7 +4689,7 @@
     "return": null
   },
   {
-    "__docId__": 216,
+    "__docId__": 222,
     "kind": "method",
     "name": "getLoopStatus",
     "memberof": "src/providers/youtube.js~YouTubePlayback",
@@ -4582,7 +4709,7 @@
     }
   },
   {
-    "__docId__": 217,
+    "__docId__": 223,
     "kind": "method",
     "name": "setLoopStatus",
     "memberof": "src/providers/youtube.js~YouTubePlayback",
@@ -4605,7 +4732,7 @@
     "return": null
   },
   {
-    "__docId__": 218,
+    "__docId__": 224,
     "kind": "method",
     "name": "canGoNext",
     "memberof": "src/providers/youtube.js~YouTubePlayback",
@@ -4625,7 +4752,7 @@
     }
   },
   {
-    "__docId__": 219,
+    "__docId__": 225,
     "kind": "method",
     "name": "canGoPrevious",
     "memberof": "src/providers/youtube.js~YouTubePlayback",
@@ -4645,7 +4772,7 @@
     }
   },
   {
-    "__docId__": 220,
+    "__docId__": 226,
     "kind": "method",
     "name": "next",
     "memberof": "src/providers/youtube.js~YouTubePlayback",
@@ -4661,7 +4788,7 @@
     "return": null
   },
   {
-    "__docId__": 221,
+    "__docId__": 227,
     "kind": "method",
     "name": "previous",
     "memberof": "src/providers/youtube.js~YouTubePlayback",
@@ -4677,7 +4804,7 @@
     "return": null
   },
   {
-    "__docId__": 222,
+    "__docId__": 228,
     "kind": "method",
     "name": "isActionPressed",
     "memberof": "src/providers/youtube.js~YouTubePlayback",
@@ -4716,7 +4843,7 @@
     }
   },
   {
-    "__docId__": 223,
+    "__docId__": 229,
     "kind": "method",
     "name": "isButtonDisabled",
     "memberof": "src/providers/youtube.js~YouTubePlayback",
@@ -4756,7 +4883,7 @@
     }
   },
   {
-    "__docId__": 224,
+    "__docId__": 230,
     "kind": "method",
     "name": "isControlAvailable",
     "memberof": "src/providers/youtube.js~YouTubePlayback",
@@ -4795,7 +4922,7 @@
     }
   },
   {
-    "__docId__": 225,
+    "__docId__": 231,
     "kind": "class",
     "name": "YouTubePage",
     "memberof": "src/providers/youtube.js",
@@ -4814,7 +4941,7 @@
     ]
   },
   {
-    "__docId__": 226,
+    "__docId__": 232,
     "kind": "method",
     "name": "registerPlayer",
     "memberof": "src/providers/youtube.js~YouTubePage",
@@ -4838,7 +4965,7 @@
   },
   {
     "kind": "index",
-    "content": "# browser-mpris2\nImplements the MPRIS2 interface for Chrome and Firefox.\n\nCurrently, all sites should be supported with reduced capabilities (play, pause, stop, volume, seek, cover art).\n\nAnd the following sites are supported with almost all of the capabilities MPRIS2 allows:\n* [YouTube](https://youtube.com)\n* [SoundCloud](https://soundcloud.com)\n* [Netflix](https://netflix.com) - Coming Soon\n\nPull requests are welcome.\n\n### How it looks (linux mint)\n[see screen shot](https://github.com/Lt-Mayonesa/browser-mpris2/blob/master/screenshot.png)\n\n\n## Installation (for Chrome)\nClone this repo:\n```text\ngit clone https://github.com/Lt-Mayonesa/browser-mpris2\n```\nThen, in Chrome, go to `Tools > Extensions` (or `chrome://extensions`), enable `Developer mode` and `Load unpacked extension...` with the root of this repo.\n\nOnce the extension loaded copy the extension ID (ie: `pbipjpimbmchphdddpkimpegkgnbepdj`).\n\nNext, place [chrome-mpris2](native/chrome-mpris2) somewhere in your `$PATH`.\n\nie: (from the root of the repo)\n```text\nln -s $PWD/native/chrome-mpris2 ~/bin/chrome-mpris2\n```\n\nAnd run [install-chrome.py](native/install-chrome.py) giving it the extension ID and optionally the path (not just the directory) of your just-installed chrome-mpris2 if you installed elsewhere.  This will check that you have all the dependencies and tell Chrome about chrome-mpris2 (so that the plugin can use it).\n```text\n./install-chrome.py EXTENSION_ID [PATH]\n```\n\nReload the extension from the Extensions page.\n\nProfit\n\n## Powers\nIf on GNOME or similar you should be able to take advantage of your new powers immediately.  Otherwise, you can use something like [playerctl](https://github.com/acrisci/playerctl), perhaps bind it to a key or `XF86AudioPlay` and the like if your keyboard has them.\n\n## Similar Projects\n* [plasma-browser-integration](https://github.com/KDE/plasma-browser-integration)\n  Nothing to envy them now\n* [shwsh/web-mpris2](https://github.com/shwsh/web-mpris2)\n  A port of this extension to Tampermonkey/Greasemonkey (and WebSockets).\n\n## TODO\n - Netflis Provider\n - Tests (i started playing with a custom made testin framework, probably moving them to jest due to time, which is money)\n",
+    "content": "# browser-mpris2\nImplements the MPRIS2 interface for Chrome and Firefox.\n\nCurrently, all sites should be supported with reduced capabilities (play, pause, stop, volume, seek, cover art).\n\nAnd the following sites are supported with almost all of the capabilities MPRIS2 allows:\n* [YouTube](https://youtube.com)\n* [SoundCloud](https://soundcloud.com)\n* [Netflix](https://netflix.com) - Coming Soon\n\nPull requests are welcome.\n\n### How it looks (linux mint)\n![players screenshot](https://raw.githubusercontent.com/Lt-Mayonesa/browser-mpris2/master/screenshot.png)\n\n\n## Installation (for Chrome)\nClone this repo:\n```text\ngit clone https://github.com/Lt-Mayonesa/browser-mpris2\n```\nThen, in Chrome, go to `Tools > Extensions` (or `chrome://extensions`), enable `Developer mode` and `Load unpacked extension...` with the root of this repo.\n\nOnce the extension loaded copy the extension ID (ie: `pbipjpimbmchphdddpkimpegkgnbepdj`).\n\nNext, place [chrome-mpris2](native/chrome-mpris2) somewhere in your `$PATH`.\n\nie: (from the root of the repo)\n```text\nln -s $PWD/native/chrome-mpris2 ~/bin/chrome-mpris2\n```\n\nAnd run [install-chrome.py](native/install-chrome.py) giving it the extension ID and optionally the path (not just the directory) of your just-installed chrome-mpris2 if you installed elsewhere.  This will check that you have all the dependencies and tell Chrome about chrome-mpris2 (so that the plugin can use it).\n```text\n./install-chrome.py EXTENSION_ID [PATH]\n```\n\nReload the extension from the Extensions page.\n\nProfit\n\n## Powers\nIf on GNOME or similar you should be able to take advantage of your new powers immediately.  Otherwise, you can use something like [playerctl](https://github.com/acrisci/playerctl), perhaps bind it to a key or `XF86AudioPlay` and the like if your keyboard has them.\n\n## Similar Projects\n* [plasma-browser-integration](https://github.com/KDE/plasma-browser-integration)\n  Nothing to envy them now\n* [shwsh/web-mpris2](https://github.com/shwsh/web-mpris2)\n  A port of this extension to Tampermonkey/Greasemonkey (and WebSockets).\n\n## TODO\n - Netflis Provider\n - Tests (i started playing with a custom made testin framework, probably moving them to jest due to time, which is money)\n",
     "longname": "/home/joaco/src/chrome-extensions/browser-mpris2/README.md",
     "name": "./README.md",
     "static": true,

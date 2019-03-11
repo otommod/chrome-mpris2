@@ -36,6 +36,18 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "browser-mpris2/src/providers/netflix.js~netflixpage",
+    "class/src/providers/netflix.js~NetflixPage.html",
+    "<span>NetflixPage</span> <span class=\"search-result-import-path\">browser-mpris2/src/providers/netflix.js</span>",
+    "class"
+  ],
+  [
+    "browser-mpris2/src/providers/netflix.js~netflixplayback",
+    "class/src/providers/netflix.js~NetflixPlayback.html",
+    "<span>NetflixPlayback</span> <span class=\"search-result-import-path\">browser-mpris2/src/providers/netflix.js</span>",
+    "class"
+  ],
+  [
     "browser-mpris2/src/providers/netflix.js~netflixplayer",
     "class/src/providers/netflix.js~NetflixPlayer.html",
     "<span>NetflixPlayer</span> <span class=\"search-result-import-path\">browser-mpris2/src/providers/netflix.js</span>",
@@ -94,12 +106,6 @@ window.esdocSearchIndex = [
     "class/src/providers/youtube.js~YouTubePlayer.html",
     "<span>YouTubePlayer</span> <span class=\"search-result-import-path\">browser-mpris2/src/providers/youtube.js</span>",
     "class"
-  ],
-  [
-    "browser-mpris2~hackaudiotags",
-    "function/index.html#static-function-hackAudioTags",
-    "<span>hackAudioTags</span> <span class=\"search-result-import-path\">browser-mpris2</span>",
-    "function"
   ],
   [
     "browser-mpris2~host",
@@ -930,9 +936,9 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/main/player.js~player#initmedialisteners",
-    "class/src/main/player.js~Player.html#instance-method-initMediaListeners",
-    "src/main/player.js~Player#initMediaListeners",
+    "src/main/player.js~player#initdefaultmedialisteners",
+    "class/src/main/player.js~Player.html#instance-method-initDefaultMediaListeners",
+    "src/main/player.js~Player#initDefaultMediaListeners",
     "method"
   ],
   [
@@ -951,6 +957,12 @@ window.esdocSearchIndex = [
     "src/main/player.js~player#isplaying",
     "class/src/main/player.js~Player.html#instance-method-isPlaying",
     "src/main/player.js~Player#isPlaying",
+    "method"
+  ],
+  [
+    "src/main/player.js~player#isvalid",
+    "class/src/main/player.js~Player.html#instance-method-isValid",
+    "src/main/player.js~Player#isValid",
     "method"
   ],
   [
@@ -1032,15 +1044,33 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/providers/netflix.js~netflixplayer#getartists",
-    "class/src/providers/netflix.js~NetflixPlayer.html#instance-method-getArtists",
-    "src/providers/netflix.js~NetflixPlayer#getArtists",
+    "src/providers/netflix.js~netflixpage#registerplayer",
+    "class/src/providers/netflix.js~NetflixPage.html#instance-method-registerPlayer",
+    "src/providers/netflix.js~NetflixPage#registerPlayer",
     "method"
   ],
   [
-    "src/providers/netflix.js~netflixplayer#getcover",
-    "class/src/providers/netflix.js~NetflixPlayer.html#instance-method-getCover",
-    "src/providers/netflix.js~NetflixPlayer#getCover",
+    "src/providers/netflix.js~netflixplayback#cangonext",
+    "class/src/providers/netflix.js~NetflixPlayback.html#instance-method-canGoNext",
+    "src/providers/netflix.js~NetflixPlayback#canGoNext",
+    "method"
+  ],
+  [
+    "src/providers/netflix.js~netflixplayback#next",
+    "class/src/providers/netflix.js~NetflixPlayback.html#instance-method-next",
+    "src/providers/netflix.js~NetflixPlayback#next",
+    "method"
+  ],
+  [
+    "src/providers/netflix.js~netflixplayback#seek",
+    "class/src/providers/netflix.js~NetflixPlayback.html#instance-method-seek",
+    "src/providers/netflix.js~NetflixPlayback#seek",
+    "method"
+  ],
+  [
+    "src/providers/netflix.js~netflixplayer#getartists",
+    "class/src/providers/netflix.js~NetflixPlayer.html#instance-method-getArtists",
+    "src/providers/netflix.js~NetflixPlayer#getArtists",
     "method"
   ],
   [
@@ -1050,15 +1080,15 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/providers/netflix.js~netflixplayer#getlength",
-    "class/src/providers/netflix.js~NetflixPlayer.html#instance-method-getLength",
-    "src/providers/netflix.js~NetflixPlayer#getLength",
-    "method"
-  ],
-  [
     "src/providers/netflix.js~netflixplayer#gettitle",
     "class/src/providers/netflix.js~NetflixPlayer.html#instance-method-getTitle",
     "src/providers/netflix.js~NetflixPlayer#getTitle",
+    "method"
+  ],
+  [
+    "src/providers/netflix.js~netflixplayer#isvalid",
+    "class/src/providers/netflix.js~NetflixPlayer.html#instance-method-isValid",
+    "src/providers/netflix.js~NetflixPlayer#isValid",
     "method"
   ],
   [

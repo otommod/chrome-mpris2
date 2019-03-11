@@ -29,8 +29,7 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-hackAudioTags">hackAudioTags</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-host">host</a></span></span></li>
+  <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-host">host</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-messenger">messenger</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-page">page</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-playback">playback</a></span></span></li>
@@ -46,7 +45,9 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PlaybackStatus">PlaybackStatus</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Metadata">Metadata</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Payload">Payload</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#providers">providers</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/providers/netflix.js~NetflixPlayer.html">NetflixPlayer</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#providers">providers</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/providers/netflix.js~NetflixPage.html">NetflixPage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/providers/netflix.js~NetflixPlayback.html">NetflixPlayback</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/providers/netflix.js~NetflixPlayer.html">NetflixPlayer</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/providers/soundcloud.js~SoundCloudPlayback.html">SoundCloudPlayback</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/providers/soundcloud.js~SoundCloudPlayer.html">SoundCloudPlayer</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/providers/youtube.js~YouTubePage.html">YouTubePage</a></span></span></li>
@@ -95,23 +96,18 @@ class Player {
          * @type {URL}
          */
         this.URL = new URL(element.baseURI);
-        this.initMediaListeners();
+        this.initDefaultMediaListeners();
     }
 
     /**
      * Add listeners on this.element so we propagate all necessary
      * events to the this.host
      */
-    initMediaListeners () {
-        this.element.addEventListener(&apos;play&apos;, () =&gt; this.host.start(this));
-        // this.element.addEventListener(&apos;waiting&apos;, () =&gt; this.host.start(this));
-        this.element.addEventListener(&apos;durationchange&apos;, () =&gt; this.host.start(this));
-        this.element.addEventListener(&apos;pause&apos;, () =&gt; this.host.change());
-        this.element.addEventListener(&apos;playing&apos;, () =&gt; this.host.change());
-        this.element.addEventListener(&apos;ratechange&apos;, () =&gt; this.host.change());
-        this.element.addEventListener(&apos;seeked&apos;, () =&gt; this.host.seeked(this));
-        this.element.addEventListener(&apos;volumechange&apos;, () =&gt; this.host.change());
-        this.element.addEventListener(&apos;loadedmetadata&apos;, e =&gt; this.refresh(e));
+    initDefaultMediaListeners () {
+        this.element.addEventListener(&apos;play&apos;, () =&gt; this.refresh());
+        this.element.addEventListener(&apos;durationchange&apos;, () =&gt; this.refresh());
+        this.element.addEventListener(&apos;loadedmetadata&apos;, () =&gt; this.refresh());
+        this.element.addEventListener(&apos;loadstart&apos;, () =&gt; this.refresh());
     }
 
     /**
@@ -120,7 +116,14 @@ class Player {
      */
     refresh () {
         this.URL = new URL(this.element.baseURI);
-        this.host.start(this);
+        if (this.isValid()) {
+            this.element.addEventListener(&apos;pause&apos;, () =&gt; this.host.change());
+            this.element.addEventListener(&apos;playing&apos;, () =&gt; this.host.change());
+            this.element.addEventListener(&apos;ratechange&apos;, () =&gt; this.host.change());
+            this.element.addEventListener(&apos;seeked&apos;, () =&gt; this.host.seeked(this));
+            this.element.addEventListener(&apos;volumechange&apos;, () =&gt; this.host.change());
+            this.host.start(this);
+        }
     }
 
     /**
@@ -329,6 +332,14 @@ class Player {
      */
     isHidden () {
         return this.element.offsetParent === null;
+    }
+
+    /**
+     *
+     * @return {boolean}
+     */
+    isValid () {
+        return !isNaN(this.element.duration) &amp;&amp; this.element.duration &gt; 5;
     }
 }
 </code></pre>

@@ -1,7 +1,7 @@
 {
-  "coverage": "76.62%",
-  "expectCount": 154,
-  "actualCount": 118,
+  "coverage": "74.37%",
+  "expectCount": 160,
+  "actualCount": 119,
   "files": {
     "src/init.js": {
       "expectCount": 6,
@@ -34,19 +34,24 @@
       "undocumentLines": []
     },
     "src/main/player.js": {
-      "expectCount": 31,
-      "actualCount": 31,
+      "expectCount": 32,
+      "actualCount": 32,
       "undocumentLines": []
     },
     "src/providers/netflix.js": {
-      "expectCount": 6,
+      "expectCount": 11,
       "actualCount": 1,
       "undocumentLines": [
         14,
         18,
-        25,
-        34,
-        39
+        23,
+        28,
+        36,
+        38,
+        48,
+        52,
+        64,
+        66
       ]
     },
     "src/providers/soundcloud.js": {
