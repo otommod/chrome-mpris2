@@ -84,10 +84,6 @@ class Page {
             return false;
         }
 
-        if (isNaN(element.duration) || (element.duration > 0 && element.duration < 5)) {
-            return false;
-        }
-
         let player = new Player(this, this.host, element);
 
         this.players.push(player);
@@ -163,7 +159,7 @@ class Page {
      * @param {Player} player
      */
     setActivePlayer (player) {
-        this.playback.setActivePlayer(player);
+        this.host.start(player);
     }
 
     /**

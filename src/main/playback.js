@@ -198,7 +198,9 @@ class Playback {
      * @param {Player} player
      */
     setActivePlayer (player) {
-        this.activePlayer = player;
+        if (player.isValid()) {
+            this.activePlayer = player;
+        }
     }
 
     /**

@@ -36,23 +36,18 @@ class Player {
          * @type {URL}
          */
         this.URL = new URL(element.baseURI);
-        this.initMediaListeners();
+        this.initDefaultMediaListeners();
     }
 
     /**
      * Add listeners on this.element so we propagate all necessary
      * events to the this.host
      */
-    initMediaListeners () {
-        this.element.addEventListener('play', () => this.host.start(this));
-        // this.element.addEventListener('waiting', () => this.host.start(this));
-        this.element.addEventListener('durationchange', () => this.host.start(this));
-        this.element.addEventListener('pause', () => this.host.change());
-        this.element.addEventListener('playing', () => this.host.change());
-        this.element.addEventListener('ratechange', () => this.host.change());
-        this.element.addEventListener('seeked', () => this.host.seeked(this));
-        this.element.addEventListener('volumechange', () => this.host.change());
-        this.element.addEventListener('loadedmetadata', e => this.refresh(e));
+    initDefaultMediaListeners () {
+        this.element.addEventListener('play', () => this.refresh());
+        this.element.addEventListener('durationchange', () => this.refresh());
+        this.element.addEventListener('loadedmetadata', () => this.refresh());
+        this.element.addEventListener('loadstart', () => this.refresh());
     }
 
     /**
@@ -61,7 +56,14 @@ class Player {
      */
     refresh () {
         this.URL = new URL(this.element.baseURI);
-        this.host.start(this);
+        if (this.isValid()) {
+            this.element.addEventListener('pause', () => this.host.change());
+            this.element.addEventListener('playing', () => this.host.change());
+            this.element.addEventListener('ratechange', () => this.host.change());
+            this.element.addEventListener('seeked', () => this.host.seeked(this));
+            this.element.addEventListener('volumechange', () => this.host.change());
+            this.host.start(this);
+        }
     }
 
     /**
@@ -270,5 +272,13 @@ class Player {
      */
     isHidden () {
         return this.element.offsetParent === null;
+    }
+
+    /**
+     *
+     * @return {boolean}
+     */
+    isValid () {
+        return !isNaN(this.element.duration) && this.element.duration > 5;
     }
 }

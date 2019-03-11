@@ -40,6 +40,14 @@
       "all_frames": true
     },
     {
+      "matches": ["*://netflix.com/*", "*://*.netflix.com/*"],
+      "js": [
+        "src/providers/netflix.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
       "matches": ["*://*/*"],
       "js": [
         "src/init.js"

@@ -2,22 +2,29 @@ hackAudioTags();
 
 // If this project grows we should consider dependency injection
 /**
- *
+ * The instance of {@link Playback} for this web site.
+ * We define it here so it can be accessed by any provider specific code.
  * @const {Playback}
  */
 const playback = new Playback();
+
 /**
- *
+ * The instance of {@link Messenger} for this web site.
+ * There should be no need to interact directly with it.
  * @const {Messenger}
  */
 const messenger = new Messenger();
+
 /**
- *
+ * The instance of {@link Host} for this web site.
+ * There should be no need to interact directly with it.
  * @const {Host}
  */
 const host = new Host(playback, messenger, chrome.runtime.connect());
+
 /**
- *
+ * The instance of {@link Page} for this web site.
+ * We define it here so it can be accessed by any provider specific code.
  * @const {Page}
  */
 const page = new Page(document, playback, host);
@@ -45,6 +52,7 @@ window.addEventListener('DOMContentLoaded', () => {
  * while a &lt;video&gt; tag typically ends up being displayed to the user, audio is not.
  *
  * Original code from {@link https://github.com/KDE/plasma-browser-integration/blob/master/extension/content-script.js}
+ * @ignore
  */
 function hackAudioTags () {
     // Bug 379087: Only inject this stuff if we're a proper HTML page
