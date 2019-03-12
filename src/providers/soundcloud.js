@@ -9,6 +9,9 @@
  *
  */
 
+/**
+ * SoundCloud Player
+ */
 class SoundCloudPlayer extends Player {
 
     getId () {
@@ -46,6 +49,9 @@ class SoundCloudPlayer extends Player {
 
 Player = SoundCloudPlayer;
 
+/**
+ * SoundCloud Playback
+ */
 class SoundCloudPlayback extends Playback {
 
     setVolume (volume) {

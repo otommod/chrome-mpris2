@@ -68,10 +68,9 @@ class YouTubePlayer extends Player {
 
 Player = YouTubePlayer;
 
-/*
-    PLAYBACK
+/**
+ * YouTube Playback
  */
-
 class YouTubePlayback extends Playback {
 
     setRate (rate) {
@@ -193,6 +192,9 @@ class YouTubePlayback extends Playback {
 
 Playback = YouTubePlayback;
 
+/**
+ * YouTube Page
+ */
 class YouTubePage extends Page {
 
     registerPlayer (element) {

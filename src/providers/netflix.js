@@ -1,6 +1,6 @@
 /**
  *
- * This file adds support for Soundcloud specific playback
+ * This file adds support for Netflix specific playback
  *
  * by extending and overriding the classes {@link Page},
  * {@link Playback}, and {@link Player}.
@@ -9,6 +9,9 @@
  *
  */
 
+/**
+ * Netflix Player
+ */
 class NetflixPlayer extends Player {
 
     getId () {
@@ -33,6 +36,9 @@ class NetflixPlayer extends Player {
 
 Player = NetflixPlayer;
 
+/**
+ * Netflix Playback
+ */
 class NetflixPlayback extends Playback {
 
     seek (offset) {
@@ -61,6 +67,9 @@ class NetflixPlayback extends Playback {
 
 Playback = NetflixPlayback;
 
+/**
+ * Netflix Page
+ */
 class NetflixPage extends Page {
 
     registerPlayer (element) {
