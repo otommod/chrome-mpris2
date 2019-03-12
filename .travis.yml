@@ -3,10 +3,10 @@ node_js:
   - 8
 
 install:
-  - npm install -g esdoc esdoc-standard-plugin esdoc-ecmascript-proposal-plugin
+  - npm install esdoc esdoc-standard-plugin esdoc-ecmascript-proposal-plugin
 
 script:
-  - esdoc
+  - ./node_modules/.bin/esdoc
 
 deploy:
   provider: pages
