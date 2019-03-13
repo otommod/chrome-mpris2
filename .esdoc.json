@@ -7,6 +7,12 @@
       "option": {
         "unexportedIdentifier": {
           "enable": true
+        },
+        "manual": {
+          "index": "./manual/index.md",
+          "files": [
+            "./manual/youtube.md"
+          ]
         }
       }
     },
