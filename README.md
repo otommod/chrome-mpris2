@@ -49,5 +49,4 @@ If on GNOME or similar you should be able to take advantage of your new powers i
   A port of this extension to Tampermonkey/Greasemonkey (and WebSockets).
 
 ## TODO
- - Netflis Provider
- - Tests (i started playing with a custom made testin framework, probably moving them to jest due to time, which is money)
+ - Tests `brach: feature/tests-titb` (i started playing with a custom made testin framework, probably moving them to jest due to time, which is money)
