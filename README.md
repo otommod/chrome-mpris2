@@ -1,4 +1,6 @@
 # browser-mpris2
+[![Build Status](https://travis-ci.org/Lt-Mayonesa/browser-mpris2.svg?branch=master)](https://travis-ci.org/Lt-Mayonesa/browser-mpris2)
+
 Implements the MPRIS2 interface for Chrome and Firefox.
 
 Currently, all sites should be supported with reduced capabilities (play, pause, stop, volume, seek, cover art).

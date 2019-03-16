@@ -11,7 +11,8 @@
         "manual": {
           "index": "./manual/index.md",
           "files": [
-            "./manual/youtube.md"
+            "./manual/youtube.md",
+            "./manual/how_to.md"
           ]
         }
       }
