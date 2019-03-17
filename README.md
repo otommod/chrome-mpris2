@@ -52,3 +52,6 @@ If on GNOME or similar you should be able to take advantage of your new powers i
 
 ## TODO
  - Tests `brach: feature/tests-titb` (i started playing with a custom made testin framework, probably moving them to jest due to time, which is money)
+ - Compile `branch: feature/closure-compile` make travis-ci compile the js to dist/
+ - Providers:
+    - Amazon Music
