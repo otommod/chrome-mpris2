@@ -11,8 +11,10 @@
         "manual": {
           "index": "./manual/index.md",
           "files": [
+            "./manual/how_to.md",
             "./manual/youtube.md",
-            "./manual/how_to.md"
+            "./manual/netflix.md",
+            "./manual/soundcloud.md"
           ]
         }
       }
