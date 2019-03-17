@@ -43,9 +43,9 @@ class NetflixPlayback extends Playback {
 
     seek (offset) {
         let btn;
-        if (offset === 10000000)
+        if (offset > 0)
             btn = document.querySelector('.button-nfplayerFastForward');
-        else if (offset === -10000000)
+        else if (offset < 0)
             btn = document.querySelector('.button-nfplayerBackTen');
 
         btn && btn.click();
@@ -61,6 +61,18 @@ class NetflixPlayback extends Playback {
         if (!btn)
             btn = document.querySelector('.button-nfplayerNextEpisode');
         btn && btn.click();
+    }
+
+    setPosition (id, position) {
+        //disabled
+    }
+
+    setRate (rate) {
+        //disabled
+    }
+
+    setLoopStatus (status) {
+        //disabled
     }
 
 }

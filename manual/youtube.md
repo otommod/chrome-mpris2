@@ -15,7 +15,7 @@ We can get the title from the videos elements.
 ### Artists
 We'll try to get the video's owner. This will not work on embedded videos.
 
-### Playback
+## Playback
 ### Next
 only if the `next` button is enabled.
 
