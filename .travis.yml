@@ -2,10 +2,17 @@ language: node_js
 node_js:
   - 8
 
+cache:
+  directories:
+    - node_modules
+
 install:
-  - npm install esdoc esdoc-standard-plugin esdoc-ecmascript-proposal-plugin
+  - npm install esdoc esdoc-standard-plugin esdoc-ecmascript-proposal-plugin karma karma-jasmine karma-chrome-launcher jasmine-core
 
 script:
+  - karma start
+
+before_deploy:
   - ./node_modules/.bin/esdoc
 
 deploy:
