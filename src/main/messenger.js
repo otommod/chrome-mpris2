@@ -63,11 +63,14 @@ class Messenger {
         };
         for (let prop in payload) {
             if (prop === 'Metadata') {
+                let changed = false;
                 for (let meta in payload.Metadata) {
                     if (JSON.stringify(payload.Metadata[meta]) !== (this.last.Metadata && JSON.stringify(this.last.Metadata[meta]))) {
-                        diffs.Metadata[meta] = payload.Metadata[meta];
+                        changed = true;
                     }
                 }
+                if (changed)
+                    diffs.Metadata = payload.Metadata;
             } else if (payload[prop] !== this.last[prop])
                 diffs[prop] = payload[prop];
         }

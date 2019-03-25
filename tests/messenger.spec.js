@@ -101,6 +101,30 @@ describe('Messenger tests', () => {
                           'xesam:artist': ['this']
                       }
                   }
+              },
+              {
+                  stored: {
+                      PlaybackStatus: 'Playing',
+                      LoopStatus: 'None',
+                      Metadata: {
+                          'mpris:length': 11,
+                          'mrpis:trackid': '123'
+                      }
+                  },
+                  payload: {
+                      PlaybackStatus: 'Playing',
+                      LoopStatus: 'None',
+                      Metadata: {
+                          'mpris:length': 11,
+                          'mrpis:trackid': '124'
+                      }
+                  },
+                  expected: {
+                      Metadata: {
+                          'mpris:length': 11,
+                          'mrpis:trackid': '124'
+                      }
+                  }
               }
           ],
           (params) => {
