@@ -185,13 +185,7 @@ class Player {
      * Play media element
      */
     play () {
-        this.element.play()
-          .then(() => {
-              console.debug('playing');
-          })
-          .catch((e) => {
-              console.debug(e);
-          });
+        return this.element.play();
     }
 
     /**
