@@ -9,8 +9,12 @@ cache:
 install:
   - npm install esdoc esdoc-standard-plugin esdoc-ecmascript-proposal-plugin karma karma-jasmine karma-chrome-launcher jasmine-core
 
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+
 script:
-  - karma start
+  - karma start --single-run --browsers Firefox
 
 before_deploy:
   - ./node_modules/.bin/esdoc
