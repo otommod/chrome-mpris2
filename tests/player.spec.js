@@ -1,3 +1,6 @@
+/**
+ * @test {Player}
+ */
 describe('Player tests', () => {
 
     let page;
@@ -16,6 +19,9 @@ describe('Player tests', () => {
         player = new Player(page, null, element);
     });
 
+    /**
+     * @test {Player#getId}
+     */
     describe('Player.getId', () => {
         it(`given a media
         when i get the id
@@ -24,6 +30,9 @@ describe('Player tests', () => {
         );
     });
 
+    /**
+     * @test {Player#isPlaying}
+     */
     describe('Player.isPlaying', () => {
         parameterized(
           `given a media with paused = $paused
@@ -41,6 +50,9 @@ describe('Player tests', () => {
         );
     });
 
+    /**
+     * @test {Player#getLength}
+     */
     describe('Player.getLength', () => {
         parameterized(
           `given a media with duration = $duration
@@ -59,6 +71,9 @@ describe('Player tests', () => {
         );
     });
 
+    /**
+     * @test {Player#getVolume}
+     */
     describe('Player.getVolume', () => {
         parameterized(
           `given a media with volume = $volume
@@ -81,6 +96,9 @@ describe('Player tests', () => {
         );
     });
 
+    /**
+     * @test {Player#setVolume}
+     */
     describe('Player.setVolume', () => {
         parameterized(
           `given a player
@@ -101,6 +119,9 @@ describe('Player tests', () => {
         );
     });
 
+    /**
+     * @test {Player#setRate}
+     */
     describe('Player.setRate', () => {
         parameterized(
           `given a player
@@ -121,6 +142,9 @@ describe('Player tests', () => {
         );
     });
 
+    /**
+     * @test {Player#getRate}
+     */
     describe('Player.getRate', () => {
         parameterized(
           `given a media with playbackRate $rate
@@ -140,6 +164,11 @@ describe('Player tests', () => {
         );
     });
 
+    /**
+     * Test player's title integration
+     *
+     * @test {Player#getTitle}
+     */
     describe('Player.getTitle', () => {
         parameterized(
           `given a page with a title $title
@@ -160,6 +189,11 @@ describe('Player tests', () => {
         );
     });
 
+    /**
+     * The artists are parsed correctly from the url
+     *
+     * @test {Player#getArtists}
+     */
     describe('Player.getArtists', () => {
         parameterized(
           `given a media with a valid url $url
@@ -180,6 +214,11 @@ describe('Player tests', () => {
         );
     });
 
+    /**
+     * Feature:
+     *
+     * @test {Player#getCover}
+     */
     describe('Player.getCover', () => {
         parameterized(
           `given a media with a valid url $url
