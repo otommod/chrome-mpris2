@@ -1,15 +1,15 @@
-describe('Messenger tests', () => {
+describe('Carrier tests', () => {
 
     /**
-     * @type {Messenger}
+     * @type {Carrier}
      */
-    let messenger;
+    let carrier;
 
     beforeEach(() => {
-        messenger = new Messenger();
+        carrier = new Carrier();
     });
 
-    describe('Messenger.store', () => {
+    describe('Carrier.store', () => {
         it(
           `Given a new payload
           when i store it
@@ -19,13 +19,30 @@ describe('Messenger tests', () => {
                   data: 1
               };
               // noinspection JSCheckFunctionSignatures
-              messenger.store(payload);
-              expect(messenger.last).toEqual(payload);
+              carrier.store(payload);
+              expect(carrier.last).toEqual(payload);
           }
         );
     });
 
-    describe('Messenger.onlyUpdated', () => {
+    describe('Carrier.clear', () => {
+        it(
+          `Given a stored payload
+          when i clear it
+          then the stored value should be the default`,
+          () => {
+              carrier.last = {
+                  PlaybackStatus: 'Playing',
+                  Metadata: {}
+              };
+              carrier.clear();
+              expect(carrier.last)
+                .toEqual({});
+          }
+        )
+    });
+
+    describe('Carrier.onlyUpdated', () => {
         parameterized(
           `given a stored payload
           and a new payload
@@ -128,14 +145,14 @@ describe('Messenger tests', () => {
               }
           ],
           (params) => {
-              messenger.last = params.stored;
-              expect(messenger.onlyUpdated(params.payload))
+              carrier.last = params.stored;
+              expect(carrier.onlyUpdated(params.payload))
                 .toEqual(params.expected);
           }
         );
     });
 
-    describe('Messenger.payloadFrom', () => {
+    describe('Carrier.payloadFrom', () => {
         it(
           `Given a playback
           with an active player
@@ -157,7 +174,7 @@ describe('Messenger tests', () => {
                   getRate: () => 1
               });
 
-              expect(messenger.payloadFrom(playback))
+              expect(carrier.payloadFrom(playback))
                 .toEqual({
                     'CanGoNext': false,
                     'CanGoPrevious': false,
@@ -182,11 +199,11 @@ describe('Messenger tests', () => {
         );
     });
 
-    describe('Messenger.requestPayload', () => {
+    describe('Carrier.requestPayload', () => {
         it(
           `given store it`,
           () => {
-              messenger.last = {
+              carrier.last = {
                   'CanGoNext': false,
                   'CanGoPrevious': false,
                   'Identity': 'http://site.com',
@@ -220,9 +237,9 @@ describe('Messenger tests', () => {
                   getSiteDomain: () => 'http://site.com',
                   getRate: () => 1
               });
-              expect(messenger.requestPayload(playback))
+              expect(carrier.requestPayload(playback))
                 .toEqual({});
-              expect(messenger.last).toEqual({
+              expect(carrier.last).toEqual({
                   'CanGoNext': false,
                   'CanGoPrevious': false,
                   'Identity': 'http://site.com',

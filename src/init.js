@@ -9,18 +9,18 @@ hackAudioTags();
 const playback = new Playback();
 
 /**
- * The instance of {@link Messenger} for this web site.
+ * The instance of {@link Carrier} for this web site.
  * There should be no need to interact directly with it.
- * @const {Messenger}
+ * @const {Carrier}
  */
-const messenger = new Messenger();
+const carrier = new Carrier();
 
 /**
  * The instance of {@link Host} for this web site.
  * There should be no need to interact directly with it.
  * @const {Host}
  */
-const host = new Host(playback, messenger, chrome.runtime.connect());
+const host = new Host(playback, carrier, chrome.runtime.connect());
 
 /**
  * The instance of {@link Page} for this web site.

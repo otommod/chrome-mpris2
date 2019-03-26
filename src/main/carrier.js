@@ -2,9 +2,9 @@
  * A class in charge of building the payload expected by the native app
  * the payload must be a {@link Payload}
  */
-class Messenger {
+class Carrier {
     /**
-     * Generate a new {@link Messenger}
+     * Generate a new {@link Carrier}
      */
     constructor () {
         /**
@@ -15,7 +15,14 @@ class Messenger {
     }
 
     /**
-     *
+     * Clear the last payload sent
+     */
+    clear () {
+        this.last = {};
+    }
+
+    /**
+     * Store the last payload sent
      * @param {Payload} payload
      */
     store (payload) {
@@ -54,10 +61,6 @@ class Messenger {
      * @return {Payload}
      */
     onlyUpdated (payload) {
-        /**
-         *
-         * @type {Payload}
-         */
         let diffs = {
             Metadata: {}
         };
@@ -76,6 +79,7 @@ class Messenger {
         }
         if (Object.keys(diffs.Metadata).length === 0)
             delete diffs.Metadata;
+        // noinspection JSValidateTypes
         return diffs;
     }
 

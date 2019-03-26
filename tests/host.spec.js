@@ -8,7 +8,7 @@ describe('Host tests', () => {
     beforeEach(() => {
         host = new Host(
           mock(Playback),
-          mock(Messenger),
+          mock(Carrier),
           {
               onMessage: {
                   addListener () {}
