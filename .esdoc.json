@@ -16,6 +16,20 @@
             "./manual/netflix.md",
             "./manual/soundcloud.md"
           ]
+        },
+        "test": {
+          "source": "./tests/",
+          "interfaces": [
+            "describe",
+            "it"
+          ],
+          "includes": [
+            "(spec|Spec)\\.js$"
+          ],
+          "excludes": [
+            "utils/",
+            "\\.config\\.js$"
+          ]
         }
       }
     },

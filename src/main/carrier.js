@@ -2,9 +2,9 @@
  * A class in charge of building the payload expected by the native app
  * the payload must be a {@link Payload}
  */
-class Messenger {
+class Carrier {
     /**
-     * Generate a new {@link Messenger}
+     * Generate a new {@link Carrier}
      */
     constructor () {
         /**
@@ -15,7 +15,14 @@ class Messenger {
     }
 
     /**
-     *
+     * Clear the last payload sent
+     */
+    clear () {
+        this.last = {};
+    }
+
+    /**
+     * Store the last payload sent
      * @param {Payload} payload
      */
     store (payload) {
@@ -54,7 +61,26 @@ class Messenger {
      * @return {Payload}
      */
     onlyUpdated (payload) {
-        return payload;
+        let diffs = {
+            Metadata: {}
+        };
+        for (let prop in payload) {
+            if (prop === 'Metadata') {
+                let changed = false;
+                for (let meta in payload.Metadata) {
+                    if (JSON.stringify(payload.Metadata[meta]) !== (this.last.Metadata && JSON.stringify(this.last.Metadata[meta]))) {
+                        changed = true;
+                    }
+                }
+                if (changed)
+                    diffs.Metadata = payload.Metadata;
+            } else if (payload[prop] !== this.last[prop])
+                diffs[prop] = payload[prop];
+        }
+        if (Object.keys(diffs.Metadata).length === 0)
+            delete diffs.Metadata;
+        // noinspection JSValidateTypes
+        return diffs;
     }
 
     /**

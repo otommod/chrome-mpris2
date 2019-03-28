@@ -11,20 +11,20 @@ class Host {
     /**
      *
      * @param {Playback} playback - the playback of the current site
-     * @param {Messenger} messenger
+     * @param {Carrier} carrier
      * @param {Object} port - see {@link https://developer.chrome.com/apps/runtime#type-Port}
      */
-    constructor (playback, messenger, port) {
+    constructor (playback, carrier, port) {
         /**
          * The playback to interact with
          * @type {Playback}
          */
         this.playback = playback;
         /**
-         * A messenger for caching and building the payloads
-         * @type {Messenger}
+         * A carrier for caching and building the payloads
+         * @type {Carrier}
          */
-        this.messenger = messenger;
+        this.carrier = carrier;
         /**
          * A chrome.runtime.Port
          * @see https://developer.chrome.com/apps/runtime#type-Port
@@ -60,7 +60,7 @@ class Host {
      */
     change () {
         if (this.playback.activePlayer) {
-            let payload = this.messenger.requestPayload(this.playback);
+            let payload = this.carrier.requestPayload(this.playback);
             if (Object.keys(payload).length)
                 this.sendMessage(
                   MessageType.CHANGE,
@@ -108,6 +108,7 @@ class Host {
      * Send a quit message to host
      */
     quit () {
+        this.carrier.clear();
         this.sendMessage(
           MessageType.QUIT
         );

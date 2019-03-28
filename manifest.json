@@ -15,7 +15,7 @@
       "js": [
         "src/main/globals.js",
         "src/main/player.js",
-        "src/main/messenger.js",
+        "src/main/carrier.js",
         "src/main/playback.js",
         "src/main/host.js",
         "src/main/page.js"
