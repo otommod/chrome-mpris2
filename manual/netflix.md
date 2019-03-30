@@ -1,5 +1,5 @@
 # Netflix Provider
-This works on Netflix's site when watching a show (aka: netflix.com/watch)
+This works on [Netflix](https://netflix.com) site when watching a show (aka: netflix.com/watch)
 
 Besides the defaults ones, this provider adds the following features.
 

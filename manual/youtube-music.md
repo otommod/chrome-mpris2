@@ -1,5 +1,5 @@
 # YouTube Music Provider
-This works on music.youtube.com.
+This works on [YouTube Music](https://music.youtube.com/)
 
 Besides the defaults ones, this provider adds the following features.
 

@@ -1,5 +1,5 @@
 # YouTube Provider
-This works on youtube's main site and also on all embedded videos.
+This works on [youtube's](https://www.youtube.com/) main site and also on all embedded videos.
 
 Besides the defaults ones, this provider adds the following features.
 

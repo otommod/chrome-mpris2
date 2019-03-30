@@ -1,5 +1,5 @@
 # Soundcloud Provider
-This works on soundclouds's site.
+This works on [soundcloud](https://soundcloud.com/) site.
 
 Besides the defaults ones, this provider adds the following features.
 

@@ -11,8 +11,8 @@ Create a .js file inside src/providers/ with then name (kebab-cased) of the site
 
 ## 2. Update manifest.json
 Edit the [manifes.json](https://github.com/Lt-Mayonesa/browser-mpris2/blob/master/manifest.json), by adding an item to the `"content_scripts"` array.
-1. the item's `"js"` property should contain file you created in the previous step
-2. the item's `"matches"` property should contain a valid match for the site
+1. the item's `"js"` property should contain the path to the file you created in the previous step
+2. the item's `"matches"` property should contain a valid match for the site. See [content_scripts](https://developer.chrome.com/extensions/content_scripts) for more info.
 3. ie:
 ```json
 {

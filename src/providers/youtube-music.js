@@ -44,7 +44,7 @@ class YouTubeMusicPlayer extends Player {
      * @returns {string}
      */
     getCover () {
-        let img = document.querySelector('#thumbnail img.yt-img-shadow');
+        let img = document.querySelector('.image.ytmusic-player-bar');
         return (img && img.getAttribute('src')) || super.getCover();
     }
 }

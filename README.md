@@ -6,9 +6,10 @@ Implements the MPRIS2 interface for Chrome and Firefox.
 Currently, all sites should be supported with reduced capabilities (play, pause, stop, volume, seek, cover art).
 
 And the following sites are supported with almost all of the capabilities MPRIS2 allows:
-* [YouTube](https://youtube.com)
-* [SoundCloud](https://soundcloud.com)
-* [Netflix](https://netflix.com)
+* [YouTube](https://lt-mayonesa.github.io/browser-mpris2/manual/youtube.html)
+* [YouTube Music](https://lt-mayonesa.github.io/browser-mpris2/manual/youtube-music.html)
+* [SoundCloud](https://lt-mayonesa.github.io/browser-mpris2/manual/soundcloud.html)
+* [Netflix](https://lt-mayonesa.github.io/browser-mpris2/manual/netflix.html)
 
 Pull requests are welcome.
 
@@ -51,7 +52,7 @@ If on GNOME or similar you should be able to take advantage of your new powers i
   A port of this extension to Tampermonkey/Greasemonkey (and WebSockets).
 
 ## TODO
- - Tests `brach: feature/tests-titb` (i started playing with a custom made testin framework, probably moving them to jest due to time, which is money)
+ - Tests per provider
  - Compile `branch: feature/closure-compile` make travis-ci compile the js to dist/
  - Providers:
     - Amazon Music
