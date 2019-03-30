@@ -110,6 +110,15 @@ class Player {
     }
 
     /**
+     * Is the media muted?
+     *
+     * @return {boolean}
+     */
+    isMuted () {
+        return this.element.muted;
+    }
+
+    /**
      * Set the playback rate
      * @param {number} rate
      */
