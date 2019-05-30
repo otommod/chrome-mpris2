@@ -220,11 +220,6 @@ const COMMANDS = {
     Previous() {
         let prevBtn = $(".ytp-prev-button");
         if (prevBtn.attr("aria-disabled") === "false") {
-            if (videoElement.currentTime > 2)
-                // if the video is past its 2nd second pressing prev will start
-                // it from the beginning again, so we need to press twice with
-                // a bit of a delay between
-                setTimeout(() => prevBtn.get(0).click(), 100);
             prevBtn.get(0).click();
         }
     },
