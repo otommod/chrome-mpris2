@@ -13,6 +13,11 @@ Pull requests are welcome.
 3. ???
 4. Profit
 
+## Installation (for Firefox)
+1. Place native/chrome-mpris2 in PATH. Run "chrome-mpris2 --init-firefox". You will get an error here if dependencies (i.e. gobject) are not satisfied.
+2. ???
+3. Profit
+
 If on GNOME or similar you should be able to take advantage of your new powers immediately.  Otherwise, you can use something like [playerctl](https://github.com/acrisci/playerctl), perhaps bind it to a key or `XF86AudioPlay` and the like if your keyboard has them.
 ## Similar Projects
 * [plasma-browser-integration](https://github.com/KDE/plasma-browser-integration)
