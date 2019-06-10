@@ -267,10 +267,6 @@ const COMMANDS = {
     },
     Previous() {
         const skipControl = document.querySelector(".skipControl__previous");
-        if (getPosition() > 5e6)
-            // if the song is past its 5th second pressing previous will start
-            // it from the beginning again, so we need to press twice
-            skipControl.click();
         skipControl.click();
     },
 
